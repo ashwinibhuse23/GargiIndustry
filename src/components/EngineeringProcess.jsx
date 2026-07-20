@@ -6,7 +6,7 @@ import './EngineeringProcess.css';
 
 import sketchImage from '../assets/img/sketch.png';
 import bg1Image from '../assets/img/bg-1.webp';
-import clientBriefImg from '../assets/img/process/Client.png';
+import clientBriefImg from '../assets/img/process/briefimg.png';
 import conceptImg from '../assets/img/process/Concept.png';
 import structuralImg from '../assets/img/process/structural.png';
 import teklaImg from '../assets/img/process/teka.png';
