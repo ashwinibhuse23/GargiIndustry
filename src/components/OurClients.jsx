@@ -24,7 +24,7 @@ import poritelogo from '../assets/img/Clients/porite.png';
 import maharashtralogo from '../assets/img/Clients/maharashtra.png';
 import horizonlogo from '../assets/img/Clients/horizon.png';
 import inndrayaneelogo from '../assets/img/Clients/inndrayanee.png';
-import koshlogo from '../assets/img/Clients/kosh.png';
+import koshlogo from '../assets/img/Clients/ksh.png';
 import parijatlogo from '../assets/img/Clients/parijat.png';
 import prambhlogo from '../assets/img/Clients/prambh.png';
 
