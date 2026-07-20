@@ -1,0 +1,896 @@
+/* Custom Hero Section Styles */
+
+/* Slightly reduce the overall height of the hero section but keep it constant across slides */
+.hero-1 .th-hero-slide,
+.hero-style1 {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+  min-height: 450px !important; /* Fixed minimum height to prevent jumping between slides */
+  display: flex;
+  flex-direction: column; /* Ensure text and buttons stack vertically */
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.th-hero-wrapper {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  min-height: 520px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* Ensure the hero background images span the full width of the screen */
+.th-hero-wrapper .th-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Add a dark overlay to make text readable */
+.th-hero-wrapper .th-hero-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+  z-index: 1;
+}
+
+/* Ensure content sits above the overlay and align text to the left */
+.hero-1 .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-style1 {
+  text-align: left !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.hero-style1 * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Make the hero title smaller and better proportioned */
+.hero-style1 .hero-title {
+  font-size: 38px !important;
+  line-height: 1.25 !important;
+  margin-top: 15px !important;
+  margin-bottom: 18px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #ffffff !important;
+}
+
+.hero-style1 .hero-text {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  margin-top: 12px !important;
+  margin-bottom: 30px !important;
+  letter-spacing: 0.5px !important;
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+/* Adjust the button group margin */
+.hero-style1 .btn-group {
+  margin-top: 10px !important;
+  display: flex !important;
+  gap: 15px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Adjust the subtitle for better spacing */
+.hero-style1 .hero-subtitle {
+  font-size: 16px !important;
+  letter-spacing: 1px !important;
+}
+
+@media (max-width: 991px) {
+  .hero-style1 .hero-title {
+    font-size: 38px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-style1 .hero-title {
+    font-size: 30px !important;
+  }
+}
+
+/* ==========================================
+   Navbar & Logo Responsive Overrides
+   ========================================== */
+
+/* Resize logo to fit inside the orange slant */
+.header-logo .custom-logo {
+  max-width: 480px !important; 
+  max-height: 110px !important;
+  height: auto !important;
+  object-fit: contain;
+  margin-left: -40px !important;
+}
+
+.mobile-logo .custom-logo {
+  max-width: 160px !important;
+  height: auto;
+}
+
+/* Decrease Navbar Height Further */
+.th-header .menu-area {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.th-header .main-menu > ul > li > a {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.th-header .header-logo {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+/* Ensure responsiveness on smaller screens */
+@media (max-width: 1199px) {
+  .header-logo .custom-logo {
+    max-width: 130px !important;
+    margin-left: -15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .header-logo .custom-logo {
+    margin-left: 0;
+  }
+}
+
+/* Position the search button and header buttons */
+.th-header .header-button {
+  margin-right: 0; /* Aligns the button block to the right edge */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Force the 'Get a Quote' button to show, and adjust to a proper size */
+.th-header .header-button .th-btn {
+  display: inline-flex !important;
+  padding: 14px 26px !important; /* Proper proportioned padding */
+  font-size: 14px !important;    /* Slightly larger readable text */
+  min-height: auto !important;
+  height: auto !important;
+  line-height: normal !important;
+}
+
+/* ==========================================
+   Global Section Title Overrides
+   ========================================== */
+/* Reduce the font size of all section headings across the entire website */
+.sec-title {
+  font-size: 32px !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+/* Ensure section titles scale down nicely on mobile screens */
+@media (max-width: 991px) {
+  .sec-title {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .sec-title {
+    font-size: 24px !important;
+  }
+}
+
+/* ==========================================
+   Section Spacing Overrides
+   ========================================== */
+/* Reduce the overall height/padding of the About section */
+#about-sec {
+  padding-top: 70px !important;
+  padding-bottom: 70px !important;
+}
+
+/* Adjust the width of the orange background shape behind the logo */
+.th-header .logo-bg {
+  max-width: 230px !important;
+}
+.th-header .logo-bg:before {
+  background-color: #ebebeb !important;
+}
+.th-header .logo-bg:after {
+  background-color: #bebebe !important;
+}
+
+/* ==========================================
+   About Section Animations & Micro-Interactions
+   ========================================== */
+.about-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.about-card-hover:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.about-feature-item {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease !important;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+.about-feature-item:hover {
+  transform: translateX(8px) !important;
+  background-color: rgba(229, 66, 18, 0.04) !important;
+}
+
+.about-feature-item:hover .feature-icon-box {
+  transform: scale(1.1) rotate(4deg) !important;
+}
+
+.feature-icon-box {
+  transition: transform 0.3s ease !important;
+}
+
+.about-zoom-img {
+  overflow: hidden !important;
+  border-radius: 4px;
+}
+.about-zoom-img img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.about-zoom-img:hover img {
+  transform: scale(1.05) !important;
+}
+
+/* ==========================================
+   Dropdown Submenu Theme Styling
+   ========================================== */
+.th-header .main-menu ul li .sub-menu {
+  background: #ffffff !important;
+  border-top: 3px solid var(--theme-color) !important;
+  border-radius: 0 0 8px 8px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+  padding: 10px 0 !important;
+  min-width: 230px !important;
+}
+
+.th-header .main-menu ul li .sub-menu li {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: 1px solid #f2f4f8 !important;
+}
+
+.th-header .main-menu ul li .sub-menu li:last-child {
+  border-bottom: none !important;
+}
+
+.th-header .main-menu ul li .sub-menu li a {
+  padding: 11px 22px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1a1d24 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.th-header .main-menu ul li .sub-menu li a:hover {
+  background-color: rgba(229, 66, 18, 0.05) !important;
+  color: var(--theme-color) !important;
+  padding-left: 28px !important;
+}
+
+/* Subtle arrow indicator on hover */
+.th-header .main-menu ul li .sub-menu li a::after {
+  content: '→' !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  opacity: 0 !important;
+  transform: translateX(-8px) !important;
+  transition: all 0.3s ease !important;
+  color: var(--theme-color) !important;
+}
+
+.th-header .main-menu ul li .sub-menu li a:hover::after {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Remove plus sign / dropdown icon indicator from menu items */
+.th-header .main-menu > ul > li.menu-item-has-children > a::before,
+.th-header .main-menu > ul > li.menu-item-has-children > a::after,
+.th-header .main-menu ul li.menu-item-has-children > a::before,
+.th-header .main-menu ul li.menu-item-has-children > a::after,
+.th-mobile-menu ul li.menu-item-has-children > a::after,
+.th-mobile-menu ul li.menu-item-has-children > a::before,
+.th-mean-expand {
+  display: none !important;
+  content: none !important;
+  visibility: hidden !important;
+}
+
+/* ==========================================
+   Hero Counter Bar Styles (Image 2 Design - Scaled & Wider Length)
+   ========================================== */
+.hero-counter-wrap {
+  position: relative;
+  z-index: 10;
+  margin-top: 40px;
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.hero-counter-wrap .hero-counter-container {
+  width: 100%;
+  max-width: 1560px; /* Slightly decreased width for perfect visual framing */
+  margin: 0 auto;
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.hero-counter-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #121318;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  opacity: 0;
+  transform: translateY(35px) scale(0.97);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-counter-grid.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hero-counter-card {
+  position: relative;
+  background-color: #16181d;
+  padding: 52px 24px 56px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  user-select: none;
+  min-height: 168px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px) scale(0.94);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Staggered Card Entrance Delays */
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.08s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.20s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.32s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.44s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(5) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 0.56s;
+}
+
+.hero-counter-card:last-child {
+  border-right: none;
+}
+
+.hero-counter-card:hover {
+  background-color: #1d1f27;
+  transform: translateY(-6px) !important;
+  box-shadow: inset 0 0 25px rgba(229, 66, 18, 0.06), 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Inner Layout */
+.counter-content-box {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.counter-icon-wrap {
+  font-size: 32px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), text-shadow 0.4s ease;
+}
+
+.hero-counter-card:hover .counter-icon-wrap {
+  transform: scale(1.18) rotate(4deg);
+  text-shadow: 0 0 15px rgba(229, 66, 18, 0.6);
+}
+
+.counter-text-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.counter-number-val {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-family: var(--title-font, sans-serif);
+  letter-spacing: -0.5px;
+  transition: transform 0.3s ease;
+}
+
+.hero-counter-card:hover .counter-number-val {
+  transform: translateX(3px);
+}
+
+.counter-number-val .num-highlight {
+  color: var(--theme-color, #e54212);
+  transition: color 0.3s ease;
+}
+
+.counter-number-val .plus-sign {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.counter-label-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 6px 0 0 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.hero-counter-card:hover .counter-label-text {
+  color: #ffffff;
+}
+
+/* Decorative Dot Grid Elements */
+.counter-dots {
+  position: absolute;
+  width: 36px;
+  height: 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px);
+  background-size: 6px 6px;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.hero-counter-card:hover .counter-dots {
+  opacity: 0.85;
+}
+
+.counter-dots-tl {
+  top: 14px;
+  left: 14px;
+}
+
+.counter-dots-br {
+  bottom: 16px;
+  right: 16px;
+}
+
+/* Staggered Accent Squares at Top-Right Corner */
+.counter-accents {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.counter-sq {
+  position: absolute;
+  border-radius: 1px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.counter-sq.sq-orange {
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--theme-color, #e54212);
+  animation: sqPulse 3s infinite ease-in-out;
+}
+
+.counter-sq.sq-white {
+  top: 9px;
+  right: 11px;
+  width: 7px;
+  height: 7px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.hero-counter-card:hover .sq-orange {
+  transform: scale(1.3);
+}
+
+.hero-counter-card:hover .sq-white {
+  transform: scale(1.2);
+  background-color: #ffffff;
+}
+
+@keyframes sqPulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(229, 66, 18, 0.8);
+  }
+}
+
+/* Bottom Glowing Orange Highlight Line - Dynamic Animation & Entrance */
+.counter-bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background-color: var(--theme-color, #e54212);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 16px rgba(229, 66, 18, 0.9), 0 0 5px rgba(229, 66, 18, 0.7);
+  z-index: 2;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1), height 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(1) .counter-bottom-line {
+  width: 85px;
+  transition-delay: 0.25s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(2) .counter-bottom-line {
+  width: 85px;
+  transition-delay: 0.37s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(3) .counter-bottom-line {
+  width: 85px;
+  transition-delay: 0.49s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(4) .counter-bottom-line {
+  width: 85px;
+  transition-delay: 0.61s;
+}
+
+.hero-counter-grid.is-visible .hero-counter-card:nth-child(5) .counter-bottom-line {
+  width: 85px;
+  transition-delay: 0.73s;
+}
+
+.hero-counter-card:hover .counter-bottom-line {
+  width: 120px !important;
+  height: 5px;
+  box-shadow: 0 0 22px rgba(229, 66, 18, 1), 0 0 10px rgba(255, 255, 255, 0.8);
+  transition-delay: 0s !important;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1280px) {
+  .counter-number-val {
+    font-size: 32px;
+  }
+  .counter-icon-wrap {
+    font-size: 36px;
+    width: 46px;
+    height: 46px;
+  }
+  .counter-label-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hero-counter-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .hero-counter-card {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .hero-counter-card:nth-child(3n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-counter-card:nth-child(3n) {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .hero-counter-card:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-counter-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-counter-card {
+    border-right: none !important;
+    padding: 26px 18px 30px 18px;
+  }
+  .counter-number-val {
+    font-size: 24px;
+  }
+}
+
+/* About Section and Service Section Spacing Adjustments */
+#about-sec {
+  padding-bottom: 40px !important;
+}
+
+#service-sec {
+  padding-top: 40px !important;
+  padding-bottom: 60px !important;
+}
+
+#service-sec .service-featured {
+  position: relative !important;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  border-radius: 16px !important;
+  overflow: visible !important;
+}
+
+#service-sec .service-featured:hover {
+  transform: translateY(-8px) !important;
+}
+
+/* Image Anime & Shimmer Shine Effect */
+#service-sec .service-featured_img {
+  position: relative !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+#service-sec .service-featured_img img {
+  width: 100% !important;
+  height: 240px !important;
+  object-fit: cover !important;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), filter 0.65s ease !important;
+}
+
+#service-sec .service-featured:hover .service-featured_img img {
+  transform: scale(1.08) !important;
+  filter: brightness(1.04) contrast(1.02) !important;
+}
+
+/* Animated Light Sweep Shimmer Line */
+#service-sec .service-featured_img::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 60% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  ) !important;
+  transform: skewX(-25deg) !important;
+  transition: left 0.85s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+#service-sec .service-featured:hover .service-featured_img::after {
+  left: 150% !important;
+}
+
+/* Card Content Box Styling & Micro-animations */
+#service-sec .service-featured_content {
+  margin-top: -25px !important;
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+  padding: 28px 26px 24px !important;
+  min-height: 165px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  background: #FFFFFF !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.09) !important;
+  position: relative !important;
+  z-index: 5 !important;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  overflow: hidden !important;
+}
+
+/* Top Border Accent Expansion on Hover */
+#service-sec .service-featured_content::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #E63A27 0%, #FF6B5B 100%) !important;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transform-origin: left !important;
+}
+
+#service-sec .service-featured:hover .service-featured_content {
+  box-shadow: 0 18px 45px rgba(230, 58, 39, 0.14), 0 8px 20px rgba(15, 23, 42, 0.06) !important;
+}
+
+#service-sec .steel-card .service-featured_content {
+  margin-top: -25px !important;
+}
+
+#service-sec .service-featured .service-default-icon {
+  margin-bottom: 14px !important;
+}
+
+#service-sec .service-featured_content .box-title {
+  font-size: 21px !important;
+  font-weight: 800 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.25 !important;
+  color: #0F172A !important;
+  transition: transform 0.35s ease !important;
+}
+
+#service-sec .service-featured:hover .service-featured_content .box-title {
+  transform: translateX(3px) !important;
+}
+
+#service-sec .service-featured_content .box-title a {
+  color: #0F172A !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+#service-sec .service-featured_content .box-title a:hover {
+  color: #E63A27 !important;
+}
+
+#service-sec .service-featured_text {
+  color: #64748B !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 0 !important;
+}
+
+#service-sec .service-featured_content .link-btn {
+  color: #E63A27 !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  text-decoration: none !important;
+  margin-top: auto !important;
+  transition: color 0.3s ease !important;
+}
+
+#service-sec .service-featured_content .link-btn i {
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+#service-sec .service-featured:hover .service-featured_content .link-btn i {
+  transform: translate(4px, -3px) !important;
+}
+
+#service-sec .service-featured_content .link-btn:hover {
+  color: #0F172A !important;
+}
+
+@media (max-width: 1199px) {
+  #service-sec .service-featured_content {
+    margin-top: -20px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    padding: 24px 20px 20px !important;
+    min-height: 155px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  #about-sec {
+    padding-bottom: 30px !important;
+  }
+  #service-sec {
+    padding-top: 30px !important;
+    padding-bottom: 40px !important;
+  }
+  #service-sec .service-featured_content {
+    margin-top: -15px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    padding: 20px 18px 18px !important;
+    min-height: auto !important;
+  }
+}
+
+
+
