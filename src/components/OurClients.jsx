@@ -9,7 +9,7 @@ import alligatorlogo from '../assets/img/Clients/alligator.png';
 import antolinlogo from '../assets/img/Clients/antolin.png';
 import Blinkitlogo from '../assets/img/Clients/Blinkit.png';
 import kalyanilogo from '../assets/img/Clients/kalyani.png';
-import kshlogo from '../assets/img/Clients/Ksh.png';
+import kshlogo from '../assets/img/Clients/infraksh.png';
 import mothersonlogo from '../assets/img/Clients/motherson.png';
 import adviklogo from '../assets/img/Clients/advik.png';
 import nibelogo from '../assets/img/Clients/nibe.png';
@@ -24,7 +24,7 @@ import poritelogo from '../assets/img/Clients/porite.png';
 import maharashtralogo from '../assets/img/Clients/maharashtra.png';
 import horizonlogo from '../assets/img/Clients/horizon.png';
 import inndrayaneelogo from '../assets/img/Clients/inndrayanee.png';
-import koshlogo from '../assets/img/Clients/ksh.png';
+import koshlogo from '../assets/img/Clients/kosh.png';
 import parijatlogo from '../assets/img/Clients/parijat.png';
 import prambhlogo from '../assets/img/Clients/prambh.png';
 
