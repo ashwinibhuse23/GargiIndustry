@@ -1,5 +1,6 @@
 import React from 'react';
 import logoImg from '../assets/img/gargilogo.png';
+import logoVideo from '../assets/img/logoback.mp4';
 
 export default function Navbar() {
   return (
@@ -67,7 +68,7 @@ export default function Navbar() {
               </li>
               <li><a href="/blog">Projects</a></li>
               <li><a href="/blog">Knowledge Center</a></li>
-              <li><a href="/blog">Insights</a></li>
+             
               <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
@@ -96,29 +97,7 @@ export default function Navbar() {
                     </ul>
                   </div>
                 </div>
-                <div className="col-auto">
-                  <div className="header-links">
-                    <ul>
-
-                      <li>
-                        <div className="social-links">
-                          <a href="https://www.facebook.com/"
-                          ><i className="fab fa-facebook-f"></i
-                          ></a>
-                          <a href="https://www.twitter.com/"
-                          ><i className="fab fa-twitter"></i
-                          ></a>
-                          <a href="https://www.linkedin.com/"
-                          ><i className="fab fa-linkedin-in"></i
-                          ></a>
-                          <a href="https://www.instagram.com/"
-                          ><i className="fab fa-instagram"></i
-                          ></a>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              
               </div>
             </div>
           </div>
@@ -176,7 +155,7 @@ export default function Navbar() {
                       </li>
                       <li><a href="/blog">Projects</a></li>
                       <li><a href="/blog">Knowledge Center</a></li>
-                      <li><a href="/blog">Insights</a></li>
+                    
 
                       <li><a href="/contact">Contact Us</a></li>
                     </ul>
@@ -199,7 +178,16 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="logo-bg"></div>
+          <div className="logo-bg">
+            <video
+              src={logoVideo}
+              className="logo-bg-sketch"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
       </header>
     </>

@@ -1,39 +1,93 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { LuMapPin, LuArrowRight } from 'react-icons/lu';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import {
+  LuMapPin,
+  LuArrowRight,
+  LuChevronLeft,
+  LuChevronRight,
+  LuBuilding2,
+  LuMaximize2,
+} from 'react-icons/lu';
 import './OurProjects.css';
 
-import aerialImg from '../assets/img/hero/hero_bg_1_1.jpeg';
-import steelInteriorImg from '../assets/img/hero/project2.jpeg';
+import mateFactoryImg from '../assets/img/project/hero_bg_1_1.jpeg';
+import marelFacilityImg from '../assets/img/project/project2.png';
+import steelInteriorPng from '../assets/img/project/project3.png';
+import aerialFactoryPng from '../assets/img/project/project4.png';
 
 const projectsData = [
   {
     id: '01',
-    badgeColor: 'black',
+    badgeColor: 'theme',
     title: 'Motherson Automotive Technologies Engineering (MATE)',
-    location: 'Pune',
-    category: 'Industrial Manufacturing',
+    location: 'Pune, Maharashtra',
+    category: 'Automotive Manufacturing',
     description:
-      'Designed a high-capacity industrial facility to support heavy manufacturing with 50 MT crane system.',
-    image: aerialImg,
-    imagePosition: 'left',
+      'Designed and detailed a high-capacity industrial manufacturing facility featuring a 50 MT heavy-duty crane system, multi-span structural framing, and optimized PEB solutions engineered for high load capacity.',
+    image: mateFactoryImg,
   },
   {
     id: '02',
-    badgeColor: 'theme',
-    title: 'Marel Motherson Automotive Lighting',
+    badgeColor: 'black',
+    title: 'Marel Motherson Automotive Lighting Plant',
     location: 'Chakan, Pune',
-    category: 'Automotive',
+    category: 'Automotive Infrastructure',
     description:
-      'Delivered a comprehensive structural engineering and detailing solution for large-scale manufacturing.',
-    image: steelInteriorImg,
-    imagePosition: 'right',
+      'Delivered comprehensive structural steel engineering, Tekla 3D detailing, and connection design for a state-of-the-art automotive lighting production facility with integrated high-bay shop floors.',
+    image: marelFacilityImg,
   },
+  {
+    id: '03',
+    badgeColor: 'theme',
+    title: 'Advik Hi-Tech Pvt. Ltd.',
+    location: 'Chakan',
+    category: 'Automotive Components',
+    description:
+      'Engineered a modern industrial structure tailored to the operational requirements of automotive component manufacturing while ensuring construction efficiency and long-term reliability.',
+    image: steelInteriorPng,
+  },
+  {
+    id: '04',
+    badgeColor: 'black',
+    title: 'Kalyani Technoforge',
+    location: 'Chakan',
+    category: 'Manufacturing Industry',
+    description:
+      'Delivered complete structural engineering and detailing services for a large-scale forging facility, designed to support heavy industrial operations while optimizing structural performance.',
+    image: aerialFactoryPng,
+    area: '137,000 Sq. Ft.'
+  }
 ];
 
 const OurProjects = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  
   const sectionRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
+  const totalProjects = projectsData.length;
+
+  const goToSlide = useCallback((index) => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex(index);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 450);
+  }, [isAnimating]);
+
+  const nextSlide = useCallback(() => {
+    goToSlide((currentIndex + 1) % totalProjects);
+  }, [currentIndex, totalProjects, goToSlide]);
+
+  const prevSlide = useCallback(() => {
+    goToSlide((currentIndex - 1 + totalProjects) % totalProjects);
+  }, [currentIndex, totalProjects, goToSlide]);
+
+  // Intersection Observer for entrance animation
   useEffect(() => {
     const node = sectionRef.current;
     if (!node) return;
@@ -52,6 +106,44 @@ const OurProjects = () => {
       if (node) observer.unobserve(node);
     };
   }, []);
+
+  // Autoplay Slider (changes every 4 seconds)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [nextSlide, isPaused]);
+
+  // Touch Swipe Handlers for Mobile
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
+  const currentProject = projectsData[currentIndex];
 
   return (
     <section
@@ -80,62 +172,119 @@ const OurProjects = () => {
           <h2 className="projects-sec-title">
             From Engineering to Execution, We Deliver
           </h2>
-         
         </div>
 
-          {/* Decorative Dot Matrix */}
-          <div className="dot-matrix-decor" aria-hidden="true">
-            {[...Array(25)].map((_, i) => (
-              <span key={i} className="dot-matrix-item" />
-            ))}
-          </div>
+        {/* Full-Width Horizontal Card Slider Showcase */}
+        <div 
+          className="project-slider-wrapper"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Active Horizontal Project Card */}
+          <div className={`project-horizontal-card ${isAnimating ? 'fade-slide' : ''}`}>
+            
+            {/* LEFT SIDE: FULL HEIGHT/WIDTH IMAGE */}
+            <div className="project-card-image-col image-anime">
+              <img
+                src={currentProject.image}
+                alt={currentProject.title}
+                className="project-card-img"
+              />
+              
+              {/* Gradient Vignette Overlay */}
+              <div className="img-overlay-gradient"></div>
 
-        {/* Projects Cards Grid */}
-        <div className="projects-cards-grid">
-          {projectsData.map((project) => {
-            const isImageLeft = project.imagePosition === 'left';
-            return (
-              <div
-                className={`project-card ${isImageLeft ? 'img-left' : 'img-right'}`}
-                key={project.id}
-              >
-                {/* Image side with image-anime animation class */}
-                <div className="project-card-image-wrap image-anime">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-card-img"
-                  />
+              {/* Top Badges overlay on left image */}
+              <div className="img-top-badges">
+                <span className="img-category-pill">
+                  <LuBuilding2 className="pill-icon" /> {currentProject.category}
+                </span>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE: INFORMATION & SPECS */}
+            <div className="project-card-content-col">
+              
+              {/* Header Info: ID Badge & Location */}
+              <div className="project-content-header">
+                <div className={`project-id-badge badge-${currentProject.badgeColor}`}>
+                  {currentProject.id}
                 </div>
-
-                {/* Content side */}
-                <div className="project-card-content">
-                  <div
-                    className={`project-id-badge badge-${project.badgeColor}`}
-                  >
-                    {project.id}
-                  </div>
-
-                  <h3 className="project-card-title">{project.title}</h3>
-
-                  <div className="project-card-meta">
-                    <span className="meta-loc">
-                      <LuMapPin className="pin-icon" /> {project.location}
-                    </span>
-                    <span className="meta-divider">|</span>
-                    <span className="meta-cat">{project.category}</span>
-                  </div>
-
-                  <p className="project-card-desc">{project.description}</p>
-
-                  <a href="#contact" className="project-view-details-btn">
-                    VIEW DETAILS <LuArrowRight className="arrow-icon" />
-                  </a>
+                <div className="project-meta-loc">
+                  <LuMapPin className="pin-icon" /> {currentProject.location}
                 </div>
               </div>
-            );
-          })}
+
+              {/* Title */}
+              <h3 className="project-card-title">{currentProject.title}</h3>
+
+              {/* Description */}
+              <p className="project-card-desc">{currentProject.description}</p>
+
+              {/* Display Area if available */}
+              {currentProject.area && (
+                <div className="project-single-area-box">
+                  <div className="area-icon-wrap">
+                    <LuMaximize2 className="area-icon" />
+                  </div>
+                  <div className="area-text-wrap">
+                    <span className="area-label">Area</span>
+                    <span className="area-val">{currentProject.area}</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Card Footer: Action Button & Slider Controls */}
+              <div className="project-card-footer">
+                <a href="#contact" className="project-details-btn">
+                  EXPLORE PROJECT <LuArrowRight className="arrow-icon" />
+                </a>
+
+                {/* Slider Controls */}
+                <div className="slider-controls-group">
+                  {/* Prev Button */}
+                  <button 
+                    type="button" 
+                    className="slider-nav-btn prev-btn"
+                    onClick={prevSlide}
+                    aria-label="Previous Project"
+                  >
+                    <LuChevronLeft />
+                  </button>
+
+                  {/* Indicator Dots */}
+                  <div className="slider-dots-list">
+                    {projectsData.map((_, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        className={`slider-dot-item ${currentIndex === idx ? 'active' : ''}`}
+                        onClick={() => goToSlide(idx)}
+                        aria-label={`Go to slide ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Next Button */}
+                  <button 
+                    type="button" 
+                    className="slider-nav-btn next-btn"
+                    onClick={nextSlide}
+                    aria-label="Next Project"
+                  >
+                    <LuChevronRight />
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
   );

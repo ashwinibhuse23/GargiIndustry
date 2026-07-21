@@ -7,31 +7,29 @@ import PurposeSection from '../components/PurposeSection';
 import PhilosophySection from '../components/PhilosophySection';
 import LeadershipSection from '../components/LeadershipSection';
 import TechnologySection from '../components/TechnologySection';
-
+import '../about.css';
 
 export default function About() {
   return (
     <>
       <Navbar />
 
-      {/* Hero / Breadcrumb Section */}
+      {/* Hero Section */}
       <div
-        className="breadcumb-wrapper"
+        className="about-page-hero"
         style={{
-          backgroundImage: `url(${aboutBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          position: 'relative',
-          padding: '240px 0'
+          backgroundImage: `url(${aboutBg})`
         }}
-        data-overlay="black"
-        data-opacity="7"
       >
+        <div className="about-page-hero-overlay"></div>
         <div className="container">
-          <div className="breadcumb-content text-start">
-            <h1 className="breadcumb-title">
-              ENGINEERING EXCELLENCE.<br />BUILT ON PRECISION.
+          <div className="about-page-hero-content text-start">
+           
+            <h1 className="about-hero-title">
+              ENGINEERING EXCELLENCE.<br />
+            BUILT ON PRECISION.
             </h1>
+           
           </div>
         </div>
       </div>
@@ -51,10 +49,6 @@ export default function About() {
       {/* Technology Driven Workflows Section */}
       <TechnologySection />
 
-    
-
-     
-     
       <Footer />
     </>
   );

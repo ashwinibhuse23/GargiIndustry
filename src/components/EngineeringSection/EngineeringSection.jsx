@@ -94,7 +94,7 @@ const EngineeringSection = () => {
   }, []);
 
   return (
-    <section className={`eng-section ${isVisible ? "is-visible" : ""}`} ref={sectionRef}>
+    <section id="company" className={`eng-section ${isVisible ? "is-visible" : ""}`} ref={sectionRef}>
       {/* ── TOP: text + image ── */}
       <div className="eng-top">
         <div className="eng-text">

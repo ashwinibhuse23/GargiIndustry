@@ -12,6 +12,7 @@
   font-family: "Poppins", sans-serif;
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 150px;
 }
 
 /* ── ENTRANCE ANIMATIONS ── */

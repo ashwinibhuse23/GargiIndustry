@@ -7,6 +7,7 @@ import EngineeringProcess from '../components/EngineeringProcess';
 import DigitalEngineeringUSP from '../components/DigitalEngineeringUSP';
 import OurProjects from '../components/OurProjects';
 import OurClients from '../components/OurClients';
+import BrochureModal from '../components/BrochureModal';
 import heroVideo from '../assets/img/herovedio.mp4';
 import buildingImage from '../assets/img/about/building_image.png';
 import aboutImage from '../assets/img/about/about.png';
@@ -23,6 +24,7 @@ import '../hero.css';
 import '../about.css';
 
 export default function Home() {
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [isCounterVisible, setIsCounterVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const counterRef = useRef(null);
@@ -229,187 +231,53 @@ export default function Home() {
         </div>
       </div>
 
-      {/* About Section */}
-      <div ref={aboutRef} className={`space-top space-bottom overflow-hidden ${isAboutVisible ? 'is-visible' : ''}`} id="about-sec">
+      {/* About Section - Exact Match Design from Uploaded Image */}
+      <div ref={aboutRef} className={`gargi-about-section overflow-hidden ${isAboutVisible ? 'is-visible' : ''}`} id="about-sec">
         <div className="container">
-          <div className="row g-4 align-items-center">
-            {/* Left Column: Grid layout with tall image on left and 3 stacked cards on right */}
-            <div className="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
-              <div className="row g-3">
-                {/* Left Sub-column: Tall Image */}
-                <div className="col-6 about-tall-col about-zoom-img">
-                  <img
-                    className="tilt-active about-tall-img"
-                    src={aboutImage}
-                    alt="Engineers on Site"
-                  />
-                </div>
-
-                {/* Right Sub-column: 3 Stacked Cards */}
-                <div className="col-6 about-cards-col d-flex flex-column justify-content-between gap-3">
-                  {/* Top Card: Orange 10+ Years Box */}
-                  <div className="about-exp-card about-card-hover">
-                    <h3 className="about-exp-number">
-                      <span className="counter-number">10</span>+
-                    </h3>
-                    <p className="about-exp-title">
-                      Years of Experience
-                    </p>
-                    <div className="about-exp-divider" />
-
-                    <div className="d-flex justify-content-between text-center gap-1">
-                      <div>
-                        <img src="/assets/img/icon/service-icon-1-1.svg" alt="PEB Expertise" className="about-exp-icon" />
-                        <p className="about-exp-icon-label">PEB<br />Expertise</p>
-                      </div>
-                      <div>
-                        <img src="/assets/img/icon/service-icon-1-2.svg" alt="Structural Design" className="about-exp-icon" />
-                        <p className="about-exp-icon-label">Structural<br />Design</p>
-                      </div>
-                      <div>
-                        <img src="/assets/img/icon/service-icon-1-3.svg" alt="Turnkey Solutions" className="about-exp-icon" />
-                        <p className="about-exp-icon-label">Turnkey<br />Solutions</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Middle Card: Building Image */}
-                  <div className="about-zoom-img">
-                    <img
-                      className="tilt-active about-building-img"
-                      src={buildingImage}
-                      alt="PEB Structure"
-                    />
-                  </div>
-
-                  {/* Bottom Card: Dark Stats Box */}
-                  <div className="about-stats-card about-card-hover">
-                    {/* Stat 1 */}
-                    <div className="d-flex align-items-center gap-3">
-                      <div className="about-stat-icon">
-                        <i className="fa-solid fa-users-gear"></i>
-                      </div>
-                      <div>
-                        <h4 className="about-stat-number">
-                          <span className="counter-number">100</span>+
-                        </h4>
-                        <span className="about-stat-label">
-                          Projects Completed
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="about-stat-divider" />
-
-                    {/* Stat 2 */}
-                    <div className="d-flex align-items-center gap-3">
-                      <div className="about-stat-icon">
-                        <i className="fa-solid fa-handshake"></i>
-                      </div>
-                      <div>
-                        <h4 className="about-stat-number">
-                          <span className="counter-number">50</span>+
-                        </h4>
-                        <span className="about-stat-label">
-                          Satisfied Clients
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div className="row align-items-center g-5">
+            {/* Left Column: Single Full-Height Hero Image */}
+            <div className="col-lg-6">
+              <div className="gargi-about-single-img-wrap">
+                <img
+                  src={aboutImage}
+                  alt="Engineers inspecting 3D structural steel building frame"
+                />
               </div>
             </div>
 
-            {/* Right Column: Detailed Text Content */}
-            <div className="col-xl-6 wow fadeInRight" data-wow-delay="0.3s">
-              <div className="ps-xxl-3">
-                <div className="title-area mb-25">
-                  <span className="sub-title about-subtitle">
-                    ABOUT US
-                  </span>
-                  <h2 className="sec-title about-heading">
-                    Building Stronger Tomorrows with Precision & Engineering Excellence
-                  </h2>
+            {/* Right Column: Title, Underline, Paragraphs & Download Brochure Button */}
+            <div className="col-lg-6">
+              <div className="gargi-about-content">
+                <div className="gargi-about-tag-row">
+                  
+                  <span className="eng-tag">ABOUT US</span>
                 </div>
 
-                <p className="about-text-p">
-                  Gargi Engineering Services is a Structural Consultancy and PEB (Pre-Engineered Building) Turnkey Construction Project firm that specializes in engineering of PEB, Conventional Steel Structures and Light Gauge Structures in the area of Design, Detailing and Estimation and Construction.
+                <h2 className="process-main-title">
+                 Innovative Engineering for Modern Infrastructure
+                </h2>
+               
+
+                <p className="gargi-about-p">
+                  Gargi Engineering Services is a specialized structural engineering and PEB consulting company delivering end-to-end solutions for industrial, commercial, and infrastructure projects. Our expertise spans Pre-Engineered Buildings (PEB), structural steel design, detailing, estimation, value engineering, and turnkey engineering support.
                 </p>
 
-
-
-                <p className="about-text-p-last">
-                  We believe that our value engineering services will certainly help our customers to have optimized designed structure. The detailing of structure is with the aim of ZERO error and done in way to reduce complexity and time during fabrication and construction.
+                <p className="gargi-about-p">
+                  We believe engineering is more than calculations—it is about creating structures that are stronger, more efficient, easier to fabricate, and faster to construct. Every solution is developed with a focus on reducing project complexity, optimizing material usage, and ensuring seamless execution on-site.
                 </p>
 
-                {/* Features List with lines between them */}
-                <div className="d-flex flex-column gap-2 mb-35">
-                  {/* Feature 1 */}
-                  <div className="about-feature-item d-flex align-items-center gap-3">
-                    <div className="feature-icon-box">
-                      <i className="fa-solid fa-city"></i>
-                    </div>
-                    <div>
-                      <h4 className="about-feature-title">
-                        Design Excellence
-                      </h4>
-                      <p className="about-feature-desc">
-                        Innovative & optimized structural designs tailored to your project needs.
-                      </p>
-                    </div>
-                  </div>
+                <p className="gargi-about-p">
+                  Working closely with architects, fabricators, EPC contractors, and project owners, we deliver engineering solutions that balance functionality, safety, aesthetics, and commercial viability.
+                </p>
 
-                  {/* Feature 2 */}
-                  <div className="about-feature-item d-flex align-items-center gap-3">
-                    <div className="feature-icon-box">
-                      <i className="fa-solid fa-drafting-compass"></i>
-                    </div>
-                    <div>
-                      <h4 className="about-feature-title">
-                        Accurate Detailing
-                      </h4>
-                      <p className="about-feature-desc">
-                        Precise 3D modeling & detailing for seamless fabrication and erection.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Feature 3 */}
-                  <div className="about-feature-item about-feature-item-last d-flex align-items-center gap-3">
-                    <div className="feature-icon-box">
-                      <i className="fa-solid fa-shield-check"></i>
-                    </div>
-                    <div>
-                      <h4 className="about-feature-title">
-                        Quality & Reliability
-                      </h4>
-                      <p className="about-feature-desc">
-                        Committed to quality, safety, and on-time project delivery.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom CTA Row */}
-                <div className="about-cta-row d-flex align-items-center gap-4">
-                  <a href="about.html" className="th-btn about-learn-btn">
-                    LEARN MORE <i className="fa-regular fa-arrow-right ms-2"></i>
-                  </a>
-
-                  <div className="d-flex align-items-center gap-3">
-                    <div className="about-profile-logo">
-                      G
-                    </div>
-                    <div>
-                      <h4 className="about-profile-title">
-                        Gargi Engineering Services
-                      </h4>
-                      <span className="about-profile-sub">
-                        Structural Excellence. Delivered.
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                <button 
+                  type="button" 
+                  className="gargi-download-btn"
+                  onClick={() => setIsBrochureOpen(true)}
+                >
+                  <i className="fa-solid fa-download"></i>
+                  Download Brochure
+                </button>
               </div>
             </div>
           </div>
@@ -419,16 +287,16 @@ export default function Home() {
         <div className="container z-index-common">
           <div className="title-area text-center">
             <span className="sub-title">WHAT WE DO</span>
-            <h2 className="sec-title">High-quality Roofing Services</h2>
+            <h2 className="sec-title">Comprehensive PEB & Structural Services</h2>
           </div>
           <div
             className="row slider-shadow th-carousel"
-            data-slide-show="3"
-            data-lg-slide-show="3"
+            data-slide-show="2"
+            data-lg-slide-show="2"
             data-md-slide-show="2"
             data-sm-slide-show="1"
           >
-            <div className="col-md-6 col-lg-4">
+            <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
                   <img
@@ -457,7 +325,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4">
+            <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
                   <img
@@ -485,7 +353,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4">
+            <div className="col-md-6 col-lg-6">
               <div className="service-featured steel-card">
                 <div className="service-featured_img">
                   <img
@@ -513,7 +381,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4">
+            <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
                   <img
@@ -541,7 +409,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4">
+            <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
                   <img
@@ -569,7 +437,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4">
+            <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
                   <img
@@ -821,9 +689,7 @@ export default function Home() {
                   <img src={blog1} alt="PEB Design" />
                 </div>
                 <div className="blog-content">
-                  <div className="blog-bg-shape">
-                    <img src="/assets/img/bg/blog1-bg-shape.png" alt="img" />
-                  </div>
+                  
                   <div className="blog-meta">
                     <a href="blog.html"
                     ><i className="fa-solid fa-layer-group"></i>PEB Design • Value Engineering</a
@@ -851,9 +717,7 @@ export default function Home() {
                   <img src={blog2} alt="Digital Engineering" />
                 </div>
                 <div className="blog-content">
-                  <div className="blog-bg-shape">
-                    <img src="/assets/img/bg/blog1-bg-shape.png" alt="img" />
-                  </div>
+                  
                   <div className="blog-meta">
                     <a href="blog.html"
                     ><i className="fa-solid fa-layer-group"></i>Technology • Digital Engineering</a
@@ -881,9 +745,7 @@ export default function Home() {
                   <img src={blog3} alt="Project Planning" />
                 </div>
                 <div className="blog-content">
-                  <div className="blog-bg-shape">
-                    <img src="/assets/img/bg/blog1-bg-shape.png" alt="img" />
-                  </div>
+                  
                   <div className="blog-meta">
                     <a href="blog.html"
                     ><i className="fa-solid fa-layer-group"></i>Industrial Construction • Project Planning</a
@@ -911,10 +773,10 @@ export default function Home() {
    
       <Footer />
 
-
-
-
-
+      <BrochureModal 
+        isOpen={isBrochureOpen} 
+        onClose={() => setIsBrochureOpen(false)} 
+      />
     </>
   );
 }

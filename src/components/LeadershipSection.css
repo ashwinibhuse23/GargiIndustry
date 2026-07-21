@@ -7,8 +7,8 @@
   width: 100%;
   padding: 60px 0 45px;
   background: url("../assets/img/testi_bg_1.png") center/cover no-repeat;
- 
   overflow: hidden;
+  scroll-margin-top: 150px;
 }
 
 /* Background Image Overlay (Full Width) */
@@ -62,7 +62,7 @@
 /* Left Text Column */
 .lead-text-side {
   max-width: 560px;
-  padding-bottom: 10px;
+  padding-bottom: 90px;
 }
 
 .lead-text-side .eng-tag {
@@ -94,12 +94,14 @@
 .lead-desc-para {
   font-size: 16px;
   line-height: 1.7;
-  color: #475569;
+  color: #ffffff;
   margin: 0 0 14px;
+  margin-top: 10px;
 }
 
 .lead-desc-para:last-child {
   margin-bottom: 0;
+   margin-top: 30px;
 }
 
 /* Right Person Cutout Column */

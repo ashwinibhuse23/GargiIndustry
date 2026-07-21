@@ -71,7 +71,7 @@ export default function LeadershipSection() {
   }, []);
 
   return (
-    <section className={`lead-section ${isVisible ? "is-visible" : ""}`} ref={sectionRef}>
+    <section id="leadership" className={`lead-section ${isVisible ? "is-visible" : ""}`} ref={sectionRef}>
       <div className="lead-container">
 
         {/* Main Dark Navy Container */}
@@ -86,7 +86,7 @@ export default function LeadershipSection() {
 
               <h2 className="lead-main-heading">
                 Driven by Engineering.<br />
-                Inspired by <span className="text-orange">Innovation.</span>
+                Inspired by Innovation.
               </h2>
 
              

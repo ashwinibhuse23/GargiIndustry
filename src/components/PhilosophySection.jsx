@@ -97,7 +97,7 @@ export default function PhilosophySection() {
   }, []);
 
   return (
-    <section className={`philosophy-section ${isVisible ? "is-visible" : ""}`} ref={sectionRef}>
+    <section id="philosophy" className={`philosophy-section ${isVisible ? "is-visible" : ""}`} ref={sectionRef}>
       <div className="phil-bg-container">
         <img src={bgImg} alt="Engineering Blueprint Background" className="phil-bg-img" />
       </div>
