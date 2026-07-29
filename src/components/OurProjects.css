@@ -361,38 +361,104 @@
   border-top: 1px solid #f1f5f9;
 }
 
+@keyframes crissCrossLeft {
+  0% {
+    left: -20px;
+  }
+  50% {
+    left: 50%;
+    height: 20px;
+    width: 20px;
+  }
+  100% {
+    left: 50%;
+    height: 450px;
+    width: 450px;
+  }
+}
+
+@keyframes crissCrossRight {
+  0% {
+    right: -20px;
+  }
+  50% {
+    right: 50%;
+    height: 20px;
+    width: 20px;
+  }
+  100% {
+    right: 50%;
+    height: 450px;
+    width: 450px;
+  }
+}
+
 .project-details-btn {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   background: var(--theme-color, #E63A27);
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 13px 26px;
   border-radius: 12px;
   font-weight: 800;
   font-size: 13.5px;
   letter-spacing: 0.6px;
-  text-decoration: none;
+  text-decoration: none !important;
   font-family: var(--title-font, 'Manrope', sans-serif);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 15px rgba(230, 58, 39, 0.28);
   text-transform: uppercase;
 }
 
-.project-details-btn .arrow-icon {
-  font-size: 17px;
-  transition: transform 0.3s ease;
+.project-details-btn:before,
+.project-details-btn:after {
+  content: "";
+  position: absolute;
+  background-color: #ffffff;
+  z-index: -1;
+  transition: all 0.4s ease-out;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.project-details-btn:before {
+  left: -20px;
+  transform: translate(-50%, -50%);
+}
+
+.project-details-btn:after {
+  right: -20px;
+  transform: translate(50%, -50%);
 }
 
 .project-details-btn:hover {
-  background: #080E1C;
-  color: #ffffff;
+  color: #000000 !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(8, 14, 28, 0.3);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.project-details-btn:hover:before {
+  animation: crissCrossLeft 0.8s both alternate;
+}
+
+.project-details-btn:hover:after {
+  animation: crissCrossRight 0.8s both alternate;
+}
+
+.project-details-btn .arrow-icon {
+  font-size: 17px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .project-details-btn:hover .arrow-icon {
-  transform: translateX(5px);
+  color: #000000 !important;
+  transform: translateX(4px);
 }
 
 /* Slider Controls Group */
@@ -470,6 +536,7 @@
   .project-horizontal-card {
     flex-direction: column;
     min-height: auto;
+    height: auto !important;
   }
   .project-card-image-col {
     width: 100% !important;
@@ -487,44 +554,94 @@
 }
 
 @media (max-width: 767px) {
+  .our-projects-section {
+    padding: 85px 0 60px;
+  }
+  .our-projects-header {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .project-horizontal-card {
+    margin-top: 30px;
+    border-radius: 16px;
+  }
   .project-card-image-col {
     height: 260px;
   }
   .img-top-badges {
-    top: 16px;
-    left: 16px;
-    right: 16px;
+    top: 14px;
+    left: 14px;
+    right: 14px;
   }
   .img-category-pill,
   .img-counter-pill {
-    padding: 6px 14px;
-    font-size: 12px;
+    padding: 6px 12px;
+    font-size: 11.5px;
   }
   .project-card-content-col {
-    padding: 24px 20px;
+    padding: 26px 20px 35px 20px;
   }
   .projects-sec-title {
-    font-size: 26px;
+    font-size: 22px !important;
+    text-align: left !important;
   }
   .project-card-title {
-    font-size: 21px;
+    font-size: 20px;
   }
   .project-card-desc {
-    font-size: 14.5px;
+    font-size: 14px;
     margin-bottom: 20px;
   }
   .project-card-footer {
     flex-direction: column;
     align-items: stretch;
-    gap: 16px;
+    gap: 14px;
   }
   .project-details-btn {
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    width: auto;
+    padding: 12px 24px;
+    font-size: 14px;
+    align-self: flex-start;
   }
   .slider-controls-group {
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .slider-nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+  .slider-dots-list {
+    gap: 6px;
+  }
+  .slider-dot-item {
+    width: 8px;
+    height: 8px;
+  }
+  .slider-dot-item.active {
+    width: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-horizontal-card {
+    margin-top: 20px;
+  }
+  .project-card-image-col {
+    height: 200px;
+  }
+  .project-card-content-col {
+    padding: 18px 14px;
+  }
+  .project-card-title {
+    font-size: 18px;
+  }
+  .project-card-desc {
+    font-size: 13px;
   }
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import {
   LuMapPin,
   LuArrowRight,
@@ -192,6 +193,8 @@ const OurProjects = () => {
                 src={currentProject.image}
                 alt={currentProject.title}
                 className="project-card-img"
+                loading="lazy"
+                decoding="async"
               />
               
               {/* Gradient Vignette Overlay */}
@@ -239,9 +242,9 @@ const OurProjects = () => {
 
               {/* Card Footer: Action Button & Slider Controls */}
               <div className="project-card-footer">
-                <a href="#contact" className="project-details-btn">
+                <Link to="/projects#projects" className="project-details-btn">
                   EXPLORE PROJECT <LuArrowRight className="arrow-icon" />
-                </a>
+                </Link>
 
                 {/* Slider Controls */}
                 <div className="slider-controls-group">

@@ -224,7 +224,7 @@
 }
 
 .brochure-submit-btn {
-  width: 100%;
+  width: 50%;
   height: 52px;
   background-color: #E05329;
   color: #ffffff;
@@ -375,23 +375,72 @@
   background: #cbd5e1;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 640px) {
+  .brochure-modal-overlay {
+    padding: 10px;
+  }
+
   .brochure-modal-container {
-    padding: 28px 20px;
+    padding: 24px 16px;
     border-radius: 16px;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .brochure-modal-header {
+    margin-bottom: 16px;
+  }
+
+  .brochure-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .brochure-modal-title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .brochure-modal-subtitle {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+
+  .brochure-form {
+    gap: 12px;
   }
 
   .brochure-form-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
-  .brochure-modal-title {
-    font-size: 22px;
+  .brochure-form-group {
+    gap: 4px;
   }
 
-  .brochure-modal-subtitle {
-    font-size: 13px;
+  .input-wrapper input,
+  .input-wrapper select {
+    height: 42px;
+    font-size: 13.5px;
+  }
+
+  .brochure-form-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .brochure-submit-btn {
+    width: 75% !important;
+    height: 46px;
+    font-size: 15px;
+    margin: 0 auto;
+  }
+
+  .brochure-privacy-note {
+    font-size: 11px;
+    margin-top: 4px;
   }
 }

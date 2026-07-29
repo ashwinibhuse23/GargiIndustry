@@ -96,6 +96,8 @@ export default function OurClients() {
                         src={client.logo}
                         alt={client.name}
                         className={`marquee-logo-img ${client.isBlinkit ? 'blinkit-marquee-logo' : ''}`}
+                        loading="lazy"
+                        decoding="async"
                       />
                     ) : (
                       <span className="marquee-text-logo">{client.textLogo}</span>
@@ -112,6 +114,8 @@ export default function OurClients() {
                         src={client.logo}
                         alt={client.name}
                         className={`marquee-logo-img ${client.isBlinkit ? 'blinkit-marquee-logo' : ''}`}
+                        loading="lazy"
+                        decoding="async"
                       />
                     ) : (
                       <span className="marquee-text-logo">{client.textLogo}</span>

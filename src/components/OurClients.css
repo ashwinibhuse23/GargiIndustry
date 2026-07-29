@@ -115,6 +115,8 @@
   align-items: center;
   width: max-content;
   animation: marqueeContinuous 35s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .marquee-viewport:hover .marquee-track {
@@ -123,10 +125,10 @@
 
 @keyframes marqueeContinuous {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -192,22 +194,49 @@
 
 /* Responsive Scaling */
 @media (max-width: 768px) {
-  .clients-marquee-card {
-    flex-direction: column;
+  .clients-marquee-section {
+    padding: 45px 14px 30px;
   }
-  .marquee-left-banner {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 20px;
+  .marquee-header {
+    margin-bottom: 28px;
   }
-  .banner-num {
+  .marquee-title {
     font-size: 26px;
-    margin-bottom: 0;
   }
-  .banner-text {
-    flex-direction: row;
-    gap: 6px;
+  .marquee-item {
+    padding: 0 20px;
+    height: 100px;
+  }
+  .marquee-logo-img {
+    max-height: 80px;
+    max-width: 180px;
+  }
+  .marquee-logo-img.blinkit-marquee-logo {
+    max-height: 75px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 575px) {
+  .clients-marquee-section {
+    padding: 35px 10px 25px;
+  }
+  .marquee-title {
+    font-size: 22px;
+  }
+  .marquee-item {
+    padding: 0 14px;
+    height: 85px;
+  }
+  .marquee-logo-img {
+    max-height: 60px;
+    max-width: 140px;
+  }
+  .marquee-logo-img.blinkit-marquee-logo {
+    max-height: 55px;
+    max-width: 140px;
+  }
+  .marquee-nav-btn {
+    display: none;
   }
 }

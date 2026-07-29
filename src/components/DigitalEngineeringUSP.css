@@ -132,6 +132,9 @@
 
 /* ---- Responsive ---- */
 @media (max-width: 1024px) {
+  .usp-section {
+    padding: 60px 0 70px;
+  }
   .usp-grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -141,13 +144,36 @@
   }
 }
 
+@media (max-width: 768px) {
+  .usp-header {
+    margin-bottom: 36px;
+  }
+  .usp-title {
+    font-size: 30px;
+  }
+  .usp-subtitle {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 600px) {
+  .usp-section {
+    padding: 45px 0 50px;
+  }
   .usp-grid-4,
   .usp-grid-3 {
     grid-template-columns: 1fr;
     max-width: 100%;
+    gap: 16px;
+  }
+  .usp-card {
+    padding: 24px 18px 22px;
+    border-radius: 12px;
   }
   .usp-title {
-    font-size: 28px;
+    font-size: 24px;
+  }
+  .usp-subtitle {
+    font-size: 14px;
   }
 }

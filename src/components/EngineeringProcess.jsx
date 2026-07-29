@@ -96,6 +96,8 @@ const processSteps = [
 
 export default function EngineeringProcess() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const stepRefs = React.useRef([]);
+  const timelineContainerRef = React.useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -104,6 +106,22 @@ export default function EngineeringProcess() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Auto-scroll timeline to keep active step visible without vertically jumping the page
+  useEffect(() => {
+    if (stepRefs.current[activeStepIndex] && timelineContainerRef.current) {
+      const container = timelineContainerRef.current;
+      const activeStep = stepRefs.current[activeStepIndex];
+      
+      // Calculate position to center the active step horizontally
+      const scrollLeftPos = activeStep.offsetLeft - (container.clientWidth / 2) + (activeStep.clientWidth / 2);
+      
+      container.scrollTo({
+        left: scrollLeftPos,
+        behavior: 'smooth'
+      });
+    }
+  }, [activeStepIndex]);
 
   const handlePrevStep = () => {
     setActiveStepIndex((prev) => (prev === 0 ? processSteps.length - 1 : prev - 1));
@@ -119,7 +137,7 @@ export default function EngineeringProcess() {
     <section className="process-section" id="process-sec">
       {/* Slowly moving background image */}
       <div className="process-bg-moving-wrapper">
-        <img src={bg1Image} alt="" className="process-bg-moving" aria-hidden="true" />
+        <img src={bg1Image} alt="" className="process-bg-moving" aria-hidden="true" loading="lazy" decoding="async" />
       </div>
 
 
@@ -128,11 +146,11 @@ export default function EngineeringProcess() {
         {/* Section Header */}
         <div className="process-header">
           <span className="sub-title">OUR PROCESS</span>
-          <h2 className="process-main-title">Our Engineering Process</h2>
+          <h2 className="process-main-title heading">Our Engineering Process</h2>
         </div>
 
         {/* 7 Steps Horizontal Timeline Bar */}
-        <div className="process-timeline-container">
+        <div className="process-timeline-container" ref={timelineContainerRef}>
           <div className="process-steps-wrapper">
             {processSteps.map((step, index) => {
               const isActive = index === activeStepIndex;
@@ -142,6 +160,7 @@ export default function EngineeringProcess() {
                 <React.Fragment key={step.id}>
                   {/* Step Item */}
                   <div
+                    ref={(el) => (stepRefs.current[index] = el)}
                     className={`process-step-node ${isActive ? 'active' : ''}`}
                     onClick={() => setActiveStepIndex(index)}
                     role="button"
@@ -186,7 +205,7 @@ export default function EngineeringProcess() {
           </button>
 
           {/* Card Body */}
-          <div className="process-main-card" key={activeStepIndex}>
+          <div className="process-main-card">
             <div className="process-card-content-grid">
               {/* Left Side Details */}
               <div className="process-card-text-side">
@@ -205,6 +224,8 @@ export default function EngineeringProcess() {
                     src={currentStep.image}
                     alt={currentStep.title}
                     className="process-card-image"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

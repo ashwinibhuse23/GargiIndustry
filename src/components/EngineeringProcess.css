@@ -102,6 +102,10 @@
   margin: 4px 0 0 0;
   text-transform: none;
   font-family: var(--title-font, 'Manrope', 'Inter', sans-serif);
+  margin-top: -20px;
+}
+.heading{
+  margin-top: -10px;
 }
 
 .process-title-line {
@@ -592,9 +596,14 @@
   .process-timeline-container {
     overflow-x: auto;
     padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .process-timeline-container::-webkit-scrollbar {
+    display: none;
   }
   .process-steps-wrapper {
-    min-width: 850px;
+    min-width: 780px;
     padding: 0 10px;
   }
   .process-card-text-side {
@@ -610,14 +619,26 @@
 }
 
 @media (max-width: 768px) {
+  .process-section {
+    padding: 75px 0 40px;
+  }
+  .process-header {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .process-timeline-container {
+    margin-top: 35px;
+  }
   .process-card-content-grid {
     flex-direction: column;
   }
   .process-card-media-side {
-    padding: 0 20px 20px 20px;
+    padding: 0;
+    max-height: 340px;
   }
   .process-card-image-container {
-    min-height: 220px;
+    min-height: 300px;
+    border-radius: 0 0 20px 20px;
   }
   .process-main-title {
     font-size: 26px;
@@ -625,12 +646,67 @@
   .process-arrow-btn {
     width: 36px;
     height: 36px;
+    top: auto;
+    bottom: 15px;
+    transform: none;
+    z-index: 10;
   }
   .arrow-prev {
-    left: -10px;
+    left: auto;
+    right: 60px;
+  }
+  .arrow-prev:hover {
+    transform: scale(1.15) rotate(-4deg);
   }
   .arrow-next {
-    right: -10px;
+    right: 15px;
+  }
+  .arrow-next:hover {
+    transform: scale(1.15) rotate(4deg);
+  }
+}
+
+@media (max-width: 575px) {
+  .process-steps-wrapper {
+    min-width: 680px;
+  }
+  .process-step-node {
+    width: 75px;
+  }
+  .process-icon-box {
+    width: 44px;
+    height: 44px;
+  }
+  .process-step-number {
+    font-size: 13px;
+  }
+  .process-step-title {
+    font-size: 11px;
+  }
+  .process-connector {
+    top: -19px;
+  }
+  .process-main-title {
+    font-size: 22px;
+  }
+  .process-header .process-main-title {
+    margin-top: 8px;
+  }
+  .process-card-text-side {
+    padding: 22px 18px;
+  }
+  .process-card-heading {
+    font-size: 20px;
+  }
+  .process-card-body {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .process-card-media-side {
+    max-height: 320px;
+  }
+  .process-card-image-container {
+    min-height: 280px;
   }
 }
 

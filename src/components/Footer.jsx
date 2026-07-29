@@ -1,152 +1,102 @@
 import React from 'react';
+import logoImg from '../assets/img/footerlogo.png';
+import { 
+  LuMapPin, 
+  LuPhone, 
+  LuMail, 
+  LuGlobe, 
+  LuChevronRight
+} from 'react-icons/lu';
+import './Footer.css';
 
 export default function Footer() {
   return (
-    <>
-      <footer
-      className="footer-wrapper footer-layout1"
-      data-bg-src="/assets/img/bg/footer-bg.png"
-    >
-     
-      <div className="widget-area">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-md-6 col-xxl-3 col-xl-3">
-              <div className="widget footer-widget">
-                <div className="th-widget-about">
-                  <div className="about-logo">
-                    <a href="index.html"
-                      ><img src="/assets/img/gargilogo.png" alt="Gargi"
-                    /></a>
-                  </div>
-                  <p className="about-text">
-                    Mauris blandit aliquet elit, eget tincidunt Nibh pulvinar a.
-                    Donec rutrum congue leo Eget malesuada. Cras ultricies
-                    ligula
-                  </p>
-                  <div className="th-social">
-                    <a href="https://www.facebook.com/"
-                      ><i className="fab fa-facebook-f"></i
-                    ></a>
-                    <a href="https://www.twitter.com/"
-                      ><i className="fab fa-twitter"></i
-                    ></a>
-                    <a href="https://www.linkedin.com/"
-                      ><i className="fab fa-linkedin-in"></i
-                    ></a>
-                    <a href="https://www.whatsapp.com/"
-                      ><i className="fab fa-whatsapp"></i
-                    ></a>
-                  </div>
+    <footer className="exact-footer">
+
+      <div className="footer-main-container">
+        <div className="footer-grid">
+          
+          {/* Column 1: Logo & Description */}
+          <div className="footer-col footer-col-brand">
+            <div className="footer-logo-wrap">
+              <a href="/">
+                <img src={logoImg} alt="Gargi Engineering Services" className="footer-logo-img" />
+              </a>
+            </div>
+            <p className="footer-brand-desc">
+              Delivering innovative and cost-effective engineering solutions in Pre-Engineered Buildings, structural design, and turnkey engineering support.
+            </p>
+          </div>
+
+          {/* Column 2: Quick Links */}
+          <div className="footer-col">
+            <h3 className="footer-title">Quick Links</h3>
+            <ul className="footer-links-list">
+              <li><a href="/"><LuChevronRight className="link-arrow" /> Home</a></li>
+              <li><a href="/service"><LuChevronRight className="link-arrow" /> Our Services</a></li>
+              <li><a href="/projects"><LuChevronRight className="link-arrow" /> Projects</a></li>
+              <li><a href="/about"><LuChevronRight className="link-arrow" /> About Us</a></li>
+              <li><a href="/knowledge-center"><LuChevronRight className="link-arrow" /> Blog</a></li>
+              <li><a href="/about#careers"><LuChevronRight className="link-arrow" /> Careers</a></li>
+              <li><a href="/contact"><LuChevronRight className="link-arrow" /> Contact Us</a></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Our Services */}
+          <div className="footer-col">
+            <h3 className="footer-title">Our Services</h3>
+            <ul className="footer-links-list">
+              <li><a href="/peb-design"><LuChevronRight className="link-arrow" /> PEB Design</a></li>
+              <li><a href="/peb-detailing"><LuChevronRight className="link-arrow" /> PEB Detailing</a></li>
+              <li><a href="/peb-design"><LuChevronRight className="link-arrow" /> Structural Engineering</a></li>
+              <li><a href="/value-engineering"><LuChevronRight className="link-arrow" /> Value Engineering</a></li>
+              <li><a href="/peb-detailing"><LuChevronRight className="link-arrow" /> Tekla Modeling</a></li>
+              <li><a href="/material-take-off"><LuChevronRight className="link-arrow" /> Estimation & Takeoff</a></li>
+              <li><a href="/material-take-off"><LuChevronRight className="link-arrow" /> Material Take-Off</a></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Us */}
+          <div className="footer-col">
+            <h3 className="footer-title">Contact Us</h3>
+            <div className="footer-contact-list">
+              <div className="contact-item">
+                <div className="contact-icon-circle"><LuMapPin /></div>
+                <span className="contact-text">
+                  PCMC Chinchwad Pune and Nagpur, Maharashtra, India
+                </span>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon-circle"><LuPhone /></div>
+                <div className="contact-text-group">
+                  <span>+91 78758 00441</span>
                 </div>
               </div>
-            </div>
-            <div className="col-md-6 col-xl-auto">
-              <div className="widget widget_nav_menu footer-widget">
-                <h3 className="widget_title">Our Services</h3>
-                <div className="menu-all-pages-container">
-                  <ul className="menu">
-                    <li><a href="service.html">Residential roofing</a></li>
-                    <li><a href="service.html">Commercial Roofing</a></li>
-                    <li><a href="service.html">Commercial Roofing</a></li>
-                    <li><a href="service.html">Vegetative Roofing</a></li>
-                    <li><a href="service.html">Built-Up Roofing</a></li>
-                  </ul>
-                </div>
+              <div className="contact-item">
+                <div className="contact-icon-circle"><LuMail /></div>
+                <span className="contact-text">pebgargiengineering@gmail.com</span>
               </div>
+             
             </div>
-            <div className="col-md-6 col-xl-auto">
-              <div className="widget footer-widget">
-                <h3 className="widget_title">Recent Posts</h3>
-                <div className="recent-post-wrap">
-                  <div className="recent-post">
-                    <div className="media-img">
-                      <a href="blog-details.html"
-                        ><img
-                          src="/assets/img/widget/footer-widget_1_1.jpg"
-                          alt="Blog Image"
-                      /></a>
-                    </div>
-                    <div className="media-body">
-                      <div className="recent-post-meta">
-                        <a href="blog.html"
-                          ><i className="fal fa-calendar-days"></i>21 June, 2023</a
-                        >
-                      </div>
-                      <h4 className="post-title">
-                        <a className="text-inherit" href="blog-details.html"
-                          >The solution to your Roof problems</a
-                        >
-                      </h4>
-                    </div>
-                  </div>
-                  <div className="recent-post">
-                    <div className="media-img">
-                      <a href="blog-details.html"
-                        ><img
-                          src="/assets/img/widget/footer-widget_1_2.jpg"
-                          alt="Blog Image"
-                      /></a>
-                    </div>
-                    <div className="media-body">
-                      <div className="recent-post-meta">
-                        <a href="blog.html"
-                          ><i className="fal fa-calendar-days"></i>22 June, 2023</a
-                        >
-                      </div>
-                      <h4 className="post-title">
-                        <a className="text-inherit" href="blog-details.html"
-                          >Quick and efficient Roof repairs.</a
-                        >
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-xl-auto">
-              <div className="widget newsletter-widget footer-widget">
-                <h3 className="widget_title">Subscribe Now</h3>
-                <p className="footer-text">
-                  Subscribe our newsletter to get our latest Update & news
-                </p>
-                <form className="newsletter-form">
-                  <input
-                    className="form-control"
-                    type="email"
-                    placeholder="Email Address"
-                    required=""
-                  />
-                  <button type="submit" className="th-btn">
-                    <i className="far fa-paper-plane"></i>
-                  </button>
-                </form>
-              </div>
-            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Bottom Copyright Bar */}
+      <div className="footer-bottom-bar">
+        <div className="footer-main-container bottom-flex">
+          <p className="copyright-text">
+            © 2026 All Rights Reserved <span className="brand-orange">Gargi Engineering Services</span>
+          </p>
+          <div className="bottom-links">
+            <a href="/about">Privacy Policy</a>
+            <span className="divider">|</span>
+            <a href="/about">Terms & Conditions</a>
           </div>
         </div>
       </div>
-      <div className="copyright-wrap bg-title">
-        <div className="container">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-md-6">
-              <p className="copyright-text">
-                © 2023 All Rights Reserved
-                <a href="https://themeforest.net/user/th">Ruffer</a>
-              </p>
-            </div>
-            <div className="col-md-6 text-end d-none d-md-block">
-              <div className="footer-links">
-                <ul>
-                  <li><a href="about.html">Privacy Policy</a></li>
-                  <li><a href="about.html">Terms & Condition</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </footer>
-    </>
   );
 }

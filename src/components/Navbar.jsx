@@ -1,8 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import logoImg from '../assets/img/gargilogo.png';
 import logoVideo from '../assets/img/logoback.mp4';
+import ConsultationModal from './ConsultationModal';
 
 export default function Navbar() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const closeBtnRef = useRef(null);
+
+  const closeMobileMenu = useCallback((e) => {
+    if (e && typeof e.stopPropagation === 'function') {
+      e.stopPropagation();
+    }
+    setIsMobileMenuOpen(false);
+    document.querySelectorAll('.th-menu-wrapper').forEach((el) => {
+      el.classList.remove('th-body-visible');
+    });
+  }, []);
+
+  const openMobileMenu = useCallback((e) => {
+    if (e && typeof e.stopPropagation === 'function') {
+      e.stopPropagation();
+    }
+    setIsMobileMenuOpen(true);
+    document.querySelectorAll('.th-menu-wrapper').forEach((el) => {
+      el.classList.add('th-body-visible');
+    });
+  }, []);
+
+  // Capture phase native listener to ensure close handler runs before jQuery native stopPropagation
+  useEffect(() => {
+    const btn = closeBtnRef.current;
+    if (!btn) return;
+
+    const handleNativeClose = (e) => {
+      closeMobileMenu(e);
+    };
+
+    btn.addEventListener('click', handleNativeClose, true);
+    btn.addEventListener('touchstart', handleNativeClose, true);
+
+    // Unbind jQuery click traps on menu wrapper
+    const clearJQueryTraps = () => {
+      if (window.jQuery) {
+        window.jQuery('.th-menu-wrapper').off('click');
+        window.jQuery('.th-menu-wrapper div').off('click');
+      }
+    };
+    clearJQueryTraps();
+    const t1 = setTimeout(clearJQueryTraps, 300);
+    const t2 = setTimeout(clearJQueryTraps, 800);
+
+    return () => {
+      btn.removeEventListener('click', handleNativeClose, true);
+      btn.removeEventListener('touchstart', handleNativeClose, true);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [closeMobileMenu]);
+
   return (
     <>
       <div className="preloader">
@@ -10,94 +66,95 @@ export default function Navbar() {
         <div className="preloader-inner"><span className="loader"></span></div>
       </div>
 
-      <div className="popup-search-box d-none d-lg-block">
+      <div className="popup-search-box d-none d-xl-block">
         <button className="searchClose"><i className="fal fa-times"></i></button>
         <form action="#">
           <input type="text" placeholder="What are you looking for?" />
           <button type="submit"><i className="fal fa-search"></i></button>
         </form>
       </div>
-      <div className="th-menu-wrapper">
-        <div className="th-menu-area text-center">
-          <button className="th-menu-toggle"><i className="fal fa-times"></i></button>
+
+      {/* ══ MOBILE MENU DRAWER ══ */}
+      <div 
+        className={`th-menu-wrapper ${isMobileMenuOpen ? 'th-body-visible' : ''}`}
+        onClick={closeMobileMenu}
+      >
+        <div className="th-menu-area text-center" onClick={(e) => e.stopPropagation()}>
+          <button type="button" className="th-menu-close-btn" ref={closeBtnRef} onClick={closeMobileMenu}>
+            <i className="far fa-times"></i>
+          </button>
           <div className="mobile-logo">
-            <a href="index.html"
-            ><img src={logoImg} className="custom-logo" alt="Ruffer"
-              /></a>
+            <a href="/" onClick={closeMobileMenu}>
+              <img src={logoImg} className="custom-logo" alt="Gargi Engineering" />
+            </a>
           </div>
           <div className="th-mobile-menu">
             <ul>
-              <li><a href="/">Home</a></li>
+              <li><a href="/" onClick={closeMobileMenu}>Home</a></li>
               <li className="menu-item-has-children">
-                <a href="/about">About Us</a>
+                <a href="/about" onClick={closeMobileMenu}>About Us</a>
                 <ul className="sub-menu">
-                  <li><a href="/about#company">Company</a></li>
-                  <li><a href="/about#leadership">Leadership</a></li>
-                  <li><a href="/about#philosophy">Engineering Philosophy</a></li>
-                  <li><a href="/about#technology">Technology</a></li>
-                  <li><a href="/about#careers">Careers</a></li>
+                  <li><a href="/about#company" onClick={closeMobileMenu}>Company</a></li>
+                  <li><a href="/about#leadership" onClick={closeMobileMenu}>Leadership</a></li>
+                  <li><a href="/about#philosophy" onClick={closeMobileMenu}>Engineering Philosophy</a></li>
+                  <li><a href="/about#technology" onClick={closeMobileMenu}>Technology</a></li>
+                  <li><a href="/about#careers" onClick={closeMobileMenu}>Careers</a></li>
                 </ul>
               </li>
               <li className="menu-item-has-children">
-                <a href="/service">Services</a>
+                <a href="/service" onClick={closeMobileMenu}>Services</a>
                 <ul className="sub-menu">
-                  <li><a href="/service#peb-design">PEB Design</a></li>
-                  <li><a href="/service#peb-detailing">PEB Detailing</a></li>
-                  <li><a href="/service#structural-engineering">Structural Engineering</a></li>
-                  <li><a href="/service#value-engineering">Value Engineering</a></li>
-                  <li><a href="/service#tekla-modeling">Tekla Modeling</a></li>
-                  <li><a href="/service#connection-design">Connection Design</a></li>
-                  <li><a href="/service#material-takeoff">Material Take-off</a></li>
-                  <li><a href="/service#turnkey-engineering">Turnkey Engineering</a></li>
-                  <li><a href="/service#civil-design">Civil Design</a></li>
+                  <li><a href="/peb-design" onClick={closeMobileMenu}>PEB Design & Structural Engineering</a></li>
+                  <li><a href="/peb-detailing" onClick={closeMobileMenu}>PEB Detailing & Tekla Modelling</a></li>
+                  <li><a href="/connection-design" onClick={closeMobileMenu}>Connection Design & Engineering</a></li>
+                  <li><a href="/value-engineering" onClick={closeMobileMenu}>Value Engineering</a></li>
+                  <li><a href="/material-take-off" onClick={closeMobileMenu}>Material Take-Off & Estimation</a></li>
+                  <li><a href="/fabrication-support" onClick={closeMobileMenu}>Fabrication & Construction Support</a></li>
+                  <li><a href="/civil-design" onClick={closeMobileMenu}>Civil Design & Construction Consulting</a></li>
+                  <li><a href="/digital-engineering" onClick={closeMobileMenu}>Digital Engineering Services</a></li>
                 </ul>
               </li>
               <li className="menu-item-has-children">
-                <a href="/project">Industries</a>
+                <a href="/industries" onClick={closeMobileMenu}>Industries</a>
                 <ul className="sub-menu">
-                  <li><a href="/project#automotive">Automotive</a></li>
-                  <li><a href="/project#infrastructure">Infrastructure</a></li>
-                  <li><a href="/project#logistics">Logistics</a></li>
-                  <li><a href="/project#retail">Retail</a></li>
-                  <li><a href="/project#renewable-energy">Renewable Energy</a></li>
-                  <li><a href="/project#warehousing">Warehousing</a></li>
-                  <li><a href="/project#manufacturing">Manufacturing</a></li>
-                  <li><a href="/project#industrial">Industrial</a></li>
-                  <li><a href="/project#food-processing">Food Processing</a></li>
+                  <li><a href="/industries#automotive" onClick={closeMobileMenu}>Automotive</a></li>
+                  <li><a href="/industries#warehousing" onClick={closeMobileMenu}>Warehousing & Logistics</a></li>
+                  <li><a href="/industries#manufacturing" onClick={closeMobileMenu}>Manufacturing</a></li>
+                  <li><a href="/industries#heavy" onClick={closeMobileMenu}>Heavy Engineering</a></li>
+                  <li><a href="/industries#renewable" onClick={closeMobileMenu}>Renewable Energy</a></li>
+                  <li><a href="/industries#retail" onClick={closeMobileMenu}>Retail & Commercial</a></li>
+                  <li><a href="/industries#industrial" onClick={closeMobileMenu}>Industrial Projects</a></li>
+                  <li><a href="/industries#food" onClick={closeMobileMenu}>Food Processing</a></li>
+                  <li><a href="/industries#infrastructure" onClick={closeMobileMenu}>Infrastructure</a></li>
                 </ul>
               </li>
-              <li><a href="/blog">Projects</a></li>
-              <li><a href="/blog">Knowledge Center</a></li>
-             
-              <li><a href="/contact">Contact Us</a></li>
+              <li><a href="/projects" onClick={closeMobileMenu}>Projects</a></li>
+              <li><a href="/knowledge-center" onClick={closeMobileMenu}>Knowledge Center</a></li>
+              <li><a href="/contact" onClick={closeMobileMenu}>Contact Us</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <header className="th-header header-layout1 onepage-nav">
+
+      <header className="th-header header-layout1">
         <div className="sticky-wrapper">
           <div className="header-top">
             <div className="container th-container">
-              <div
-                className="row justify-content-center justify-content-lg-between align-items-center gy-2"
-              >
-                <div className="col-auto d-none d-lg-block">
+              <div className="row justify-content-center justify-content-lg-between align-items-center gy-2">
+                <div className="col-auto d-none d-xl-block">
                   <div className="header-links">
                     <ul>
                       <li>
-                        <i className="far fa-phone"></i
-                        ><a href="tel:+91 78758 00441">+91 78758 00441</a>
+                        <i className="far fa-phone"></i>
+                        <a href="tel:+917875800441">+91 78758 00441</a>
                       </li>
                       <li>
-                        <i className="far fa-envelope-open"></i
-                        ><a href="mailto:info@Ruffer.com"
-                        >pebgargiengineering@gmail.com</a
-                        >
+                        <i className="far fa-envelope-open"></i>
+                        <a href="mailto:pebgargiengineering@gmail.com">pebgargiengineering@gmail.com</a>
                       </li>
                     </ul>
                   </div>
                 </div>
-              
               </div>
             </div>
           </div>
@@ -106,13 +163,13 @@ export default function Navbar() {
               <div className="row align-items-center justify-content-between">
                 <div className="col-auto">
                   <div className="header-logo">
-                    <a href="index.html"
-                    ><img src={logoImg} className="custom-logo" alt="Ruffer"
-                      /></a>
+                    <a href="/">
+                      <img src={logoImg} className="custom-logo" alt="Gargi Engineering" />
+                    </a>
                   </div>
                 </div>
                 <div className="col-auto">
-                  <nav className="main-menu d-none d-lg-inline-block">
+                  <nav className="main-menu d-none d-xl-inline-block">
                     <ul>
                       <li><a href="/">Home</a></li>
                       <li className="menu-item-has-children">
@@ -128,56 +185,61 @@ export default function Navbar() {
                       <li className="menu-item-has-children">
                         <a href="/service">Services</a>
                         <ul className="sub-menu">
-                          <li><a href="/service#peb-design">PEB Design</a></li>
-                          <li><a href="/service#peb-detailing">PEB Detailing</a></li>
-                          <li><a href="/service#structural-engineering">Structural Engineering</a></li>
-                          <li><a href="/service#value-engineering">Value Engineering</a></li>
-                          <li><a href="/service#tekla-modeling">Tekla Modeling</a></li>
-                          <li><a href="/service#connection-design">Connection Design</a></li>
-                          <li><a href="/service#material-takeoff">Material Take-off</a></li>
-                          <li><a href="/service#turnkey-engineering">Turnkey Engineering</a></li>
-                          <li><a href="/service#civil-design">Civil Design</a></li>
+                          <li><a href="/peb-design">PEB Design & Structural Engineering</a></li>
+                          <li><a href="/peb-detailing">PEB Detailing & Tekla Modelling</a></li>
+                          <li><a href="/connection-design">Connection Design & Engineering</a></li>
+                          <li><a href="/value-engineering">Value Engineering</a></li>
+                          <li><a href="/material-take-off">Material Take-Off & Estimation</a></li>
+                          <li><a href="/fabrication-support">Fabrication & Construction Support</a></li>
+                          <li><a href="/civil-design">Civil Design & Construction Consulting</a></li>
+                          <li><a href="/digital-engineering">Digital Engineering Services</a></li>
                         </ul>
                       </li>
                       <li className="menu-item-has-children">
-                        <a href="/project">Industries</a>
+                        <a href="/industries">Industries</a>
                         <ul className="sub-menu">
-                          <li><a href="/project#automotive">Automotive</a></li>
-                          <li><a href="/project#infrastructure">Infrastructure</a></li>
-                          <li><a href="/project#logistics">Logistics</a></li>
-                          <li><a href="/project#retail">Retail</a></li>
-                          <li><a href="/project#renewable-energy">Renewable Energy</a></li>
-                          <li><a href="/project#warehousing">Warehousing</a></li>
-                          <li><a href="/project#manufacturing">Manufacturing</a></li>
-                          <li><a href="/project#industrial">Industrial</a></li>
-                          <li><a href="/project#food-processing">Food Processing</a></li>
+                          <li><a href="/industries#automotive">Automotive</a></li>
+                          <li><a href="/industries#warehousing">Warehousing & Logistics</a></li>
+                          <li><a href="/industries#manufacturing">Manufacturing</a></li>
+                          <li><a href="/industries#heavy">Heavy Engineering</a></li>
+                          <li><a href="/industries#renewable">Renewable Energy</a></li>
+                          <li><a href="/industries#retail">Retail & Commercial</a></li>
+                          <li><a href="/industries#industrial">Industrial Projects</a></li>
+                          <li><a href="/industries#food">Food Processing</a></li>
+                          <li><a href="/industries#infrastructure">Infrastructure</a></li>
                         </ul>
                       </li>
-                      <li><a href="/blog">Projects</a></li>
-                      <li><a href="/blog">Knowledge Center</a></li>
-                    
-
+                      <li><a href="/projects">Projects</a></li>
+                      <li><a href="/knowledge-center">Knowledge Center</a></li>
                       <li><a href="/contact">Contact Us</a></li>
                     </ul>
                   </nav>
-                  <button type="button" className="th-menu-toggle d-block d-lg-none">
+                  
+                  {/* Mobile Menu Toggle Button */}
+                  <button 
+                    type="button" 
+                    className="th-menu-open-btn d-block d-xl-none"
+                    onClick={openMobileMenu}
+                  >
                     <i className="far fa-bars"></i>
                   </button>
                 </div>
-                <div className="col-auto d-none d-lg-block">
-                  <div className="header-button">
-                    <button type="button" className="simple-icon searchBoxToggler">
-                      <i className="far fa-search"></i>
-                    </button>
 
-                    <a href="/contact" className="th-btn"
-                    >Get a Quote<i className="fas fa-arrow-right ms-2"></i
-                    ></a>
+                <div className="col-auto d-none d-xl-block">
+                  <div className="header-button">
+                    <button
+                      type="button"
+                      className="th-btn"
+                      onClick={() => setIsConsultationOpen(true)}
+                    >
+                      Get a Quote<i className="fas fa-arrow-right ms-2"></i>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
           <div className="logo-bg">
             <video
               src={logoVideo}
@@ -190,6 +252,11 @@ export default function Navbar() {
           </div>
         </div>
       </header>
+
+      <ConsultationModal 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)} 
+      />
     </>
   );
 }

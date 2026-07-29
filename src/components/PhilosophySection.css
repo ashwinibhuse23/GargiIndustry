@@ -302,4 +302,27 @@
   .phil-container {
     padding: 0 20px;
   }
+  .phil-bg-container {
+    width: 100%;
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: 480px) {
+  .phil-title {
+    font-size: 26px;
+  }
+  .phil-card-title {
+    font-size: 16px;
+  }
+  .phil-card-desc {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .phil-card-body {
+    padding: 16px 14px;
+  }
+  .phil-card-img-wrapper {
+    height: 190px;
+  }
 }

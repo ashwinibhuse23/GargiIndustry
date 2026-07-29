@@ -107,12 +107,31 @@
   word-break: break-word;
 }
 
-/* Adjust the button group margin */
+/* Adjust the button group margin and alignment */
 .hero-style1 .btn-group {
-  margin-top: 10px !important;
+  margin-top: 15px !important;
   display: flex !important;
-  gap: 15px !important;
-  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  margin-left: 0 !important;
+  max-width: 540px !important; /* Increased width to prevent button text wrapping */
+}
+
+.hero-style1 .btn-group .th-btn {
+  flex: 1 1 0 !important; /* Ensures exact same width */
+  width: auto !important;
+  min-width: auto !important;
+  padding: 16px 24px !important; /* Adjusted padding for better look */
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  border-radius: 6px !important;
+  text-align: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important; /* Prevent text wrapping */
 }
 
 /* Adjust the subtitle for better spacing */
@@ -137,26 +156,38 @@
    Navbar & Logo Responsive Overrides
    ========================================== */
 
-/* Resize logo to fit inside the header background shape */
+/* Clean Responsive Logo & Background Shape */
+.header-logo {
+  display: flex;
+  align-items: center;
+  padding: 4px 0 !important;
+  position: relative;
+  z-index: 5;
+}
+
 .header-logo .custom-logo {
-  max-width: 520px !important; 
-  max-height: 130px !important;
+  max-width: 480px !important; 
+  max-height: 105px !important;
+  width: auto !important;
   height: auto !important;
-  object-fit: contain;
-  margin-left: -55px !important;
-  transform: scale(1.18);
+  object-fit: contain !important;
+  margin-left: 18px !important;
+  transform: scale(1.08);
   transform-origin: left center;
+  display: block !important;
 }
 
 .mobile-logo .custom-logo {
   max-width: 180px !important;
-  height: auto;
+  height: auto !important;
+  object-fit: contain;
 }
 
-/* Decrease Navbar Height Further */
+/* Decrease Navbar Height */
 .th-header .menu-area {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
+  position: relative;
 }
 
 .th-header .main-menu > ul > li > a {
@@ -164,30 +195,184 @@
   padding-bottom: 20px !important;
 }
 
-.th-header .header-logo {
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
-}
-
-/* Ensure responsiveness on smaller screens */
+/* Tablet Responsive (992px - 1199px) */
 @media (max-width: 1199px) {
   .header-logo .custom-logo {
-    max-width: 150px !important;
-    margin-left: -15px;
-    transform: scale(1.1);
+    max-width: 360px !important;
+    max-height: 85px !important;
+    margin-left: 12px !important;
+    transform: none;
   }
 }
 
-@media (max-width: 991px) {
+/* Mobile Responsive (< 1200px) - Clean Pristine Mobile/Tablet Header Bar */
+@media (max-width: 1199px) {
+  /* Hide the top black bar entirely on mobile */
+  .th-header .header-top {
+    display: none !important;
+  }
+
+  /* Set the white background and shadow on the parent wrapper */
+  .th-header .sticky-wrapper {
+    background: #ffffff !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08) !important;
+    position: relative !important;
+  }
+
+  /* Make menu-area transparent so the logo-bg showing behind it is visible */
+  .th-header .menu-area {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 5px 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* Show the logo background slant polygon shape on mobile and size it properly */
+  .th-header .logo-bg {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 220px !important;
+    max-width: 220px !important;
+    height: 100% !important;
+    z-index: 1 !important;
+  }
+
+  .header-logo {
+    padding: 0 !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
   .header-logo .custom-logo {
-    margin-left: 0;
-    transform: scale(1.05);
+    max-width: 500px !important;
+    max-height: 60px !important;
+    margin-left: 15px !important;
+    transform: none !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .th-menu-open-btn {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--theme-color, #E63A27) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(230, 58, 39, 0.3) !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .header-logo .custom-logo {
+    max-width: 400px !important;
+    max-height: 80px !important;
+    margin-left: 30px !important;
+  }
+  .th-header .logo-bg {
+    width: 190px !important;
+    max-width: 190px !important;
+  }
+}
+
+/* ==========================================
+   Mobile Menu Drawer White Theme & Close Button Fixes
+   ========================================== */
+.th-menu-wrapper .mobile-logo {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f0f4f8 !important;
+  padding-bottom: 25px !important;
+  padding-top: 35px !important;
+}
+
+.th-menu-wrapper .mobile-logo .custom-logo {
+  max-width: 400px !important;
+  max-height: 80px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+}
+
+.th-menu-wrapper .th-menu-close-btn {
+  position: absolute !important;
+  right: 15px !important;
+  top: 15px !important;
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  font-size: 16px !important;
+  color: #141422 !important;
+  background-color: #f5f5f7 !important;
+  border: 1px solid #e1e1e6 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.th-menu-wrapper .th-menu-close-btn:hover {
+  background-color: var(--theme-color, #E63A27) !important;
+  color: #ffffff !important;
+  border-color: var(--theme-color, #E63A27) !important;
+  box-shadow: 0 4px 12px rgba(230, 58, 39, 0.25) !important;
+}
+
+/* Remove prefix arrows from mobile menu links and align text */
+.th-mobile-menu ul li a:before {
+  display: none !important;
+}
+
+.th-mobile-menu ul li a {
+  padding-left: 0 !important;
+}
+
+@keyframes navCrissCrossLeft {
+  0% {
+    left: -20px;
+  }
+  50% {
+    left: 50%;
+    height: 20px;
+    width: 20px;
+  }
+  100% {
+    left: 50%;
+    height: 450px;
+    width: 450px;
+  }
+}
+
+@keyframes navCrissCrossRight {
+  0% {
+    right: -20px;
+  }
+  50% {
+    right: 50%;
+    height: 20px;
+    width: 20px;
+  }
+  100% {
+    right: 50%;
+    height: 450px;
+    width: 450px;
   }
 }
 
 /* Position the search button and header buttons */
 .th-header .header-button {
-  margin-right: 0; /* Aligns the button block to the right edge */
+  margin-right: 28px !important; /* Slightly shift button to the left side */
   display: flex;
   align-items: center;
   gap: 15px;
@@ -195,12 +380,76 @@
 
 /* Force the 'Get a Quote' button to show, and adjust to a proper size */
 .th-header .header-button .th-btn {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
   display: inline-flex !important;
-  padding: 14px 26px !important; /* Proper proportioned padding */
-  font-size: 14px !important;    /* Slightly larger readable text */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #E63A27 !important;
+  color: #ffffff !important;
+  padding: 14px 26px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: none !important;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(230, 58, 39, 0.35);
   min-height: auto !important;
   height: auto !important;
   line-height: normal !important;
+}
+
+.th-header .header-button .th-btn:before,
+.th-header .header-button .th-btn:after {
+  content: "";
+  position: absolute;
+  background-color: #ffffff;
+  z-index: -1;
+  transition: all 0.4s ease-out;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.th-header .header-button .th-btn:before {
+  left: -20px;
+  transform: translate(-50%, -50%);
+}
+
+.th-header .header-button .th-btn:after {
+  right: -20px;
+  transform: translate(50%, -50%);
+}
+
+.th-header .header-button .th-btn:hover {
+  color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.th-header .header-button .th-btn:hover:before {
+  animation: navCrissCrossLeft 0.8s both alternate;
+}
+
+.th-header .header-button .th-btn:hover:after {
+  animation: navCrissCrossRight 0.8s both alternate;
+}
+
+.th-header .header-button .th-btn i,
+.th-header .header-button .th-btn svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.th-header .header-button .th-btn:hover i,
+.th-header .header-button .th-btn:hover svg {
+  color: #000000 !important;
+  transform: translateX(4px);
 }
 
 /* ==========================================
@@ -528,9 +777,17 @@
 }
 
 .counter-number-val .plus-sign {
-  color: #ffffff;
-  font-size: 26px;
-  font-weight: 700;
+  color: var(--theme-color, #E63A27);
+  font-size: 32px;
+  font-weight: 800;
+  margin-left: 2px;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(230, 58, 39, 0.6);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-counter-card:hover .counter-number-val .plus-sign {
+  transform: scale(1.15) rotate(6deg);
 }
 
 .counter-label-text {
@@ -703,26 +960,107 @@
 
 @media (max-width: 767px) {
   .hero-counter-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
   }
-  .hero-counter-card:nth-child(3n) {
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  .hero-counter-card {
+    width: calc((100% - 30px) / 3);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 14px;
+    background-color: #16181d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
-  .hero-counter-card:nth-child(2n) {
-    border-right: none;
+  .hero-counter-card:nth-child(4),
+  .hero-counter-card:nth-child(5) {
+    width: calc((100% - 15px) / 2);
   }
 }
 
 @media (max-width: 575px) {
   .hero-counter-grid {
-    grid-template-columns: 1fr;
+    gap: 10px;
   }
   .hero-counter-card {
-    border-right: none !important;
-    padding: 26px 18px 30px 18px;
+    width: calc((100% - 20px) / 3);
+    padding: 10px 4px 14px 4px !important;
+    border-radius: 8px;
+    min-height: auto;
+  }
+  .hero-counter-card:nth-child(4),
+  .hero-counter-card:nth-child(5) {
+    width: calc((100% - 10px) / 2);
   }
   .counter-number-val {
-    font-size: 24px;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .counter-number-val .plus-sign {
+    font-size: 13px;
+    margin-left: 0;
+  }
+  .counter-label-text {
+    font-size: 9.5px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 0;
+  }
+  .counter-icon-wrap {
+    margin-bottom: 2px;
+    width: 24px;
+    height: 24px;
+  }
+  .counter-icon-wrap i {
+    font-size: 14px;
+  }
+  .counter-content-box {
+    gap: 4px;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  /* Adjust dots and accents for mobile size */
+  .counter-dots {
+    width: 20px;
+    height: 14px;
+    background-size: 4px 4px;
+  }
+  .counter-dots-tl {
+    top: 8px;
+    left: 8px;
+  }
+  .counter-dots-br {
+    bottom: 8px;
+    right: 8px;
+  }
+  .counter-accents {
+    top: 8px;
+    right: 8px;
+    width: 14px;
+    height: 14px;
+  }
+  .counter-sq.sq-orange {
+    width: 5px;
+    height: 5px;
+  }
+  .counter-sq.sq-white {
+    top: 5px;
+    right: 5px;
+    width: 4px;
+    height: 4px;
+  }
+  .counter-bottom-line {
+    height: 3px;
   }
 }
 
@@ -904,13 +1242,44 @@
   }
 }
 
+@media (max-width: 991px) {
+  .th-hero-wrapper {
+    min-height: 480px !important;
+  }
+  .hero-style1 .hero-title {
+    font-size: clamp(26px, 4.5vw, 34px) !important;
+    line-height: 1.2 !important;
+  }
+  .hero-style1 .hero-text {
+    font-size: 15px !important;
+    margin-bottom: 24px !important;
+  }
+  #service-sec .service-featured_img img {
+    height: 280px !important;
+  }
+  .testi-card {
+    padding: 24px 20px !important;
+  }
+}
+
 @media (max-width: 767px) {
   #about-sec {
-    padding-bottom: 30px !important;
+    padding-top: 15px !important;
+    padding-bottom: 50px !important;
   }
   #service-sec {
-    padding-top: 30px !important;
+    padding-top: 20px !important;
     padding-bottom: 40px !important;
+    margin-top: 20px !important;
+  }
+  #service-sec .title-area {
+    text-align: left !important;
+  }
+  #service-sec .title-area .sec-title {
+    text-align: left !important;
+  }
+  #service-sec .service-featured_img img {
+    height: 220px !important;
   }
   #service-sec .service-featured_content {
     margin-top: -15px !important;
@@ -919,7 +1288,171 @@
     padding: 20px 18px 18px !important;
     min-height: auto !important;
   }
+  #service-sec .service-featured_content .box-title {
+    font-size: 19px !important;
+  }
+  #service-sec .service-featured_text {
+    font-size: 13.5px !important;
+  }
+  .hero-counter-wrap {
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+  .hero-counter-wrap .hero-counter-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .hero-counter-card {
+    padding: 24px 16px;
+    min-height: auto;
+  }
+  .counter-content-box {
+    gap: 12px;
+  }
+  .counter-icon-wrap {
+    font-size: 26px;
+    width: 38px;
+    height: 38px;
+  }
+  .counter-number-val {
+    font-size: clamp(20px, 5vw, 26px);
+  }
+  .counter-label-text {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .testi-area-1 {
+    padding-top: 90px !important;
+  }
 }
+
+@media (max-width: 575px) {
+  .th-hero-wrapper {
+    min-height: 400px !important;
+  }
+  .hero-1 .th-hero-slide,
+  .hero-style1 {
+    padding-top: 35px !important;
+    padding-bottom: 35px !important;
+    min-height: 340px !important;
+  }
+  .hero-style1 .hero-title {
+    font-size: clamp(21px, 6vw, 27px) !important;
+    line-height: 1.25 !important;
+    margin-top: 10px !important;
+    margin-bottom: 12px !important;
+  }
+  .hero-style1 .hero-text {
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 20px !important;
+  }
+  .hero-style1 .btn-group {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 90% !important; /* Slightly reduce width from 100% */
+    max-width: 320px !important; /* Cap width to slightly reduce it */
+    gap: 8px !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    margin-left: 0 !important;
+  }
+  .hero-style1 .btn-group .th-btn {
+    flex: 1 1 0 !important; /* Ensures exact same width */
+    width: auto !important;
+    min-width: auto !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 11px 8px !important; /* Slightly increased height, reduced horizontal padding */
+    font-size: 10.5px !important;
+  }
+  #service-sec .service-featured_img img {
+    height: 190px !important;
+  }
+  #service-sec .service-featured_content {
+    margin-top: -12px !important;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+    padding: 16px 14px 14px !important;
+    border-radius: 12px !important;
+  }
+  .counter-number-val .num-highlight {
+    white-space: normal;
+  }
+  .hero-counter-card .counter-number-val.text-nowrap {
+    white-space: normal !important;
+  }
+  .testi-card {
+    padding: 0 !important;
+  }
+  .testi-card::after {
+    width: 80px !important;
+    height: 160px !important;
+    left: -20px !important;
+    top: -50px !important;
+    border-radius: 40px !important;
+  }
+  .testi-card_profile {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 20px 16px !important;
+    gap: 15px !important;
+  }
+  .testi-card_profile .media-left {
+    margin-right: 0 !important;
+    margin-bottom: 5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .testi-card_avater {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .testi-card .media-left .testi-card_quote {
+    margin-top: 15px !important;
+  }
+  .testi-card .media-left .testi-card_quote img {
+    height: 30px !important;
+    width: auto !important;
+  }
+  .testi-card_profile .media-body {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .testi-card_name {
+    font-size: 15px !important;
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+  }
+  .testi-card_desig {
+    font-size: 12px !important;
+    margin-bottom: 0 !important;
+  }
+  .testi-card_text {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+    margin-top: 10px !important;
+  }
+  .blog-card {
+    margin-bottom: 20px;
+  }
+  .blog-card .blog-img img {
+    height: 190px !important;
+    object-fit: cover !important;
+  }
+  .blog-card .blog-content {
+    padding: 18px 14px !important;
+  }
+  .blog-card .box-title {
+    font-size: 17px !important;
+  }
+}
+
 
 
 

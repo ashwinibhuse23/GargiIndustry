@@ -173,12 +173,16 @@
     border: 5px solid transparent;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
   &::after {
     right: 0;
     border-right-color: var(--border);
   }
+}
+
+.main-menu ul li a,
+.sub-menu li a,
+.th-mobile-menu ul li a,
+.service-card-item,
+.service-card-explore-btn {
+  cursor: pointer !important;
 }

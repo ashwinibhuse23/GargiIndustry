@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,6 +9,7 @@ import DigitalEngineeringUSP from '../components/DigitalEngineeringUSP';
 import OurProjects from '../components/OurProjects';
 import OurClients from '../components/OurClients';
 import BrochureModal from '../components/BrochureModal';
+import ConsultationModal from '../components/ConsultationModal';
 import heroVideo from '../assets/img/herovedio.mp4';
 import buildingImage from '../assets/img/about/building_image.png';
 import aboutImage from '../assets/img/about/about.png';
@@ -25,6 +27,7 @@ import '../about.css';
 
 export default function Home() {
   const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+  const [isConsultOpen, setIsConsultOpen] = useState(false);
   const [isCounterVisible, setIsCounterVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const counterRef = useRef(null);
@@ -81,6 +84,7 @@ export default function Home() {
           loop
           muted
           playsInline
+          preload="metadata"
           src={heroVideo}
         ></video>
         <div className="hero-video-overlay"></div>
@@ -95,12 +99,17 @@ export default function Home() {
                   Structural Consulting | PEB Design | Tekla Detailing | Value Engineering | Turnkey Engineering
                 </p>
                 <div className="btn-group">
-                  <a href="service.html" className="th-btn style3"
-                  >VIEW OUR PROJECTS<i className="fa-regular fa-arrow-right ms-2"></i
-                  ></a>
-                  <a href="contact.html" className="th-btn style2"
-                  >TALK TO A CONSULTANT<i className="fa-regular fa-arrow-right ms-2"></i
-                  ></a>
+                  <Link to="/projects" className="th-btn style3">
+                    VIEW OUR PROJECTS
+                    <i className="fa-regular fa-arrow-right ms-2"></i>
+                  </Link>
+                  <button 
+                    type="button" 
+                    className="th-btn style2"
+                    onClick={() => setIsConsultOpen(true)}
+                  >
+                    TALK TO A CONSULTANT<i className="fa-regular fa-arrow-right ms-2"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -173,7 +182,7 @@ export default function Home() {
                 </div>
                 <div className="counter-text-wrap">
                   <div className="counter-number-val">
-                    <span className="num-highlight"><CountUp end={5} />Million</span>
+                    <span className="num-highlight"><CountUp end={5} /> Million</span>
                     <span className="plus-sign">+</span>
                   </div>
                   <p className="counter-label-text">Sq.ft Designed</p>
@@ -235,12 +244,14 @@ export default function Home() {
       <div ref={aboutRef} className={`gargi-about-section overflow-hidden ${isAboutVisible ? 'is-visible' : ''}`} id="about-sec">
         <div className="container">
           <div className="row align-items-center g-5">
-            {/* Left Column: Single Full-Height Hero Image */}
-            <div className="col-lg-6">
+            {/* Left Column: Single Full-Height Hero Image (Desktop only) */}
+            <div className="col-lg-6 d-none d-lg-block">
               <div className="gargi-about-single-img-wrap">
                 <img
                   src={aboutImage}
                   alt="Engineers inspecting 3D structural steel building frame"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -249,14 +260,23 @@ export default function Home() {
             <div className="col-lg-6">
               <div className="gargi-about-content">
                 <div className="gargi-about-tag-row">
-                  
+
                   <span className="eng-tag">ABOUT US</span>
                 </div>
 
                 <h2 className="process-main-title">
-                 Innovative Engineering for Modern Infrastructure
+                  Innovative Engineering for Modern Infrastructure
                 </h2>
-               
+
+                {/* Mobile Image: Shown after heading on small screens */}
+                <div className="gargi-about-single-img-wrap d-block d-lg-none mb-4 mt-2">
+                  <img
+                    src={aboutImage}
+                    alt="Engineers inspecting 3D structural steel building frame"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
 
                 <p className="gargi-about-p">
                   Gargi Engineering Services is a specialized structural engineering and PEB consulting company delivering end-to-end solutions for industrial, commercial, and infrastructure projects. Our expertise spans Pre-Engineered Buildings (PEB), structural steel design, detailing, estimation, value engineering, and turnkey engineering support.
@@ -270,8 +290,8 @@ export default function Home() {
                   Working closely with architects, fabricators, EPC contractors, and project owners, we deliver engineering solutions that balance functionality, safety, aesthetics, and commercial viability.
                 </p>
 
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="gargi-download-btn"
                   onClick={() => setIsBrochureOpen(true)}
                 >
@@ -299,10 +319,9 @@ export default function Home() {
             <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
-                  <img
-                    src={PEBImage}
-                    alt="service"
-                  />
+                  <Link to="/peb-design">
+                    <img src={PEBImage} alt="PEB Design" />
+                  </Link>
                 </div>
 
                 <div className="service-featured_content">
@@ -312,26 +331,25 @@ export default function Home() {
                       alt="img"
                     />
                   </div>
-                 
+
                   <h3 className="box-title">
-                    <a href="service-details.html">PEB Design</a>
+                    <Link to="/peb-design">PEB Design</Link>
                   </h3>
                   <p className="service-featured_text">
                     Comprehensive pre-engineered steel structure design & load optimization.
                   </p>
-                  <a href="service-details.html" className="link-btn"
-                  >Read More<i className="fa-solid fa-arrow-up-right ms-2"></i
-                  ></a>
+                  <Link to="/peb-design" className="link-btn">
+                    Read More<i className="fa-solid fa-arrow-up-right ms-2"></i>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
-                  <img
-                    src={PEBDetail}
-                    alt="service"
-                  />
+                  <Link to="/peb-detailing">
+                    <img src={PEBDetail} alt="PEB Detailing" />
+                  </Link>
                 </div>
                 <div className="service-featured_content">
                   <div className="service-bg-shape">
@@ -340,26 +358,25 @@ export default function Home() {
                       alt="img"
                     />
                   </div>
-                 
+
                   <h3 className="box-title">
-                    <a href="service-details.html">PEB Detailing</a>
+                    <Link to="/peb-detailing">PEB Detailing</Link>
                   </h3>
                   <p className="service-featured_text">
                     High-precision Tekla 3D modeling and structural component shop drawings.
                   </p>
-                  <a href="service-details.html" className="link-btn"
-                  >Read More<i className="fa-solid fa-arrow-up-right ms-2"></i
-                  ></a>
+                  <Link to="/peb-detailing" className="link-btn">
+                    Read More<i className="fa-solid fa-arrow-up-right ms-2"></i>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-6">
               <div className="service-featured steel-card">
                 <div className="service-featured_img">
-                  <img
-                    src={steelImage}
-                    alt="service"
-                  />
+                  <Link to="/peb-design">
+                    <img src={steelImage} alt="Steel Structuring" />
+                  </Link>
                 </div>
                 <div className="service-featured_content">
                   <div className="service-bg-shape">
@@ -368,26 +385,25 @@ export default function Home() {
                       alt="img"
                     />
                   </div>
-                 
+
                   <h3 className="box-title">
-                    <a href="service-details.html">Steel Structuring</a>
+                    <Link to="/peb-design">Steel Structuring</Link>
                   </h3>
                   <p className="service-featured_text">
                     Custom heavy industrial steel framework engineering & assembly plans.
                   </p>
-                  <a href="service-details.html" className="link-btn"
-                  >Read More<i className="fa-solid fa-arrow-up-right ms-2"></i
-                  ></a>
+                  <Link to="/peb-design" className="link-btn">
+                    Read More<i className="fa-solid fa-arrow-up-right ms-2"></i>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
-                  <img
-                    src={structuralImage}
-                    alt="service"
-                  />
+                  <Link to="/connection-design">
+                    <img src={structuralImage} alt="Structural Consultancy" />
+                  </Link>
                 </div>
                 <div className="service-featured_content">
                   <div className="service-bg-shape">
@@ -396,26 +412,25 @@ export default function Home() {
                       alt="img"
                     />
                   </div>
-                 
+
                   <h3 className="box-title">
-                    <a href="service-details.html">Structural Consultancy</a>
+                    <Link to="/connection-design">Structural Consultancy</Link>
                   </h3>
                   <p className="service-featured_text">
                     Expert engineering guidance, stress load analysis, and structural audits.
                   </p>
-                  <a href="service-details.html" className="link-btn"
-                  >Read More<i className="fa-solid fa-arrow-up-right ms-2"></i
-                  ></a>
+                  <Link to="/connection-design" className="link-btn">
+                    Read More<i className="fa-solid fa-arrow-up-right ms-2"></i>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
-                  <img
-                    src={valueImage}
-                    alt="service"
-                  />
+                  <Link to="/value-engineering">
+                    <img src={valueImage} alt="Value Engineering" />
+                  </Link>
                 </div>
                 <div className="service-featured_content">
                   <div className="service-bg-shape">
@@ -424,26 +439,25 @@ export default function Home() {
                       alt="img"
                     />
                   </div>
-                  
+
                   <h3 className="box-title">
-                    <a href="service-details.html">Value Engineering</a>
+                    <Link to="/value-engineering">Value Engineering</Link>
                   </h3>
                   <p className="service-featured_text">
                     Optimized structural designs reducing steel tonnage & construction cost.
                   </p>
-                  <a href="service-details.html" className="link-btn"
-                  >Read More<i className="fa-solid fa-arrow-up-right ms-2"></i
-                  ></a>
+                  <Link to="/value-engineering" className="link-btn">
+                    Read More<i className="fa-solid fa-arrow-up-right ms-2"></i>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-6">
               <div className="service-featured">
                 <div className="service-featured_img">
-                  <img
-                    src={constructionImage}
-                    alt="service"
-                  />
+                  <Link to="/fabrication-support">
+                    <img src={constructionImage} alt="Construction Support" />
+                  </Link>
                 </div>
                 <div className="service-featured_content">
                   <div className="service-bg-shape">
@@ -452,16 +466,16 @@ export default function Home() {
                       alt="img"
                     />
                   </div>
-                 
+
                   <h3 className="box-title">
-                    <a href="service-details.html">Construction Support</a>
+                    <Link to="/fabrication-support">Construction Support</Link>
                   </h3>
                   <p className="service-featured_text">
                     On-site erection assistance, discrepancy resolution & quality assembly.
                   </p>
-                  <a href="service-details.html" className="link-btn"
-                  >Read More<i className="fa-solid fa-arrow-up-right ms-2"></i
-                  ></a>
+                  <Link to="/fabrication-support" className="link-btn">
+                    Read More<i className="fa-solid fa-arrow-up-right ms-2"></i>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -479,7 +493,7 @@ export default function Home() {
       <div className="bg-white overflow-hidden">
         <OurClients />
       </div>
-      
+
 
       <section
         className="testi-area-1 overflow-hidden space-bottom"
@@ -686,27 +700,28 @@ export default function Home() {
             <div className="col-md-6 col-xl-4">
               <div className="blog-card">
                 <div className="blog-img">
-                  <img src={blog1} alt="PEB Design" />
+                  <Link to="/blog-details">
+                    <img src={blog1} alt="PEB Design" />
+                  </Link>
                 </div>
                 <div className="blog-content">
-                  
                   <div className="blog-meta">
-                    <a href="blog.html"
-                    ><i className="fa-solid fa-layer-group"></i>PEB Design • Value Engineering</a
-                    >
+                    <Link to="/knowledge-center">
+                      <i className="fa-solid fa-layer-group"></i>PEB Design • Value Engineering
+                    </Link>
                   </div>
                   <h3 className="box-title">
-                    <a href="blog-details.html"
-                    >Why Engineering Design Matters More Than Steel Price in PEB Projects</a
-                    >
+                    <Link to="/blog-details">
+                      Why Engineering Design Matters More Than Steel Price in PEB Projects
+                    </Link>
                   </h3>
                   <p className="blog-text">
                     A smart PEB design goes beyond steel cost. Discover how optimized engineering improves safety, reduces construction costs, speeds up execution, and delivers long-term value.
                   </p>
                   <div className="blog-bottom">
-                    <a href="blog-details.html" className="link-btn"
-                    >Read More <i className="fa-solid fa-arrow-right ms-1"></i></a
-                    >
+                    <Link to="/blog-details" className="link-btn">
+                      Read More <i className="fa-solid fa-arrow-right ms-1"></i>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -714,27 +729,28 @@ export default function Home() {
             <div className="col-md-6 col-xl-4">
               <div className="blog-card">
                 <div className="blog-img">
-                  <img src={blog2} alt="Digital Engineering" />
+                  <Link to="/blog-details-2">
+                    <img src={blog2} alt="Digital Engineering" />
+                  </Link>
                 </div>
                 <div className="blog-content">
-                  
                   <div className="blog-meta">
-                    <a href="blog.html"
-                    ><i className="fa-solid fa-layer-group"></i>Technology • Digital Engineering</a
-                    >
+                    <Link to="/knowledge-center">
+                      <i className="fa-solid fa-layer-group"></i>Technology • Digital Engineering
+                    </Link>
                   </div>
                   <h3 className="box-title">
-                    <a href="blog-details.html"
-                    >The Future of Industrial Buildings: Why Digital Engineering is Transforming PEB Design</a
-                    >
+                    <Link to="/blog-details-2">
+                      The Future of Industrial Buildings: Why Digital Engineering is Transforming PEB Design
+                    </Link>
                   </h3>
                   <p className="blog-text">
                     Discover how digital engineering improves accuracy, speeds up project delivery, enhances collaboration, and reduces construction risks in modern PEB projects.
                   </p>
                   <div className="blog-bottom">
-                    <a href="blog-details.html" className="link-btn"
-                    >Read More <i className="fa-solid fa-arrow-right ms-1"></i></a
-                    >
+                    <Link to="/blog-details-2" className="link-btn">
+                      Read More <i className="fa-solid fa-arrow-right ms-1"></i>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -742,27 +758,28 @@ export default function Home() {
             <div className="col-md-6 col-xl-4">
               <div className="blog-card">
                 <div className="blog-img">
-                  <img src={blog3} alt="Project Planning" />
+                  <Link to="/blog-details-3">
+                    <img src={blog3} alt="Project Planning" />
+                  </Link>
                 </div>
                 <div className="blog-content">
-                  
                   <div className="blog-meta">
-                    <a href="blog.html"
-                    ><i className="fa-solid fa-layer-group"></i>Industrial Construction • Project Planning</a
-                    >
+                    <Link to="/knowledge-center">
+                      <i className="fa-solid fa-layer-group"></i>Industrial Construction • Project Planning
+                    </Link>
                   </div>
                   <h3 className="box-title">
-                    <a href="blog-details.html"
-                    >Five Mistakes Companies Make When Planning a New Industrial Building</a
-                    >
+                    <Link to="/blog-details-3">
+                      Five Mistakes Companies Make When Planning a New Industrial Building
+                    </Link>
                   </h3>
                   <p className="blog-text">
                     Avoid costly project delays and budget overruns by understanding the five most common mistakes in industrial building planning and how smart engineering prevents them.
                   </p>
                   <div className="blog-bottom">
-                    <a href="blog-details.html" className="link-btn"
-                    >Read More <i className="fa-solid fa-arrow-right ms-1"></i></a
-                    >
+                    <Link to="/blog-details-3" className="link-btn">
+                      Read More <i className="fa-solid fa-arrow-right ms-1"></i>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -770,12 +787,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-   
+
       <Footer />
 
-      <BrochureModal 
-        isOpen={isBrochureOpen} 
-        onClose={() => setIsBrochureOpen(false)} 
+      <BrochureModal
+        isOpen={isBrochureOpen}
+        onClose={() => setIsBrochureOpen(false)}
+      />
+
+      <ConsultationModal
+        isOpen={isConsultOpen}
+        onClose={() => setIsConsultOpen(false)}
       />
     </>
   );

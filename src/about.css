@@ -205,47 +205,59 @@
   .gargi-about-title {
     font-size: 38px;
   }
+  .gargi-about-single-img-wrap {
+    height: 480px;
+  }
 }
 
 @media (max-width: 991px) {
   .gargi-about-content {
     padding-left: 0;
-    margin-top: 35px;
+    margin-top: 25px;
   }
-  .gargi-about-left-image-stack {
-    height: 480px;
-  }
-  .gargi-about-img-top {
-    height: 290px;
-  }
-  .gargi-about-img-bottom {
-    height: 190px;
+  .gargi-about-single-img-wrap {
+    height: 360px;
   }
   .gargi-about-title {
-    font-size: 32px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .gargi-about-single-img-wrap {
+    height: 380px;
+  }
+  .gargi-about-section {
+    padding: 45px 0;
   }
 }
 
 @media (max-width: 575px) {
-  .gargi-about-left-image-stack {
-    height: 380px;
+  .gargi-about-section {
+    padding-top: 15px;
+    padding-bottom: 30px;
   }
-  .gargi-about-img-top {
-    height: 230px;
+  .gargi-about-single-img-wrap {
+    height: 340px;
   }
-  .gargi-about-img-bottom {
-    height: 150px;
+  .gargi-about-section .process-main-title {
+    margin-top: -10px !important;
   }
   .gargi-about-title {
-    font-size: 26px;
+    font-size: 24px;
   }
   .gargi-about-p {
-    font-size: 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-top: 12px;
   }
   .gargi-download-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
+    width: auto;
+    display: inline-flex;
+    justify-content: flex-start;
+    padding: 12px 20px;
+    font-size: 13.5px;
+    margin-top: 20px;
   }
 }
 
@@ -933,7 +945,8 @@
 .about-page-hero {
   position: relative;
   width: 100%;
-  padding: 210px 0 150px;
+  min-height: 520px !important;
+  padding: 220px 0 140px !important;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
