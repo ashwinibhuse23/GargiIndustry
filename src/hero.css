@@ -173,12 +173,12 @@
 }
 
 .header-logo .custom-logo {
-  max-width: 480px !important;
+  max-width: 150px !important;
   max-height: 105px !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
-  margin-left: 18px !important;
+  margin-left: -10px !important;
   transform: scale(1.08);
   transform-origin: left center;
   display: block !important;
@@ -215,9 +215,16 @@
 /* Mobile Responsive (< 1200px) - Clean Pristine Mobile/Tablet Header Bar */
 @media (max-width: 1199px) {
 
-  /* Hide the top black bar entirely on mobile */
+  /* Display top black line bar on mobile */
   .th-header .header-top {
-    display: none !important;
+    display: block !important;
+    background: #0f0f0f !important;
+    opacity: 0.1;
+    height: 24px !important;
+    min-height: 24px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
 
   /* Set the white background and shadow on the parent wrapper */
@@ -229,15 +236,13 @@
 
   /* Make menu-area transparent so the logo-bg showing behind it is visible */
   .th-header .menu-area {
-    background: transparent !important;
+    background: #dadada70 !important;
     box-shadow: none !important;
     padding: 5px 0 !important;
     position: relative !important;
     z-index: 2 !important;
   }
 
-  /* Show the logo background slant polygon shape on mobile and size it properly */
-  /* Show the logo background slant polygon shape on mobile and size it properly */
   /* Show the logo background slant polygon shape on mobile and size it properly */
   .th-header .sticky-wrapper .logo-bg {
     display: block !important;
@@ -276,7 +281,7 @@
     right: auto !important;
     width: 100% !important;
     height: 100% !important;
-    background: linear-gradient(to bottom, #bebebe 30px, transparent 30px) !important;
+    background: linear-gradient(to bottom, #bebebe 24px, transparent 24px) !important;
     opacity: 1 !important;
     -webkit-clip-path: polygon(185px 0, 215px 100%, 155px 100%) !important;
     clip-path: polygon(185px 0, 215px 100%, 155px 100%) !important;
@@ -332,6 +337,11 @@
 }
 
 @media (max-width: 575px) {
+  .th-header .header-top {
+    height: 20px !important;
+    min-height: 20px !important;
+  }
+
   .th-header .sticky-wrapper .logo-bg {
     width: 190px !important;
     max-width: 190px !important;
@@ -339,26 +349,31 @@
     -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0% 100%) !important;
     clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0% 100%) !important;
   }
+
   .th-header .sticky-wrapper .logo-bg:before {
     width: 100% !important;
     -webkit-clip-path: polygon(0 0, 140px 0, 115px 100%, 0% 100%) !important;
     clip-path: polygon(0 0, 140px 0, 115px 100%, 0% 100%) !important;
   }
+
   .th-header .sticky-wrapper .logo-bg:after {
     width: 100% !important;
-    background: linear-gradient(to bottom, #bebebe 25px, transparent 25px) !important;
+    background: linear-gradient(to bottom, #bebebe 20px, transparent 20px) !important;
     -webkit-clip-path: polygon(140px 0, 165px 100%, 115px 100%) !important;
     clip-path: polygon(140px 0, 165px 100%, 115px 100%) !important;
   }
+
   .th-header .sticky-wrapper .logo-bg .logo-bg-sketch {
     width: 100% !important;
     -webkit-clip-path: polygon(0 0, 140px 0, 115px 100%, 0% 100%) !important;
     clip-path: polygon(0 0, 140px 0, 115px 100%, 0% 100%) !important;
   }
+
   .header-logo .custom-logo {
-    max-width: 135px !important;
-    max-height: 48px !important;
-    margin-left: 10px !important;
+    max-width: 205px !important;
+    max-height: 55px !important;
+    margin-left: 4px !important;
+    margin-top: -6px !important;
   }
 }
 
@@ -1387,10 +1402,24 @@
     padding-top: 20px !important;
     padding-bottom: 40px !important;
     margin-top: 20px !important;
+    padding-left: 40px !important;
+    padding-right: 20px !important;
+  }
+
+  #service-sec .container {
+    padding-left: 10px !important;
+    padding-right: 0 !important;
+  }
+
+  #service-sec .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   #service-sec .title-area {
     text-align: left !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   #service-sec .title-area .sec-title {
@@ -1505,6 +1534,11 @@
     padding: 11px 8px !important;
     /* Slightly increased height, reduced horizontal padding */
     font-size: 10.5px !important;
+  }
+
+  #service-sec {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
   #service-sec .service-featured_img img {

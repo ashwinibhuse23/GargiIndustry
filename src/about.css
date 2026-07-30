@@ -228,14 +228,13 @@
     height: 380px;
   }
   .gargi-about-section {
-    padding: 45px 0;
+    padding: 40px 10px;
   }
 }
 
 @media (max-width: 575px) {
   .gargi-about-section {
-    padding-top: 15px;
-    padding-bottom: 30px;
+    padding: 10px 10px 20px 10px;
   }
   .gargi-about-single-img-wrap {
     height: 340px;

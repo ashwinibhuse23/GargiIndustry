@@ -75,7 +75,7 @@ export default function Navbar() {
       </div>
 
       {/* ══ MOBILE MENU DRAWER ══ */}
-      <div 
+      <div
         className={`th-menu-wrapper ${isMobileMenuOpen ? 'th-body-visible' : ''}`}
         onClick={closeMobileMenu}
       >
@@ -214,10 +214,10 @@ export default function Navbar() {
                       <li><a href="/contact">Contact Us</a></li>
                     </ul>
                   </nav>
-                  
+
                   {/* Mobile Menu Toggle Button */}
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     className="th-menu-open-btn d-block d-xl-none"
                     onClick={openMobileMenu}
                   >
@@ -253,9 +253,9 @@ export default function Navbar() {
         </div>
       </header>
 
-      <ConsultationModal 
-        isOpen={isConsultationOpen} 
-        onClose={() => setIsConsultationOpen(false)} 
+      <ConsultationModal
+        isOpen={isConsultationOpen}
+        onClose={() => setIsConsultationOpen(false)}
       />
     </>
   );
