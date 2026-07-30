@@ -138,25 +138,17 @@ export default function Navbar() {
 
       <header className="th-header header-layout1">
         <div className="sticky-wrapper">
-          <div className="header-top">
-            <div className="container th-container">
-              <div className="row justify-content-center justify-content-lg-between align-items-center gy-2">
-                <div className="col-auto d-none d-xl-block">
-                  <div className="header-links">
-                    <ul>
-                      <li>
-                        <i className="far fa-phone"></i>
-                        <a href="tel:+917875800441">+91 78758 00441</a>
-                      </li>
-                      <li>
-                        <i className="far fa-envelope-open"></i>
-                        <a href="mailto:pebgargiengineering@gmail.com">pebgargiengineering@gmail.com</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="header-top" style={{display:'flex', alignItems:'center', justifyContent:'flex-end', width:'100%', padding:'0 10px', boxSizing:'border-box'}}>
+            <ul style={{display:'flex', alignItems:'center', gap:'10px', margin:0, padding:0, listStyle:'none', marginLeft:'auto'}}>
+              <li style={{display:'inline-flex', alignItems:'center', gap:'3px'}}>
+                <i className="far fa-phone" style={{fontSize:'6px', color:'#E63A27'}}></i>
+                <a href="tel:+917875800441" style={{fontSize:'6.5px', color:'#CBD5E1', textDecoration:'none', fontWeight:500, whiteSpace:'nowrap'}}>+91 78758 00441</a>
+              </li>
+              <li style={{display:'inline-flex', alignItems:'center', gap:'3px'}}>
+                <i className="far fa-envelope-open" style={{fontSize:'6px', color:'#E63A27'}}></i>
+                <a href="mailto:pebgargiengineering@gmail.com" style={{fontSize:'6.5px', color:'#CBD5E1', textDecoration:'none', fontWeight:500, whiteSpace:'nowrap'}}>pebgargiengineering@gmail.com</a>
+              </li>
+            </ul>
           </div>
           <div className="menu-area">
             <div className="container th-container">
