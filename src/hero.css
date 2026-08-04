@@ -169,14 +169,29 @@
   width: auto !important;
   min-width: auto !important;
   padding: 16px 24px !important;
+
   /* Mobile font overrides for hc- classes */
-  .hc-icon { font-size: 9px !important; }
-  .hc-link  { font-size: 9px !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
-  .hc-divider { height: 12px !important; }
+  .hc-icon {
+    font-size: 9px !important;
+  }
+
+  .hc-link {
+    font-size: 9px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .hc-divider {
+    height: 12px !important;
+  }
 
   /* Hide email & divider on mobile — show phone only */
   .hc-email,
-  .hc-divider { display: none !important; }
+  .hc-divider {
+    display: none !important;
+  }
+
   /* Adjusted padding for better look */
   font-size: 14px !important;
   font-weight: 700 !important;
@@ -225,7 +240,7 @@
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
-  margin-left: 10px !important;
+  margin-left: 20px !important;
   transform: scale(1.08);
   transform-origin: left center;
   display: block !important;
