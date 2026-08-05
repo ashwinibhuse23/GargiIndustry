@@ -56,7 +56,7 @@ const principles = [
   {
   
     title: "Execution Focus",
-    desc: "Engineering should simplify construction—not complicate it. Every deliverable is created with fabrication and site execution in mind, enabling faster installation and smoother project delivery.",
+    desc: "Engineering should simplify construction not complicate it. Every deliverable is created with fabrication and site execution in mind, enabling faster installation and smoother project delivery.",
     image: executionImg,
     theme: "#E55206",
     icon: (

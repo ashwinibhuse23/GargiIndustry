@@ -155,7 +155,7 @@ export default function Contact() {
               {/* ══ RIGHT SIDE: INQUIRY FORM PANEL (7 COLS) ══ */}
               <div className="col-lg-7 col-md-12">
                 <div className="contact-form-side">
-                  <h3 className="form-main-title">Send Us a Message</h3>
+                  <h3 className="form-main-title">Send Us A Message</h3>
 
                   {isSubmitted && (
                     <div className="contact-success-alert">

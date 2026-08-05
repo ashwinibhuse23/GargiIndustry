@@ -178,7 +178,7 @@ export default function TechnologySection() {
           </div>
           
           <h2 className="tech-modern-title">
-            Engineering Powered by <span className="highlight-text">Digital Innovation</span>
+            Engineering Powered by Digital Innovation
           </h2>
           
           <p className="tech-modern-subtitle">

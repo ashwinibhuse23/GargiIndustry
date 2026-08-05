@@ -47,7 +47,7 @@ export default function BlogDetails() {
 
                 {/* Introduction Paragraphs */}
                 <p className="blog-body-p-lead">
-                  When planning an industrial building, one of the first questions clients ask is, <strong>"What will be the steel cost?"</strong> While steel price is undoubtedly an important factor, focusing solely on material cost often overlooks the element that has the greatest influence on project success—engineering design.
+                  When planning an industrial building, one of the first questions clients ask is, <strong>"What will be the steel cost?"</strong> While steel price is undoubtedly an important factor, focusing solely on material cost often overlooks the element that has the greatest influence on project success engineering design.
                 </p>
 
                 <p className="blog-body-p">

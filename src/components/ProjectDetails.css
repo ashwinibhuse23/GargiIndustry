@@ -36,6 +36,7 @@
   padding: 40px 0 20px;
   background: #f8f9fb;
   font-family: var(--body-font, 'Roboto', sans-serif);
+  scroll-margin-top: 100px;
 }
 
 /* Initially hide header & tabs for slow reveal */

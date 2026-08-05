@@ -99,7 +99,7 @@ export default function Home() {
                   Structural Consulting | PEB Design | Tekla Detailing | Value Engineering | Turnkey Engineering
                 </p>
                 <div className="btn-group">
-                  <Link to="/projects" className="th-btn style3">
+                  <Link to="/projects#projects" className="th-btn style3">
                     VIEW OUR PROJECTS
                     <i className="fa-regular fa-arrow-right ms-2"></i>
                   </Link>
@@ -283,7 +283,7 @@ export default function Home() {
                 </p>
 
                 <p className="gargi-about-p">
-                  We believe engineering is more than calculations—it is about creating structures that are stronger, more efficient, easier to fabricate, and faster to construct. Every solution is developed with a focus on reducing project complexity, optimizing material usage, and ensuring seamless execution on-site.
+                  We believe engineering is more than calculations. It is about creating structures that are stronger, more efficient, easier to fabricate, and faster to construct. Every solution is developed with a focus on reducing project complexity, optimizing material usage, and ensuring seamless execution on-site.
                 </p>
 
                 <p className="gargi-about-p">
