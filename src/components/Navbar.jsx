@@ -106,11 +106,11 @@ export default function Navbar() {
                 <ul className="sub-menu">
                   <li><a href="/peb-design" onClick={closeMobileMenu}>PEB Design & Structural Engineering</a></li>
                   <li><a href="/peb-detailing" onClick={closeMobileMenu}>PEB Detailing & Tekla Modelling</a></li>
+                  <li><a href="/civil-design" onClick={closeMobileMenu}>Civil Design & Construction Consulting</a></li>
                   <li><a href="/connection-design" onClick={closeMobileMenu}>Connection Design & Engineering</a></li>
                   <li><a href="/value-engineering" onClick={closeMobileMenu}>Value Engineering</a></li>
                   <li><a href="/material-take-off" onClick={closeMobileMenu}>Material Take-Off & Estimation</a></li>
                   <li><a href="/fabrication-support" onClick={closeMobileMenu}>Fabrication & Construction Support</a></li>
-                  <li><a href="/civil-design" onClick={closeMobileMenu}>Civil Design & Construction Consulting</a></li>
                   <li><a href="/digital-engineering" onClick={closeMobileMenu}>Digital Engineering Services</a></li>
                 </ul>
               </li>
@@ -138,7 +138,7 @@ export default function Navbar() {
 
       <header className="th-header header-layout1">
         <div className="sticky-wrapper">
-          <div className="header-top" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', boxSizing: 'border-box' }}>
+          <div className="header-top" style={{ backgroundColor: '#05012a', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', boxSizing: 'border-box' }}>
             <ul className="hc-contact-list">
               <li className="hc-phone">
                 <i className="far fa-phone hc-icon"></i>
@@ -180,11 +180,11 @@ export default function Navbar() {
                         <ul className="sub-menu">
                           <li><a href="/peb-design">PEB Design & Structural Engineering</a></li>
                           <li><a href="/peb-detailing">PEB Detailing & Tekla Modelling</a></li>
+                          <li><a href="/civil-design">Civil Design & Construction Consulting</a></li>
                           <li><a href="/connection-design">Connection Design & Engineering</a></li>
                           <li><a href="/value-engineering">Value Engineering</a></li>
                           <li><a href="/material-take-off">Material Take-Off & Estimation</a></li>
                           <li><a href="/fabrication-support">Fabrication & Construction Support</a></li>
-                          <li><a href="/civil-design">Civil Design & Construction Consulting</a></li>
                           <li><a href="/digital-engineering">Digital Engineering Services</a></li>
                         </ul>
                       </li>

@@ -269,11 +269,11 @@ export default function ConsultationModal({ isOpen, onClose }) {
                     >
                       <option value="PEB Design & Structural Engineering">PEB Design & Structural Engineering</option>
                       <option value="PEB Detailing & Tekla Modelling">PEB Detailing & Tekla Modelling</option>
+                      <option value="Civil Design & Construction Consulting">Civil Design & Construction Consulting</option>
                       <option value="Connection Design & Engineering">Connection Design & Engineering</option>
                       <option value="Value Engineering & Material Optimization">Value Engineering & Material Optimization</option>
                       <option value="Material Take-Off & Estimation">Material Take-Off & Estimation</option>
                       <option value="Fabrication & Construction Support">Fabrication & Construction Support</option>
-                      <option value="Civil Design & Construction Consulting">Civil Design & Construction Consulting</option>
                       <option value="Digital Engineering Services">Digital Engineering Services</option>
                     </select>
                   </div>

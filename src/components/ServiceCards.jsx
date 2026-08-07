@@ -46,6 +46,13 @@ const servicesData = [
     link: '/peb-detailing'
   },
   {
+   
+    title: 'Civil Design & Construction Consulting',
+    icon: LuLandmark,
+    image: img7,
+    link: '/civil-design'
+  },
+  {
 
     title: 'Connection Design & Engineering',
     icon: LuWrench,
@@ -72,13 +79,6 @@ const servicesData = [
     icon: LuWrench,
     image: img6,
     link: '/fabrication-support'
-  },
-  {
-   
-    title: 'Civil Design & Construction Consulting',
-    icon: LuLandmark,
-    image: img7,
-    link: '/civil-design'
   },
   {
 

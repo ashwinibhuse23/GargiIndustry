@@ -1,4 +1,10 @@
 /* ══ Header Contact Bar ══ */
+.th-header .header-top,
+.header-top {
+  background: #05012a !important;
+  background-color: #05012a !important;
+}
+
 .hc-contact-list {
   display: flex;
   align-items: center;
@@ -203,6 +209,19 @@
   /* Prevent text wrapping */
 }
 
+/* Button Hover Overrides */
+.th-btn.style2:hover,
+.th-btn.style2:focus {
+  background-color: #05012a !important;
+  color: #ffffff !important;
+  border-color: #05012a !important;
+}
+
+.th-btn.style2::before,
+.th-btn.style2::after {
+  background-color: #05012a !important;
+}
+
 /* Adjust the subtitle for better spacing */
 .hero-style1 .hero-subtitle {
   font-size: 16px !important;
@@ -282,7 +301,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: #0F172A !important;
+    background: #05012a !important;
     height: 24px !important;
     min-height: 24px !important;
     padding: 0 8px !important;
@@ -454,7 +473,7 @@
 }
 
 @media (max-width: 575px) {
-  .th-header .header-top {
+  .th-header {
     height: 20px !important;
     min-height: 16px !important;
   }
@@ -871,7 +890,7 @@
 .hero-counter-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background-color: #121318;
+  background-color: #05012a;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
@@ -889,7 +908,7 @@
 
 .hero-counter-card {
   position: relative;
-  background-color: #16181d;
+  background-color: #05012a;
   padding: 52px 24px 56px 24px;
   display: flex;
   flex-direction: column;
@@ -939,9 +958,10 @@
 }
 
 .hero-counter-card:hover {
-  background-color: #1d1f27;
+  background-color: #222634;
+  background-image: linear-gradient(145deg, #282d3e 0%, #1a1d29 100%);
   transform: translateY(-6px) !important;
-  box-shadow: inset 0 0 25px rgba(229, 66, 18, 0.06), 0 12px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 
 /* Inner Layout */
@@ -1202,7 +1222,7 @@
     width: calc((100% - 30px) / 3);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 14px;
-    background-color: #16181d;
+    background-color: #05012a;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 

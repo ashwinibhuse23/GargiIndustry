@@ -96,7 +96,7 @@ export default function Home() {
                   ENGINEERING SMARTER STEEL STRUCTURES FOR TOMORROW'S INDUSTRIES
                 </h1>
                 <p className="hero-text text-white">
-                  Structural Consulting | PEB Design | Tekla Detailing | Value Engineering | Turnkey Engineering
+                  Structural Consulting | PEB Design | Tekla Detailing | Civil Construction | Turnkey Engineering
                 </p>
                 <div className="btn-group">
                   <Link to="/projects#projects" className="th-btn style3">
