@@ -111,12 +111,14 @@
   align-items: flex-end;
   justify-content: flex-end;
   flex-shrink: 0;
-  margin-right: 20px;
+  margin-right: 60px;
+  transform: translateX(-15px);
 }
 
 .lead-person-img {
-  max-height: 420px;
-  width: auto;
+  max-height: 460px;
+  width: 100%;
+  max-width: 440px;
   display: block;
   object-fit: cover;
   border-radius: 16px;
@@ -259,6 +261,7 @@
   }
   .lead-person-side {
     margin-right: 0;
+    transform: none;
     justify-content: center;
   }
   .lead-white-strip {
