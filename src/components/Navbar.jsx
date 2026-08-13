@@ -138,7 +138,7 @@ export default function Navbar() {
 
       <header className="th-header header-layout1">
         <div className="sticky-wrapper">
-          <div className="header-top" style={{ backgroundColor: '#05012a', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', boxSizing: 'border-box' }}>
+          <div className="header-top" style={{ backgroundColor: '#032048', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', boxSizing: 'border-box' }}>
             <ul className="hc-contact-list">
               <li className="hc-phone">
                 <i className="far fa-phone hc-icon"></i>

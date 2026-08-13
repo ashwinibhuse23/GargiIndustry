@@ -1,8 +1,8 @@
 /* ══ Header Contact Bar ══ */
 .th-header .header-top,
 .header-top {
-  background: #05012a !important;
-  background-color: #05012a !important;
+  background: #032048 !important;
+  background-color: #032048 !important;
 }
 
 .hc-contact-list {
@@ -301,9 +301,13 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: #05012a !important;
+    background: #032048 !important;
+    background-color: #032048 !important;
     height: 24px !important;
     min-height: 24px !important;
+    max-height: 24px !important;
+    line-height: 24px !important;
+    overflow: hidden !important;
     padding: 0 8px !important;
     margin: 0 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -416,7 +420,7 @@
     right: auto !important;
     width: 100% !important;
     height: 100% !important;
-    background: linear-gradient(to bottom, #bebebe 24px, transparent 24px) !important;
+    background: linear-gradient(to bottom, #bebebe 24.5px, transparent 24.5px) !important;
     opacity: 1 !important;
     -webkit-clip-path: polygon(185px 0, 215px 100%, 155px 100%) !important;
     clip-path: polygon(185px 0, 215px 100%, 155px 100%) !important;
@@ -494,7 +498,7 @@
 
   .th-header .sticky-wrapper .logo-bg:after {
     width: 100% !important;
-    background: linear-gradient(to bottom, #bebebe 20px, transparent 20px) !important;
+    background: linear-gradient(to bottom, #bebebe 24.5px, transparent 24.5px) !important;
     -webkit-clip-path: polygon(140px 0, 165px 100%, 115px 100%) !important;
     clip-path: polygon(140px 0, 165px 100%, 115px 100%) !important;
   }
@@ -890,7 +894,7 @@
 .hero-counter-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background-color: #05012a;
+  background-color: #032048;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
@@ -908,7 +912,7 @@
 
 .hero-counter-card {
   position: relative;
-  background-color: #05012a;
+  background-color: #032048;
   padding: 52px 24px 56px 24px;
   display: flex;
   flex-direction: column;
@@ -1222,7 +1226,7 @@
     width: calc((100% - 30px) / 3);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 14px;
-    background-color: #05012a;
+    background-color: #032048;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 

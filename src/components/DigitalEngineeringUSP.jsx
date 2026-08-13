@@ -12,15 +12,15 @@ import './DigitalEngineeringUSP.css';
 const uspItems = [
   {
     id: 1,
-    icon: <LuBuilding2 size={52} />,
-    title: 'TEKLA',
-    description: 'Advanced 3D modelling for accurate detailing',
-  },
-  {
-    id: 2,
     icon: <LuLandmark size={52} />,
     title: 'STAAD',
     description: 'Structural analysis and design solutions',
+  },
+  {
+    id: 2,
+    icon: <LuBuilding2 size={52} />,
+    title: 'TEKLA',
+    description: 'Advanced 3D modelling for accurate detailing',
   },
   {
     id: 3,
