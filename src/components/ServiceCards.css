@@ -227,22 +227,10 @@
 }
 
 /* Responsive Media Queries */
-@media (max-width: 1199px) {
-  .service-card-item {
-    height: 350px;
-  }
-
-  .service-card-title-text {
-    font-size: 19px;
-  }
-
-  .service-card-desc-line,
-  .service-card-explore-btn {
-    margin-left: 64px;
-  }
-}
-
-@media (max-width: 991px) {
+/* ══════════════════════════════════════════════════════════════════
+   Tablet / iPad View (768px - 1199px)
+   ══════════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1199px) {
   .service-cards-section {
     padding: 60px 0 80px;
   }
@@ -252,11 +240,51 @@
   }
 
   .service-section-title {
-    font-size: 28px;
+    font-size: 30px;
+  }
+
+  .service-card-item {
+    height: 340px;
+  }
+
+  .service-card-content {
+    padding: 22px 22px 24px 22px;
+  }
+
+  .service-card-title-text {
+    font-size: 18px;
+  }
+
+  .service-card-explore-btn {
+    margin-left: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    align-self: flex-start !important;
+    font-size: 13.5px !important;
+    margin-top: 14px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-cards-section {
+    padding: 50px 0 70px;
+  }
+
+  .service-cards-header {
+    margin-bottom: 35px;
+  }
+
+  .service-section-title {
+    font-size: 26px;
   }
 
   .service-card-item {
     height: 300px;
+  }
+
+  .service-card-explore-btn {
+    margin-left: 0 !important;
   }
 }
 

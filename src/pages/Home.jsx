@@ -243,9 +243,9 @@ export default function Home() {
       {/* About Section - Exact Match Design from Uploaded Image */}
       <div ref={aboutRef} className={`gargi-about-section overflow-hidden ${isAboutVisible ? 'is-visible' : ''}`} id="about-sec">
         <div className="container">
-          <div className="row align-items-center g-5">
-            {/* Left Column: Single Full-Height Hero Image (Desktop only) */}
-            <div className="col-lg-6 d-none d-lg-block">
+          <div className="row align-items-center g-4 g-lg-5">
+            {/* Left Column: Single Full-Height Hero Image (Tablet and Desktop) */}
+            <div className="col-md-6 col-lg-6 d-none d-md-block">
               <div className="gargi-about-single-img-wrap">
                 <img
                   src={aboutImage}
@@ -257,7 +257,7 @@ export default function Home() {
             </div>
 
             {/* Right Column: Title, Underline, Paragraphs & Download Brochure Button */}
-            <div className="col-lg-6">
+            <div className="col-md-6 col-lg-6">
               <div className="gargi-about-content">
                 <div className="gargi-about-tag-row">
 
@@ -268,8 +268,8 @@ export default function Home() {
                   Innovative Engineering for Modern Infrastructure
                 </h2>
 
-                {/* Mobile Image: Shown after heading on small screens */}
-                <div className="gargi-about-single-img-wrap d-block d-lg-none mb-4 mt-2">
+                {/* Mobile Image: Shown after heading on small mobile screens (< 768px) */}
+                <div className="gargi-about-single-img-wrap d-block d-md-none mb-4 mt-2">
                   <img
                     src={aboutImage}
                     alt="Engineers inspecting 3D structural steel building frame"
