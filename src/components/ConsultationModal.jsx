@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  LuX, 
-  LuUser, 
-  LuMail, 
-  LuPhone, 
-  LuBuilding2, 
-  LuWrench, 
-  LuMessageSquare, 
+import {
+  LuX,
+  LuUser,
+  LuMail,
+  LuPhone,
+  LuBuilding2,
+  LuWrench,
+  LuMessageSquare,
   LuSend,
   LuCalendar,
   LuSparkles
@@ -34,6 +34,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedInfo, setSubmittedInfo] = useState(null);
+  const [serverError, setServerError] = useState('');
 
   // Close on Escape key press
   useEffect(() => {
@@ -66,6 +68,9 @@ export default function ConsultationModal({ isOpen, onClose }) {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
+    if (serverError) {
+      setServerError('');
+    }
   };
 
   const validate = () => {
@@ -89,8 +94,9 @@ export default function ConsultationModal({ isOpen, onClose }) {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setServerError('');
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -98,15 +104,52 @@ export default function ConsultationModal({ isOpen, onClose }) {
     }
 
     setIsSubmitting(true);
-    // Simulate high-performance API consultation request
-    setTimeout(() => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      let response;
+      try {
+        response = await fetch(`${apiUrl}/api/consultation`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+      } catch (networkErr) {
+        response = await fetch('/api/consultation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+      }
+
+      let data = {};
+      try {
+        data = await response.json();
+      } catch (jsonErr) {
+        console.warn('Non-JSON response from server:', jsonErr);
+      }
+
+      if (response && response.ok && data.success) {
+        setSubmittedInfo({ ...formData });
+        setIsSubmitted(true);
+      } else {
+        setServerError(data.message || 'Failed to submit consultation request. Please try again.');
+      }
+    } catch (err) {
+      console.error('Consultation request failed:', err);
+      setServerError('Unable to connect to the email server. Please make sure "npm run dev" or "npm run server" is running.');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 900);
+    }
   };
 
   const handleClose = () => {
     setIsSubmitted(false);
+    setSubmittedInfo(null);
+    setServerError('');
     setFormData({
       fullName: '',
       email: '',
@@ -122,8 +165,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
 
   return (
     <div className="consult-modal-backdrop" onClick={handleClose}>
-      <div 
-        className="consult-modal-card" 
+      <div
+        className="consult-modal-card"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
@@ -134,9 +177,9 @@ export default function ConsultationModal({ isOpen, onClose }) {
             <LuSparkles className="consult-badge-icon" />
             <span>FREE TECHNICAL CONSULTATION</span>
           </div>
-          <button 
-            type="button" 
-            className="consult-modal-close-btn" 
+          <button
+            type="button"
+            className="consult-modal-close-btn"
             onClick={handleClose}
             aria-label="Close modal"
           >
@@ -150,32 +193,38 @@ export default function ConsultationModal({ isOpen, onClose }) {
 
         {/* Form Body or Success State */}
         <div className="consult-modal-body">
-          {isSubmitted ? (
+          {isSubmitted && submittedInfo ? (
             <div className="consult-success-view">
               <div className="consult-success-icon-wrap">
                 <CheckCircleIcon className="consult-success-icon" />
               </div>
               <h3 className="consult-success-title">Consultation Requested!</h3>
               <p className="consult-success-msg">
-                Thank you, <strong>{formData.fullName}</strong>. Our Lead Engineering Consultant will review your request and get in touch with you shortly at <span>{formData.email}</span>.
+                Thank you, <strong>{submittedInfo.fullName}</strong>. Your inquiry has been sent to our Lead Engineering Consultant. We will review your request and get in touch with you shortly at <span>{submittedInfo.email}</span>.
               </p>
               <div className="consult-success-summary-box">
                 <div className="consult-summary-item">
                   <span className="summary-label">Company:</span>
-                  <span className="summary-val">{formData.company}</span>
+                  <span className="summary-val">{submittedInfo.company}</span>
                 </div>
                 <div className="consult-summary-item">
                   <span className="summary-label">Service:</span>
-                  <span className="summary-val">{formData.serviceInterest}</span>
+                  <span className="summary-val">{submittedInfo.serviceInterest}</span>
                 </div>
                 <div className="consult-summary-item">
                   <span className="summary-label">Project Scope:</span>
-                  <span className="summary-val">{formData.projectType}</span>
+                  <span className="summary-val">{submittedInfo.projectType}</span>
                 </div>
+                {submittedInfo.phone && (
+                  <div className="consult-summary-item">
+                    <span className="summary-label">Phone / WhatsApp:</span>
+                    <span className="summary-val">{submittedInfo.phone}</span>
+                  </div>
+                )}
               </div>
-              <button 
-                type="button" 
-                className="consult-submit-btn consult-btn-done" 
+              <button
+                type="button"
+                className="consult-submit-btn consult-btn-done"
                 onClick={handleClose}
               >
                 Close Window
