@@ -102,7 +102,7 @@
   margin: 4px 0 0 0;
   text-transform: none;
   font-family: var(--title-font, 'Manrope', 'Inter', sans-serif);
-  margin-top: 10px;
+  margin-top: 4px;
 }
 .heading{
   margin-top: -10px;
