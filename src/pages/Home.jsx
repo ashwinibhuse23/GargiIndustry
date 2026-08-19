@@ -495,6 +495,10 @@ export default function Home() {
       </div>
 
 
+
+
+
+
       <section
         className="testi-area-1 overflow-hidden space-bottom"
         data-bg-src="/assets/img/bg/testi_bg_1.png"
@@ -533,140 +537,255 @@ export default function Home() {
                 data-md-slide-show="1"
                 data-dots="false"
                 data-arrows="false"
+                data-auto-play="true"
+                data-auto-play-timeout="3000"
               >
                 <div className="col-lg-6">
-                  <div className="testi-card-new">
-                    <div className="testi-card-new__left">
-                      <span className="testi-card-new__quote-icon">&#8220;</span>
-                      <div className="testi-card-new__avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E63A27" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                      </div>
-                      <h3 className="testi-card-new__name">Mr. Dagade</h3>
-                      <span className="testi-card-new__desig">ASCENT PRECISION DIRECTOR</span>
-
+                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                    <div
+                      className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
+                      data-right="-35%"
+                      data-top="-35%"
+                    >
+                      <img src="/assets/img/normal/about_1_2shape.png" alt="img" />
                     </div>
-                    <div className="testi-card-new__divider-v"></div>
-                    <div className="testi-card-new__right">
-                      <span className="testi-card-new__quote-watermark">&#8220;</span>
-                      <p className="testi-card-new__text">Working with Gargi Engineering Services was a smooth and professional experience throughout the project. Their expertise in PEB structural design, attention to technical details, and understanding of project requirements were highly appreciated. The team was responsive, technically strong, and always focused on providing practical and reliable engineering solutions. We would definitely be happy to work with them again on future projects.</p>
+                    <div className="testi-card_profile" style={{flex:1,display:'flex',flexDirection:'row',alignItems:'stretch'}}>
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src="/assets/img/testimonials/testi_1_1.jpg"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
+                      </div>
+                      <div className="media-body">
+                        <h3 className="testi-card_name">Mr. Dagade</h3>
+                        <span className="testi-card_desig">ASCENT PRECISION DIRECTOR</span>
+                        <p className="testi-card_text">
+                          Working with Gargi Engineering Services was a smooth and professional experience throughout the project. Their expertise in PEB structural design, attention to technical details, and understanding of project requirements were highly appreciated. The team was responsive, technically strong, and always focused on providing practical and reliable engineering solutions. We would definitely be happy to work with them again on future projects.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-6">
-                  <div className="testi-card-new">
-                    <div className="testi-card-new__left">
-                      <span className="testi-card-new__quote-icon">&#8220;</span>
-                      <div className="testi-card-new__avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E63A27" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                      </div>
-                      <h3 className="testi-card-new__name">Mr. Akkalkote</h3>
-                      <span className="testi-card-new__desig">SAHYADRI INDUSTRIES DIRECTOR</span>
-
+                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                    <div
+                      className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
+                      data-right="-35%"
+                      data-top="-35%"
+                    >
+                      <img src="/assets/img/normal/about_1_2shape.png" alt="img" />
                     </div>
-                    <div className="testi-card-new__divider-v"></div>
-                    <div className="testi-card-new__right">
-                      <span className="testi-card-new__quote-watermark">&#8220;</span>
-                      <p className="testi-card-new__text">Excellent experience with Gargi Engineering Services. The team provided reliable PEB structural solutions with good technical understanding, quick coordination, and quality-focused execution. Looking forward to working with them on future projects.</p>
+                    <div className="testi-card_profile" style={{flex:1,display:'flex',flexDirection:'row',alignItems:'stretch'}}>
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src="/assets/img/testimonials/testi_1_2.png"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
+                      </div>
+                      <div className="media-body">
+                        <h3 className="testi-card_name">Mr. Akkalkote</h3>
+                        <span className="testi-card_desig">Sahyadri Industries DIRECTOR</span>
+                        <p className="testi-card_text">
+                          Excellent experience with Gargi Engineering Services. The team provided reliable PEB structural solutions with good technical understanding, quick coordination, and quality-focused execution. Looking forward to working with them on future projects
+
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-6">
-                  <div className="testi-card-new">
-                    <div className="testi-card-new__left">
-                      <span className="testi-card-new__quote-icon">&#8220;</span>
-                      <div className="testi-card-new__avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E63A27" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                      </div>
-                      <h3 className="testi-card-new__name">Er. Sagar Chauhan</h3>
-                      <span className="testi-card-new__desig">PRARAMBH INDUSTRIES MD OWNER</span>
-
+                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                    <div
+                      className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
+                      data-right="-35%"
+                      data-top="-35%"
+                    >
+                      <img src="/assets/img/normal/about_1_2shape.png" alt="img" />
                     </div>
-                    <div className="testi-card-new__divider-v"></div>
-                    <div className="testi-card-new__right">
-                      <span className="testi-card-new__quote-watermark">&#8220;</span>
-                      <p className="testi-card-new__text">Gargi Engineering Services has delivered a very professional experience in PEB structural consultancy. Their strength lies not only in their technical knowledge but also in their ability to understand the overall project requirements and provide practical engineering solutions. The team maintained excellent coordination, responded promptly to our queries, and paid close attention to design accuracy and detailing. Their commitment to quality and timely deliverables was clearly evident throughout the project.</p>
+                    <div className="testi-card_profile" style={{flex:1,display:'flex',flexDirection:'row',alignItems:'stretch'}}>
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src="/assets/img/testimonials/testi_1_3.png"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
+                      </div>
+                      <div className="media-body">
+                        <h3 className="testi-card_name">Er. Sagar Chauhan</h3>
+                        <span className="testi-card_desig">Prarambh Industries MD Owner</span>
+                        <p className="testi-card_text">
+                          Gargi Engineering Services has delivered a very professional experience in PEB structural consultancy. Their strength lies not only in their technical knowledge but also in their ability to understand the overall project requirements and provide practical engineering solutions. The team maintained excellent coordination, responded promptly to our queries, and paid close attention to design accuracy and detailing. Their commitment to quality and timely deliverables was clearly evident throughout the project. We are completely satisfied with their services and would confidently recommend Gargi Engineering Services for PEB structural design and consultancy.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-6">
-                  <div className="testi-card-new">
-                    <div className="testi-card-new__left">
-                      <span className="testi-card-new__quote-icon">&#8220;</span>
-                      <div className="testi-card-new__avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E63A27" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                      </div>
-                      <h3 className="testi-card-new__name">Mr. Karnawat</h3>
-                      <span className="testi-card-new__desig">HORIZON INDUSTRIES DIRECTOR</span>
-
+                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                    <div
+                      className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
+                      data-right="-35%"
+                      data-top="-35%"
+                    >
+                      <img src="/assets/img/normal/about_1_2shape.png" alt="img" />
                     </div>
-                    <div className="testi-card-new__divider-v"></div>
-                    <div className="testi-card-new__right">
-                      <span className="testi-card-new__quote-watermark">&#8220;</span>
-                      <p className="testi-card-new__text">We had a very positive experience working with Gargi Engineering Services. Right from the beginning, the team was cooperative, responsive, and clear in their technical approach. They understood our requirements properly and handled the PEB structural design and coordination with great attention to detail. Whenever we faced technical challenges, the team was quick to understand the issue and provide practical solutions. Their professional attitude, engineering knowledge, and timely support made a significant difference to our project.</p>
+                    <div className="testi-card_profile" style={{flex:1,display:'flex',flexDirection:'row',alignItems:'stretch'}}>
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src="/assets/img/testimonials/testi_1_4.png"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
+                      </div>
+                      <div className="media-body">
+                        <h3 className="testi-card_name">Mr.Karnawat</h3>
+                        <span className="testi-card_desig">HORIZON INDUSTRIES DIRECTOR</span>
+                        <p className="testi-card_text">
+                          We had a very positive experience working with Gargi Engineering Services. Right from the beginning, the team was cooperative, responsive, and clear in their technical approach. They understood our requirements properly and handled the PEB structural design and coordination with great attention to detail. Whenever we faced technical challenges, the team was quick to understand the issue and provide practical solutions. Their professional attitude, engineering knowledge, and timely support made a significant difference to our project. We would be happy to work with them again and recommend their services to others.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+
+
+                 <div className="col-lg-6">
+                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                    <div
+                      className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
+                      data-right="-35%"
+                      data-top="-35%"
+                    >
+                      <img src="/assets/img/normal/about_1_2shape.png" alt="img" />
+                    </div>
+                    <div className="testi-card_profile" style={{flex:1,display:'flex',flexDirection:'row',alignItems:'stretch'}}>
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src="/assets/img/testimonials/testi_1_5.png"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
+                      </div>
+                      <div className="media-body">
+                        <h3 className="testi-card_name">Sumit Agarwal</h3>
+                        <span className="testi-card_desig">Camron Industries Owner- Director</span>
+                        <p className="testi-card_text">
+                         We were looking for more than a structural consultant; we needed a partner who could understand the project from an overall engineering and execution perspective. Their team brought together structural design, PEB, detailing, estimation, and technical support seamlessly. Their practical approach and commitment to quality made them a dependable engineering partner.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
 
                 <div className="col-lg-6">
-                  <div className="testi-card-new">
-                    <div className="testi-card-new__left">
-                      <span className="testi-card-new__quote-icon">&#8220;</span>
-                      <div className="testi-card-new__avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E63A27" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                      </div>
-                      <h3 className="testi-card-new__name">Sumit Agarwal</h3>
-                      <span className="testi-card-new__desig">CAMRON INDUSTRIES OWNER-DIRECTOR</span>
-
+                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                    <div
+                      className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
+                      data-right="-35%"
+                      data-top="-35%"
+                    >
+                      <img src="/assets/img/normal/about_1_2shape.png" alt="img" />
                     </div>
-                    <div className="testi-card-new__divider-v"></div>
-                    <div className="testi-card-new__right">
-                      <span className="testi-card-new__quote-watermark">&#8220;</span>
-                      <p className="testi-card-new__text">We were looking for more than a structural consultant; we needed a partner who could understand the project from an overall engineering and execution perspective. Their team brought together structural design, PEB, detailing, estimation, and technical support seamlessly. Their practical approach and commitment to quality made them a dependable engineering partner.</p>
+                    <div className="testi-card_profile" style={{flex:1,display:'flex',flexDirection:'row',alignItems:'stretch'}}>
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src="/assets/img/testimonials/testi_1_6.png"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
+                      </div>
+                      <div className="media-body">
+                        
+                        <span className="testi-card_desig">SHLOK ENTERPRISES </span>
+                        <p className="testi-card_text">
+                         Their approach goes beyond simply providing structural designs. The team actively looks for opportunities to optimise the structure, reduce material consumption, and improve constructability without compromising safety or performance. Their value-engineering inputs helped us achieve meaningful cost efficiencies while maintaining project timelines.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
 
-                <div className="col-lg-6">
-                  <div className="testi-card-new">
-                    <div className="testi-card-new__left">
-                      <span className="testi-card-new__quote-icon">&#8220;</span>
-                      <div className="testi-card-new__avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E63A27" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                      </div>
-                      <h3 className="testi-card-new__name">Director</h3>
-                      <span className="testi-card-new__desig">SHLOK ENTERPRISES</span>
-
+                   <div className="col-lg-6" style={{display:'flex',flexDirection:'column'}}>
+                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column',flex:1}}>
+                    <div
+                      className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
+                      data-right="-35%"
+                      data-top="-35%"
+                    >
+                      <img src="/assets/img/normal/about_1_2shape.png" alt="img" />
                     </div>
-                    <div className="testi-card-new__divider-v"></div>
-                    <div className="testi-card-new__right">
-                      <span className="testi-card-new__quote-watermark">&#8220;</span>
-                      <p className="testi-card-new__text">Their approach goes beyond simply providing structural designs. The team actively looks for opportunities to optimise the structure, reduce material consumption, and improve constructability without compromising safety or performance. Their value-engineering inputs helped us achieve meaningful cost efficiencies while maintaining project timelines.</p>
+                    <div className="testi-card_profile" style={{flex:1,display:'flex',flexDirection:'row',alignItems:'stretch'}}>
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src="/assets/img/testimonials/testi_1_7.png"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
+                      </div>
+                      <div className="media-body">
+                        <h3 className="testi-card_name">Krunal Kanthale </h3>
+                        <span className="testi-card_desig">ALLIGATOR DIRECTOR</span>
+                        <p className="testi-card_text">
+                        We are very satisfied with the services provided by Gargi Engineering Services. Their team is professional, responsive, and technically strong, with a clear focus on practical and reliable structural solutions.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-
-
-                <div className="col-lg-6">
-                  <div className="testi-card-new">
-                    <div className="testi-card-new__left">
-                      <span className="testi-card-new__quote-icon">&#8220;</span>
-                      <div className="testi-card-new__avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#E63A27" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                      </div>
-                      <h3 className="testi-card-new__name">Krunal Kanthale</h3>
-                      <span className="testi-card-new__desig">ALLIGATOR DIRECTOR</span>
-
-                    </div>
-                    <div className="testi-card-new__divider-v"></div>
-                    <div className="testi-card-new__right">
-                      <span className="testi-card-new__quote-watermark">&#8220;</span>
-                      <p className="testi-card-new__text">We are very satisfied with the services provided by Gargi Engineering Services. Their team is professional, responsive, and technically strong, with a clear focus on practical and reliable structural solutions.</p>
-                    </div>
-                  </div>
-                </div>
-
 
 
               </div>
@@ -674,6 +793,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+
       <section className="overflow-hidden space" id="blog-sec">
         <div className="container">
           <div className="title-area text-center">

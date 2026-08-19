@@ -1968,6 +1968,9 @@
     overflow: hidden !important;
     margin-bottom: 16px !important;
     position: relative !important;
+    min-height: 220px !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .testi-card::after {
@@ -2085,6 +2088,30 @@
   padding-left: 10px !important;
   padding-right: 10px !important;
   margin-bottom: 22px !important;
+}
+
+/* Equal height — card fills its column and text expands to match */
+.testi-card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.testi-card .testi-card_profile {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.testi-card .testi-card_profile .media-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.testi-card .testi-card_text {
+  flex: 1;
 }
 
 /* ── Card wrapper ── */

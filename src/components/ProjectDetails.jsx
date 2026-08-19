@@ -2,73 +2,89 @@ import React, { useState, useRef, useEffect } from 'react';
 import './ProjectDetails.css';
 
 // ─── React Icons Imports ──────────────────────────────────────────────
-import { 
-  FaCarSide, 
-  FaIndustry, 
-  FaWarehouse, 
-  FaHelmetSafety, 
-  FaStore, 
+import {
+  FaCarSide,
+  FaIndustry,
+  FaWarehouse,
+  FaHelmetSafety,
+  FaStore,
   FaGears,
-  FaLayerGroup 
+  FaLayerGroup
 } from 'react-icons/fa6';
 
 // ─── Image Imports ───────────────────────────────────────────────────
-import motherson1Img     from '../assets/img/project/motherson1.jpeg';
-import motherson2Img     from '../assets/img/project/motherson2.jpeg';
-import marelliImg        from '../assets/img/project/marelli.jpeg';
-import fritzmeier1Img    from '../assets/img/project/Motherson Fritzmeier1.jpeg';
-import fritzmeier2Img    from '../assets/img/project/Motherson Fritzmeier2.jpeg';
-import advikImg          from '../assets/img/project/advik.jpeg';
-import antolinImg        from '../assets/img/project/groupantollin.jpeg';
+import motherson1Img from '../assets/img/project/motherson1.jpeg';
+import motherson2Img from '../assets/img/project/motherson2.jpeg';
+import marelliImg from '../assets/img/project/marelli.jpeg';
+import fritzmeier1Img from '../assets/img/project/Motherson Fritzmeier1.jpeg';
+import fritzmeier2Img from '../assets/img/project/Motherson Fritzmeier2.jpeg';
+import advikImg from '../assets/img/project/advik.jpeg';
+import advikImg2 from '../assets/img/project/advik2.jpg';
 
-import kalyani1Img       from '../assets/img/project/kalyni.jpeg';
-import kalyani2Img       from '../assets/img/project/kalyni2.jpeg';
-import kshImg            from '../assets/img/project/ksh.jpeg';
-import ultraImg          from '../assets/img/project/ultra.jpeg';
-import ascentImg         from '../assets/img/project/ascent.jpeg';
+import antolinImg from '../assets/img/project/groupantollin.jpeg';
+import antolinImg2 from '../assets/img/project/groupantollin2.jpg';
+import antolinImg3 from '../assets/img/project/groupantollin3.jpeg';
 
-import blinkit1Img       from '../assets/img/project/blinkit.jpeg';
-import blinkit2Img       from '../assets/img/project/blinkit2.jpeg';
-import shlokImg          from '../assets/img/project/sholk.jpeg';
 
-import nibe1Img           from '../assets/img/project/nibe1.jpeg';
-import nibe2Img           from '../assets/img/project/nibe2.jpeg';
-import zoomlion1Img       from '../assets/img/project/ZOOMLION 1.jpeg';
-import zoomlion2Img       from '../assets/img/project/ZOOMLION 2.jpeg';
+import kalyani1Img from '../assets/img/project/kalyni.jpeg';
+import kalyani2Img from '../assets/img/project/kalyni2.jpeg';
+import kshImg from '../assets/img/project/ksh.jpeg';
+import ultraImg from '../assets/img/project/ultra.jpeg';
+import ascentImg from '../assets/img/project/ascent.jpeg';
 
-import starBazaar1Img     from '../assets/img/project/starbazzazudio1.jpeg';
-import starBazaar2Img     from '../assets/img/project/starbazzazudio2.jpeg';
+import blinkit1Img from '../assets/img/project/blinkit.jpeg';
+import blinkit2Img from '../assets/img/project/blinkit2.jpeg';
 
-import economyImg        from '../assets/img/project/economy.jpeg';
-import horizonImg        from '../assets/img/project/horizon.jpeg';
-import koshImg           from '../assets/img/project/kosh.jpeg';
-import sahyadriImg       from '../assets/img/project/sahydri.jpeg';
+
+import shlokImg from '../assets/img/project/sholk.jpeg';
+import shlokImg2 from '../assets/img/project/sholk2.jpg';
+import shlokImg3 from '../assets/img/project/sholk3.jpg';
+
+import nibe1Img from '../assets/img/project/nibe1.jpg';
+import nibe2Img from '../assets/img/project/nibe2.jpeg';
+import nibe3Img from '../assets/img/project/nibe3.jpeg';
+
+import zoomlion1Img from '../assets/img/project/ZOOMLION 1.jpeg';
+import zoomlion2Img from '../assets/img/project/ZOOMLION 2.jpg';
+
+import starBazaar1Img from '../assets/img/project/starbazzazudio1.jpg';
+import starBazaar2Img from '../assets/img/project/starbazzazudio2.jpeg';
+import starBazaar3Img from '../assets/img/project/starbazzazudio3.jpeg';
+
+import economyImg from '../assets/img/project/economy.jpg';
+import economyImg2 from '../assets/img/project/economy2.jpg';
+
+import horizonImg from '../assets/img/project/horizon.jpeg';
+import koshImg from '../assets/img/project/kosh.jpeg';
+import koshImg2 from '../assets/img/project/kosh2.jpg';
+
+import sahyadriImg from '../assets/img/project/sahydri.jpeg';
 
 // ─── SVG Icons ───────────────────────────────────────────────────────
 const MapPinIcon = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-    <circle cx="12" cy="10" r="3"/>
+    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+    <circle cx="12" cy="10" r="3" />
   </svg>
 );
 
 const AreaIcon = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-    <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
+    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+    <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
   </svg>
 );
 
 const WeightIcon = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="9"/>
-    <path d="M12 7v5l3 3"/>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3 3" />
   </svg>
 );
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="20 6 9 17 4 12"/>
+    <polyline points="20 6 9 17 4 12" />
   </svg>
 );
 
@@ -87,7 +103,7 @@ function ProjectImageSlider({ images, singleImage, location, title }) {
   }, [imageList.length, isHovered]);
 
   return (
-    <div 
+    <div
       className="bento-img-wrap"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -269,7 +285,7 @@ const INDUSTRY_DATA = [
         title: 'Advik Hi-Tech Pvt. Ltd.',
         location: 'Chakan',
         category: 'Automotive Components',
-        image: advikImg,
+        images: [advikImg, advikImg2],
         overview: 'Engineered a modern industrial structure tailored to the operational requirements of automotive component manufacturing while ensuring construction efficiency and long-term reliability.'
       },
       {
@@ -278,7 +294,8 @@ const INDUSTRY_DATA = [
         location: 'Chakan',
         category: 'Automotive Interiors',
         area: '157,000 Sq. Ft.',
-        image: antolinImg,
+
+        images: [antolinImg3,antolinImg, antolinImg2],
         overview: 'Provided structural engineering services for a large-scale manufacturing facility with a focus on optimized steel consumption and faster project delivery.'
       }
     ]
@@ -341,7 +358,7 @@ const INDUSTRY_DATA = [
         location: 'Chakan',
         area: '217,000 Sq. Ft.',
         category: 'Logistics & Warehousing',
-        images: [blinkit1Img, blinkit2Img],
+        images: [blinkit1Img, blinkit2Img, ],
         overview: 'Engineered a large-scale logistics facility designed to maximize storage efficiency, streamline material movement, and support high-volume warehouse operations.'
       },
       {
@@ -350,7 +367,7 @@ const INDUSTRY_DATA = [
         location: 'Pune',
         area: '245,000 Sq. Ft.',
         category: 'Modern Warehousing',
-        image: shlokImg,
+        images: [shlokImg,shlokImg2,shlokImg3],
         overview: 'Delivered structural engineering services for a modern warehousing facility emphasizing operational flexibility and efficient construction.'
       }
     ]
@@ -369,7 +386,7 @@ const INDUSTRY_DATA = [
         area: '275,000 Sq. Ft.',
         tonnage: '3,400 MT Steel',
         category: 'Heavy Forging Plant',
-        images: [nibe1Img, nibe2Img],
+        images: [nibe1Img, nibe2Img, nibe3Img],
         overview: 'Designed one of our largest industrial structures, engineered to support heavy forging operations while maintaining structural safety, durability, and optimized material utilization.'
       },
       {
@@ -395,7 +412,7 @@ const INDUSTRY_DATA = [
         location: 'Pimpri-Chinchwad',
         area: '55,000 Sq. Ft.',
         category: 'Commercial Retail',
-        images: [starBazaar1Img, starBazaar2Img],
+        images: [starBazaar1Img, starBazaar2Img, starBazaar3Img],
         featured: true,
         overview: 'Engineered a commercial facility designed for efficient space utilization, long-term durability, and rapid construction.'
       }
@@ -414,7 +431,7 @@ const INDUSTRY_DATA = [
         location: 'Chakan',
         area: '105,000 Sq. Ft.',
         category: 'Specialized Industrial',
-        image: economyImg,
+        images: [economyImg, economyImg2],
         overview: 'Delivered structural engineering and detailing services for a specialized industrial facility, ensuring efficient project coordination and optimized design.'
       },
       {
@@ -432,7 +449,7 @@ const INDUSTRY_DATA = [
         location: 'Pune',
         area: '85,000 Sq. Ft.',
         category: 'Modern Industrial',
-        image: koshImg,
+        images: [koshImg, koshImg2],
         overview: 'Engineered a modern industrial facility with optimized structural layouts and efficient detailing.'
       },
       {

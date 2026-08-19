@@ -24,7 +24,7 @@ import img3 from '../assets/img/services/connection.png';
 import img4 from '../assets/img/services/value.png';
 import img5 from '../assets/img/services/material.png';
 import img6 from '../assets/img/services/fabrication.png';
-import img7 from '../assets/img/services/civil.png';
+import img7 from '../assets/img/services/civil2.jpeg';
 import img8 from '../assets/img/services/digital.png';
 
 

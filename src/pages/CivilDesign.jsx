@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import img from '../assets/img/services/civil.png';
+import img from '../assets/img/services/civil2.jpeg';
 import { 
   LuBuilding,
   LuLayers,
@@ -38,8 +38,8 @@ export default function CivilDesign() {
           {/* HERO SECTION */}
           <section className="peb-hero-section row align-items-center">
             <div className="col-lg-7 peb-hero-left">
-              <h1 className="peb-hero-title">
-                CIVIL DESIGN & CONSTRUCTION CONSULTING
+              <h1 className="peb-hero-title" style={{ lineHeight: '1.4' }}>
+                CIVIL DESIGN & CONSTRUCTION<br></br> <span className="heading-tag">CONSULTING</span>
               </h1>
               
               <div className="peb-hero-tagline-wrapper" style={{ borderLeftColor: 'transparent', paddingLeft: 0, marginTop: '30px' }}>
