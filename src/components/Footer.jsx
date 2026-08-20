@@ -33,11 +33,10 @@ export default function Footer() {
             <h3 className="footer-title">Quick Links</h3>
             <ul className="footer-links-list">
               <li><a href="/"><LuChevronRight className="link-arrow" /> Home</a></li>
+              <li><a href="/about"><LuChevronRight className="link-arrow" /> About Us</a></li>
               <li><a href="/service"><LuChevronRight className="link-arrow" /> Our Services</a></li>
               <li><a href="/projects"><LuChevronRight className="link-arrow" /> Projects</a></li>
-              <li><a href="/about"><LuChevronRight className="link-arrow" /> About Us</a></li>
               <li><a href="/knowledge-center"><LuChevronRight className="link-arrow" /> Blog</a></li>
-              <li><a href="/about#careers"><LuChevronRight className="link-arrow" /> Careers</a></li>
               <li><a href="/contact"><LuChevronRight className="link-arrow" /> Contact Us</a></li>
             </ul>
           </div>

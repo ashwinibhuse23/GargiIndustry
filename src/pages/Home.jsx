@@ -181,9 +181,10 @@ export default function Home() {
                   <i className="fa-solid fa-thumbs-up"></i>
                 </div>
                 <div className="counter-text-wrap">
-                  <div className="counter-number-val">
-                    <span className="num-highlight"><CountUp end={5} /> Million</span>
+                  <div className="counter-number-val text-nowrap">
+                    <span className="num-highlight"><CountUp end={5} /></span>
                     <span className="plus-sign">+</span>
+                    <span className="num-highlight ms-1">Million</span>
                   </div>
                   <p className="counter-label-text">Sq.ft Designed</p>
                 </div>

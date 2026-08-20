@@ -66,7 +66,8 @@ export default function PEBDesign() {
           <section className="peb-hero-section row align-items-center">
             <div className="col-lg-7 peb-hero-left">
               <h1 className="peb-hero-title">
-                PEB DESIGN & STRUCTURAL ENGINEERING
+                PEB DESIGN & STRUCTURAL <br />
+                ENGINEERING
               </h1>
               
               <div className="peb-hero-tagline-wrapper">
