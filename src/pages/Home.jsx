@@ -542,7 +542,7 @@ export default function Home() {
                 data-auto-play-timeout="3000"
               >
                 <div className="col-lg-6">
-                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                  <div className="testi-card" style={{minHeight:'340px',display:'flex',flexDirection:'column'}}>
                     <div
                       className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
                       data-right="-35%"
@@ -576,7 +576,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-6">
-                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                  <div className="testi-card" style={{minHeight:'340px',display:'flex',flexDirection:'column'}}>
                     <div
                       className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
                       data-right="-35%"
@@ -599,19 +599,18 @@ export default function Home() {
                           />
                         </div>
                       </div>
-                      <div className="media-body">
+                      <div className="media-body" style={{paddingTop: '18px'}}>
                         <h3 className="testi-card_name">Mr. Akkalkote</h3>
                         <span className="testi-card_desig">Sahyadri Industries DIRECTOR</span>
                         <p className="testi-card_text">
                           Excellent experience with Gargi Engineering Services. The team provided reliable PEB structural solutions with good technical understanding, quick coordination, and quality-focused execution. Looking forward to working with them on future projects
-
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-6">
-                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                  <div className="testi-card" style={{minHeight:'340px',display:'flex',flexDirection:'column'}}>
                     <div
                       className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
                       data-right="-35%"
@@ -645,7 +644,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-lg-6">
-                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                  <div className="testi-card" style={{minHeight:'340px',display:'flex',flexDirection:'column'}}>
                     <div
                       className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
                       data-right="-35%"
@@ -682,7 +681,7 @@ export default function Home() {
 
 
                  <div className="col-lg-6">
-                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                  <div className="testi-card" style={{minHeight:'340px',display:'flex',flexDirection:'column'}}>
                     <div
                       className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
                       data-right="-35%"
@@ -718,7 +717,7 @@ export default function Home() {
 
 
                 <div className="col-lg-6">
-                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column'}}>
+                  <div className="testi-card" style={{minHeight:'340px',display:'flex',flexDirection:'column'}}>
                     <div
                       className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
                       data-right="-35%"
@@ -754,7 +753,7 @@ export default function Home() {
 
 
                    <div className="col-lg-6" style={{display:'flex',flexDirection:'column'}}>
-                  <div className="testi-card" style={{minHeight:'280px',display:'flex',flexDirection:'column',flex:1}}>
+                  <div className="testi-card" style={{minHeight:'340px',display:'flex',flexDirection:'column',flex:1}}>
                     <div
                       className="testi-card_bg-shape shape-mockup spin d-xl-block d-none"
                       data-right="-35%"
@@ -777,7 +776,7 @@ export default function Home() {
                           />
                         </div>
                       </div>
-                      <div className="media-body">
+                      <div className="media-body" style={{paddingTop: '22px'}}>
                         <h3 className="testi-card_name">Krunal Kanthale </h3>
                         <span className="testi-card_desig">ALLIGATOR DIRECTOR</span>
                         <p className="testi-card_text">

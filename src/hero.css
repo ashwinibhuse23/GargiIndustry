@@ -2112,18 +2112,52 @@
    Colors : #032048 navy · #E63A27 primary · #0F172A text
    ══════════════════════════════════════════════════════ */
 
+/* Section Height / Padding for Testimonials section only */
+.testi-area-1 {
+  padding-top: 100px !important;
+  padding-bottom: 70px !important;
+}
+
+@media (min-width: 1200px) {
+  .testi-area-1 .col-xl-4 .text-xl-start {
+    padding-top: 48px !important;
+  }
+}
+
 /* Column spacing */
 .testi-slider1 .col-lg-6 {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
   margin-bottom: 22px !important;
 }
 
-/* Equal height — card fills its column and text expands to match */
+/* Sizing — slightly reduced width and increased height */
 .testi-card {
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
+  width: 93% !important;
+  max-width: 93% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  min-height: 340px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--white-color) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.testi-card:after {
+  content: '' !important;
+  position: absolute !important;
+  left: -24px !important;
+  top: -66px !important;
+  border-radius: 55px !important;
+  -webkit-transform: rotate(-45deg) !important;
+  -ms-transform: rotate(-45deg) !important;
+  transform: rotate(-45deg) !important;
+  background: var(--theme-color) !important;
+  width: 110px !important;
+  height: 220px !important;
+  z-index: 1 !important;
 }
 
 .testi-card .testi-card_profile {
@@ -2131,6 +2165,40 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  padding: 38px 36px 38px 28px !important;
+  position: relative !important;
+  z-index: 2 !important;
+  gap: 32px !important;
+}
+
+.testi-card .media-left {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+.testi-card_avater {
+  width: 88px !important;
+  height: 88px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.testi-card_avater img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.testi-card .media-left .testi-card_quote {
+  margin-top: 34px !important;
 }
 
 .testi-card .testi-card_profile .media-body {
