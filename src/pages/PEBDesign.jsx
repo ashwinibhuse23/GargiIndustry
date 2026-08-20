@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import pebdesignImg from '../assets/img/services/pebpage.png';
-import { 
-  LuSettings, 
-  LuShieldCheck, 
-  LuFactory, 
+import {
+  LuSettings,
+  LuShieldCheck,
+  LuFactory,
   LuHammer,
   LuBuilding2,
   LuLayers,
@@ -15,8 +15,8 @@ import './PEBDesign.css';
 
 const CheckIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <circle cx="12" cy="12" r="10" fill="#f95700"/>
-    <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    <circle cx="12" cy="12" r="10" fill="#f95700" />
+    <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
   </svg>
 );
 
@@ -69,13 +69,13 @@ export default function PEBDesign() {
                 PEB DESIGN & STRUCTURAL <br />
                 ENGINEERING
               </h1>
-              
+
               <div className="peb-hero-tagline-wrapper">
                 <h3 className="peb-hero-tagline">
                   "Strong engineering begins with intelligent design."
                 </h3>
               </div>
-              
+
               <p className="peb-hero-text">
                 Every successful pre-engineered building starts with a structurally optimized design. Our engineering team develops safe, efficient, and code-compliant structures tailored to your project requirements while minimizing material consumption and construction complexity.
               </p>
@@ -93,7 +93,7 @@ export default function PEBDesign() {
 
           {/* BOTTOM SECTION (Capabilities & Deliverables) */}
           <section className="peb-bottom-section row">
-            
+
             {/* CAPABILITIES (Left) */}
             <div className="col-lg-8 peb-capabilities-section">
               <h3 className="peb-section-heading">

@@ -339,6 +339,38 @@
   margin-bottom: 10px !important;
 }
 
+.brochure-action-btns-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brochure-view-btn {
+  background: #E05329;
+  color: #ffffff !important;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(224, 83, 41, 0.25);
+}
+
+.brochure-view-btn:hover {
+  background: #c74219;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(224, 83, 41, 0.35);
+  color: #ffffff !important;
+}
+
 .manual-download-btn {
   background: #121b2d;
   color: #ffffff;

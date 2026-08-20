@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import brochurePdf from '../assets/img/about/GargiBrochure.pdf';
 import './BrochureModal.css';
 
 const BrochureModal = ({ isOpen, onClose }) => {
@@ -70,9 +71,8 @@ const BrochureModal = ({ isOpen, onClose }) => {
   };
 
   const triggerDownload = () => {
-    const pdfPath = '/assets/img/about/Gargi Engineeringl Brochure.pdf';
     const link = document.createElement('a');
-    link.href = pdfPath;
+    link.href = brochurePdf;
     link.setAttribute('download', 'Gargi_Engineering_Brochure.pdf');
     document.body.appendChild(link);
     link.click();
@@ -112,15 +112,15 @@ const BrochureModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="brochure-modal-overlay" onClick={handleClose}>
-      <div 
-        className="brochure-modal-container" 
+      <div
+        className="brochure-modal-container"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
       >
-        <button 
-          className="brochure-modal-close-btn" 
-          onClick={handleClose} 
+        <button
+          className="brochure-modal-close-btn"
+          onClick={handleClose}
           aria-label="Close modal"
         >
           <i className="fa-solid fa-xmark"></i>
@@ -253,9 +253,9 @@ const BrochureModal = ({ isOpen, onClose }) => {
               </div>
 
               <div className="brochure-form-actions">
-                <button 
-                  type="submit" 
-                  className="brochure-submit-btn" 
+                <button
+                  type="submit"
+                  className="brochure-submit-btn"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -283,17 +283,27 @@ const BrochureModal = ({ isOpen, onClose }) => {
             <div className="success-icon-wrap">
               <i className="fa-solid fa-circle-check"></i>
             </div>
-            <h3>Thank You, {formData.fullName.split(' ')[0]}!</h3>
+            <h3>Thank You{formData.fullName.trim() ? `, ${formData.fullName.trim().split(' ')[0]}` : ''}!</h3>
             <p>
               Your download for <strong>Gargi Engineering Services Brochure</strong> has started automatically.
             </p>
             <div className="manual-download-box">
-              <p className="manual-text">Didn't see the file downloading?</p>
-              <button onClick={triggerDownload} className="manual-download-btn">
-                <i className="fa-solid fa-file-arrow-down"></i> Click Here to Download PDF
-              </button>
+              <p className="manual-text">Access your brochure anytime:</p>
+              <div className="brochure-action-btns-group">
+                <a
+                  href={brochurePdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="brochure-view-btn"
+                >
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i> Open / View PDF
+                </a>
+                <button onClick={triggerDownload} className="manual-download-btn" type="button">
+                  <i className="fa-solid fa-file-arrow-down"></i> Download Again
+                </button>
+              </div>
             </div>
-            <button onClick={handleClose} className="brochure-done-btn">
+            <button onClick={handleClose} className="brochure-done-btn" type="button">
               Close Window
             </button>
           </div>
