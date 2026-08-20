@@ -512,7 +512,7 @@ export default function Home() {
                   <span className="sub-title">TESTIMONIALS</span>
                   <h2 className="sec-title text-white">What Clients Say About Us</h2>
                 </div>
-                <div className="testimonial-slider-arrow1">
+                <div className="testimonial-slider-arrow1 d-none d-xl-flex">
                   <button
                     data-slick-prev="#testimonial-slider1"
                     className="slick-arrow slick-prev"
@@ -789,6 +789,22 @@ export default function Home() {
                 </div>
 
 
+              </div>
+
+              {/* Mobile Navigation Arrows: Shown after the cards on screens < 1200px */}
+              <div className="testimonial-slider-arrow1 d-flex d-xl-none justify-content-center mt-3 mb-1">
+                <button
+                  data-slick-prev="#testimonial-slider1"
+                  className="slick-arrow slick-prev"
+                >
+                  <i className="fa-regular fa-arrow-left-long"></i>
+                </button>
+                <button
+                  data-slick-next="#testimonial-slider1"
+                  className="slick-arrow slick-next"
+                >
+                  <i className="fa-regular fa-arrow-right-long"></i>
+                </button>
               </div>
             </div>
           </div>

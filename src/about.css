@@ -267,7 +267,16 @@
     margin-top: 0;
   }
   .gargi-about-single-img-wrap {
-    height: 360px;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 250px;
+    border-radius: 14px;
+  }
+  .gargi-about-single-img-wrap img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 25% center;
   }
   .gargi-about-section {
     padding: 40px 10px;
@@ -279,7 +288,16 @@
     padding: 10px 10px 20px 10px;
   }
   .gargi-about-single-img-wrap {
-    height: 340px;
+    height: auto;
+    aspect-ratio: 16 / 10.5;
+    max-height: 220px;
+    border-radius: 12px;
+  }
+  .gargi-about-single-img-wrap img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 22% center;
   }
   .gargi-about-section .process-main-title {
     margin-top: -10px !important;

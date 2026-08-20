@@ -1883,7 +1883,16 @@
   }
 
   .testi-area-1 {
-    padding-top: 90px !important;
+    padding-top: 45px !important;
+    padding-bottom: 45px !important;
+  }
+
+  .testi-area-1 .title-area {
+    margin-bottom: 18px !important;
+  }
+
+  .testi-area-1 .mt-40 {
+    margin-top: 20px !important;
   }
 }
 
@@ -2060,6 +2069,23 @@
     text-align: left !important;
     margin-top: 0 !important;
     color: #475569 !important;
+  }
+
+  .testi-area-1 {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+
+  .testi-area-1 .title-area {
+    margin-bottom: 14px !important;
+  }
+
+  .testi-area-1 .mt-40 {
+    margin-top: 14px !important;
+  }
+
+  .testi-slider1 .col-lg-6 {
+    margin-bottom: 0 !important;
   }
 
   .blog-card {
