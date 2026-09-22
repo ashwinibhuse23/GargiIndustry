@@ -653,12 +653,7 @@ export default function Home() {
                             alt={testi.name || "Testimonial"}
                           />
                         </div>
-                        <div className="testi-card_quote">
-                          <img
-                            src="/assets/img/icon/blog-quote1.svg"
-                            alt="quote"
-                          />
-                        </div>
+                       
                       </div>
                     )}
                     <div className="media-body">

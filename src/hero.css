@@ -2007,9 +2007,9 @@
 
   .testi-card_avater {
     width: 120px !important;
-    height: 60px !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
+    height: 55px !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
     border: none !important;
     box-shadow: none !important;
     background: transparent !important;
@@ -2024,6 +2024,7 @@
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
+    border-radius: 6px !important;
     display: block !important;
   }
 
@@ -2238,9 +2239,9 @@
 
 .testi-card_avater {
   width: 140px !important;
-  height: 80px !important;
-  border-radius: 0 !important;
-  overflow: visible !important;
+  height: 65px !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -2256,6 +2257,7 @@
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
+  border-radius: 6px !important;
   display: block !important;
 }
 

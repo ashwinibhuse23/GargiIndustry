@@ -42,8 +42,10 @@ const projectsData = [
     title: 'Prarambh Industries .',
     location: 'Chakan',
     category: 'Warehousing ',
-    
+    description:
+      'Delivered PEB Mezznine structural engineering and RCC  services for a specialized industrial facility, ensuring efficient project coordination and optimized design.',
     image: steelInteriorPng,
+    area: '75,000 Sq. Ft.'
   },
   {
     id: '04',
@@ -63,7 +65,7 @@ const OurProjects = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  
+
   const sectionRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -175,7 +177,7 @@ const OurProjects = () => {
         </div>
 
         {/* Full-Width Horizontal Card Slider Showcase */}
-        <div 
+        <div
           className="project-slider-wrapper"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -185,7 +187,7 @@ const OurProjects = () => {
         >
           {/* Active Horizontal Project Card */}
           <div className={`project-horizontal-card ${isAnimating ? 'fade-slide' : ''}`}>
-            
+
             {/* LEFT SIDE: FULL HEIGHT/WIDTH IMAGE */}
             <div className="project-card-image-col image-anime">
               <img
@@ -195,7 +197,7 @@ const OurProjects = () => {
                 loading="lazy"
                 decoding="async"
               />
-              
+
               {/* Gradient Vignette Overlay */}
               <div className="img-overlay-gradient"></div>
 
@@ -209,7 +211,7 @@ const OurProjects = () => {
 
             {/* RIGHT SIDE: INFORMATION & SPECS */}
             <div className="project-card-content-col">
-              
+
               {/* Header Info: ID Badge & Location */}
               <div className="project-content-header">
                 <div className={`project-id-badge badge-${currentProject.badgeColor}`}>
@@ -248,8 +250,8 @@ const OurProjects = () => {
                 {/* Slider Controls */}
                 <div className="slider-controls-group">
                   {/* Prev Button */}
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     className="slider-nav-btn prev-btn"
                     onClick={prevSlide}
                     aria-label="Previous Project"
@@ -271,8 +273,8 @@ const OurProjects = () => {
                   </div>
 
                   {/* Next Button */}
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     className="slider-nav-btn next-btn"
                     onClick={nextSlide}
                     aria-label="Next Project"
