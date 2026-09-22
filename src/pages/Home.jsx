@@ -29,9 +29,9 @@ import '../about.css';
 
 const testimonialsData = [
   {
-    name: "Mr. Dagade",
-    designation: "ASCENT PRECISION DIRECTOR",
-    image: "/assets/img/testimonials/ascent.png",
+    name: "Mr. Vidhate Sir",
+    designation: "Inndrayanee Construction",
+    image: "/assets/img/testimonials/indryanee.png",
     text: "Working with Gargi Engineering Services was a smooth and professional experience throughout the project. Their expertise in PEB structural design, attention to technical details, and understanding of project requirements were highly appreciated. The team was responsive, technically strong, and always focused on providing practical and reliable engineering solutions. We would definitely be happy to work with them again on future projects."
   },
   {
@@ -47,21 +47,16 @@ const testimonialsData = [
     text: "Gargi Engineering Services has delivered a very professional experience in PEB structural consultancy. Their strength lies not only in their technical knowledge but also in their ability to understand the overall project requirements and provide practical engineering solutions. The team maintained excellent coordination, responded promptly to our queries, and paid close attention to design accuracy and detailing. Their commitment to quality and timely deliverables was clearly evident throughout the project. We are completely satisfied with their services and would confidently recommend Gargi Engineering Services for PEB structural design and consultancy."
   },
   {
-    name: "Mr. Karnawat",
+    name: "Mr.Dheeraj Karnawat",
     designation: "HORIZON INDUSTRIES DIRECTOR",
     image: "/assets/img/testimonials/horizon.png",
     text: "We had a very positive experience working with Gargi Engineering Services. Right from the beginning, the team was cooperative, responsive, and clear in their technical approach. They understood our requirements properly and handled the PEB structural design and coordination with great attention to detail. Whenever we faced technical challenges, the team was quick to understand the issue and provide practical solutions. Their professional attitude, engineering knowledge, and timely support made a significant difference to our project. We would be happy to work with them again and recommend their services to others."
   },
-  {
-    name: "Sumit Agarwal",
-    designation: "Camron Industries Owner- Director",
-    image: "/assets/img/testimonials/cameron.jpg",
-    text: "We were looking for more than a structural consultant; we needed a partner who could understand the project from an overall engineering and execution perspective. Their team brought together structural design, PEB, detailing, estimation, and technical support seamlessly. Their practical approach and commitment to quality made them a dependable engineering partner."
-  },
+
   {
     name: "",
     designation: "SHLOK ENTERPRISES",
-    image: "/assets/img/testimonials/shlok-entr.jpg",
+    image: "/assets/img/testimonials/shlok-entr.jpeg",
     text: "Their approach goes beyond simply providing structural designs. The team actively looks for opportunities to optimise the structure, reduce material consumption, and improve constructability without compromising safety or performance. Their value-engineering inputs helped us achieve meaningful cost efficiencies while maintaining project timelines."
   },
   {
@@ -650,20 +645,22 @@ export default function Home() {
                     <img src="/assets/img/normal/about_1_2shape.png" alt="shape" />
                   </div>
                   <div className="testi-card_profile">
-                    <div className="media-left">
-                      <div className="testi-card_avater">
-                        <img
-                          src={testi.image}
-                          alt={testi.name || "Testimonial"}
-                        />
+                    {testi.image && (
+                      <div className="media-left">
+                        <div className="testi-card_avater">
+                          <img
+                            src={testi.image}
+                            alt={testi.name || "Testimonial"}
+                          />
+                        </div>
+                        <div className="testi-card_quote">
+                          <img
+                            src="/assets/img/icon/blog-quote1.svg"
+                            alt="quote"
+                          />
+                        </div>
                       </div>
-                      <div className="testi-card_quote">
-                        <img
-                          src="/assets/img/icon/blog-quote1.svg"
-                          alt="quote"
-                        />
-                      </div>
-                    </div>
+                    )}
                     <div className="media-body">
                       <div className="testi-rating-stars">
                         <i className="fa-solid fa-star"></i>

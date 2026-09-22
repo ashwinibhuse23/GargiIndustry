@@ -7,7 +7,7 @@ import ProjectCTA from '../components/ProjectCTA';
 import '../about.css';
 import './Project.css';
 import heroFallback   from '../assets/img/project/hero.png';
-import structureImg  from '../assets/img/project/project3.png';
+import structureImg  from '../assets/img/project/projectintro.jpeg';
 
 
 

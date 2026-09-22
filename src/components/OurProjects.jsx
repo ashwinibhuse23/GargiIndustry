@@ -11,9 +11,9 @@ import {
 import './OurProjects.css';
 
 import mateFactoryImg from '../assets/img/project/hero_bg_1_1.jpeg';
-import marelFacilityImg from '../assets/img/project/project2.png';
-import steelInteriorPng from '../assets/img/project/project3.png';
-import aerialFactoryPng from '../assets/img/project/project4.png';
+import marelFacilityImg from '../assets/img/project/homeproject2.jpeg';
+import steelInteriorPng from '../assets/img/project/prarambh.jpeg';
+import aerialFactoryPng from '../assets/img/project/industrial.jpeg';
 
 const projectsData = [
   {
@@ -29,33 +29,32 @@ const projectsData = [
   {
     id: '02',
     badgeColor: 'black',
-    title: 'Marel Motherson Automotive Lighting Plant',
+    title: 'Blinkit Distribution Centre',
     location: 'Chakan, Pune',
-    category: 'Automotive Infrastructure',
+    category: 'Warehousing & Logistics',
     description:
-      'Delivered comprehensive structural steel engineering, Tekla 3D detailing, and connection design for a state-of-the-art automotive lighting production facility with integrated high-bay shop floors.',
+      'Engineered a large-scale logistics facility designed to maximize storage efficiency, streamline material movement, and support high-volume warehouse operations.',
     image: marelFacilityImg,
   },
   {
     id: '03',
     badgeColor: 'theme',
-    title: 'Advik Hi-Tech Pvt. Ltd.',
+    title: 'Prarambh Industries .',
     location: 'Chakan',
-    category: 'Automotive Components',
-    description:
-      'Engineered a modern industrial structure tailored to the operational requirements of automotive component manufacturing while ensuring construction efficiency and long-term reliability.',
+    category: 'Warehousing ',
+    
     image: steelInteriorPng,
   },
   {
     id: '04',
     badgeColor: 'black',
-    title: 'Kalyani Technoforge',
+    title: 'Economy Process Solutions',
     location: 'Chakan',
-    category: 'Manufacturing Industry',
+    category: 'Industrial Projects',
     description:
-      'Delivered complete structural engineering and detailing services for a large-scale forging facility, designed to support heavy industrial operations while optimizing structural performance.',
+      'Delivered structural engineering and detailing services for a specialized industrial facility, ensuring efficient project coordination and optimized design.',
     image: aerialFactoryPng,
-    area: '137,000 Sq. Ft.'
+    area: '105,000 Sq. Ft.'
   }
 ];
 
