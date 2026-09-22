@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import img from '../assets/img/services/value.png';
 import { 
   LuTrendingDown,
@@ -28,6 +29,11 @@ export default function ValueEngineering() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="Value Engineering"
+        description="Value engineering solutions by Gargi Engineering Services: optimizing structural steel weight, reducing construction costs, and maximizing structural efficiency without compromising safety."
+        keywords="value engineering, steel optimization, cost reduction, structural efficiency, material optimization, Gargi Engineering Services"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

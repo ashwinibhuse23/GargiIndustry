@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import aboutBg from '../assets/img/about/about_bg.png';
 import EngineeringSection from '../components/EngineeringSection/EngineeringSection';
 import PurposeSection from '../components/PurposeSection';
@@ -12,6 +13,11 @@ import '../about.css';
 export default function About() {
   return (
     <>
+      <SEO
+        title="About Us"
+        description="Discover Gargi Engineering Services - leading structural engineering consultancy specializing in PEB design, Tekla detailing, engineering philosophy, and advanced technology workflows."
+        keywords="about Gargi Engineering Services, structural engineering company, PEB design consultants, engineering philosophy, leadership"
+      />
       <Navbar />
 
       {/* Hero Section */}

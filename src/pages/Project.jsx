@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import ProjectDetails from '../components/ProjectDetails';
 import TrustedClients from '../components/TrustedClients';
 import ProjectCTA from '../components/ProjectCTA';
@@ -123,6 +124,11 @@ function ProjectIntro() {
 export default function Project() {
   return (
     <>
+      <SEO
+        title="Our Projects & Portfolio"
+        description="Explore our portfolio of industrial warehouses, manufacturing facilities, heavy engineering structures, and commercial PEB projects engineered by Gargi Engineering Services."
+        keywords="structural engineering projects, PEB projects, warehouse construction, industrial facilities portfolio, Gargi Engineering Services"
+      />
       <Navbar />
 
       <div

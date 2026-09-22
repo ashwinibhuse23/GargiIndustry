@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import img from '../assets/img/services/fabrication.png';
 import { 
   LuMessageSquare,
@@ -28,6 +29,11 @@ export default function FabricationSupport() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="Fabrication & Construction Support"
+        description="Comprehensive fabrication and erection engineering support, site coordination, technical clarifications, and as-built documentation by Gargi Engineering Services."
+        keywords="fabrication support, construction support, site coordination, erection engineering, structural steel inspection, Gargi Engineering Services"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

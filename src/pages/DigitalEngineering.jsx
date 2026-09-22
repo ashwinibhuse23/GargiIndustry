@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import img from '../assets/img/services/digital.png';
 import { 
   LuBoxes,
@@ -55,6 +56,11 @@ export default function DigitalEngineering() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="Digital Engineering Services"
+        description="Advanced digital engineering capabilities: 3D Tekla modeling, STAAD.Pro structural analysis, AutoCAD drafting, BIM coordination, and digital automation by Gargi Engineering Services."
+        keywords="digital engineering, Tekla Structures, STAAD.Pro, AutoCAD, BIM coordination, structural software, Gargi Engineering Services"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

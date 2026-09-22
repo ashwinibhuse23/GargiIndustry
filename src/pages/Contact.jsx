@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { LuMapPin, LuPhoneCall, LuMail, LuGlobe, LuArrowRight, LuCheck } from 'react-icons/lu';
 import '../about.css';
 import './Contact.css';
@@ -82,6 +83,11 @@ export default function Contact() {
 
   return (
     <div className="contact-page-wrapper">
+      <SEO
+        title="Contact Us"
+        description="Connect with Gargi Engineering Services for PEB structural design, Tekla 3D detailing, civil engineering consultancy, or project consultation."
+        keywords="contact Gargi Engineering Services, structural engineering inquiry, PEB design quote, engineering consultancy Pune, project inquiry"
+      />
       <Navbar />
 
       {/* ══════════════════ HERO SECTION ══════════════════ */}

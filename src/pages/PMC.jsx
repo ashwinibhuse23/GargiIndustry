@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import pmcImg from '../assets/img/services/pmc.png';
 import {
   LuCalendarCheck,
@@ -59,6 +60,11 @@ export default function PMC() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="Project Management Consultancy (PMC)"
+        description="End-to-end Project Management Consultancy (PMC) for steel structures and industrial construction: planning, quality audits, site monitoring, and cost control by Gargi Engineering Services."
+        keywords="PMC, project management consultancy, construction management, fabrication audit, erection monitoring, industrial project management, Gargi Engineering Services"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

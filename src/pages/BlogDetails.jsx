@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../about.css';
 import './BlogDetails.css';
 
@@ -17,6 +18,11 @@ export default function BlogDetails() {
 
   return (
     <div className="blog-details-wrapper">
+      <SEO
+        title="Why Engineering Design Matters More Than Steel Price in PEB Projects"
+        description="A smart PEB design goes beyond steel cost. Discover how optimized engineering improves safety, reduces construction costs, speeds up execution, and delivers long-term value."
+        keywords="PEB design, steel price vs engineering, value engineering, steel cost optimization, industrial construction, Gargi Engineering Services"
+      />
       <Navbar />
 
       {/* ══════════════════ MAIN BLOG CONTENT & SIDEBAR ══════════════════ */}

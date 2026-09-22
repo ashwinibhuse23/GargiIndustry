@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../about.css';
 import './KnowldgeCenter.css';
 
@@ -267,6 +268,11 @@ export default function KnowldgeCenter() {
 
   return (
     <div className="kc-light-wrapper">
+      <SEO
+        title="Knowledge Center & Insights"
+        description="Expert insights, technical articles, and engineering guides on PEB structural design, Tekla detailing, value engineering, and industrial planning by Gargi Engineering Services."
+        keywords="structural engineering blog, PEB design insights, Tekla detailing guides, steel construction knowledge, Gargi Engineering Services"
+      />
       <Navbar />
 
       {/* ══════════════════ HERO SECTION ══════════════════ */}

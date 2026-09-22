@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import img from '../assets/img/services/pebdetailing.png';
 import { 
   LuSettings, 
@@ -45,6 +46,11 @@ export default function PEBDetailing() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="PEB Detailing & Tekla Modelling"
+        description="Precision Tekla 3D structural modeling, fabrication shop drawings, GA drawings, erection plans, and CNC data generation by Gargi Engineering Services."
+        keywords="Tekla detailing, 3D steel modeling, shop drawings, GA drawings, erection plans, steel detailing, CNC data"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../about.css';
 import './BlogDetails.css';
 
@@ -31,6 +32,11 @@ export default function BlogDetails3() {
 
   return (
     <div className="blog-details-wrapper">
+      <SEO
+        title="Five Mistakes Companies Make When Planning a New Industrial Building"
+        description="Avoid costly project delays and budget overruns by understanding the five most common mistakes in industrial building planning and how smart engineering prevents them."
+        keywords="industrial building planning, PEB mistakes, construction planning, industrial warehouse planning, Gargi Engineering Services"
+      />
       <Navbar />
 
       {/* ══════════════════ MAIN BLOG CONTENT & SIDEBAR ══════════════════ */}

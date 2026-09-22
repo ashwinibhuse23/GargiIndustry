@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../about.css';
 import './BlogDetails.css';
 
@@ -17,6 +18,11 @@ export default function BlogDetails2() {
 
   return (
     <div className="blog-details-wrapper">
+      <SEO
+        title="The Future of Industrial Buildings: Why Digital Engineering is Transforming PEB Design"
+        description="Explore how digital engineering, 3D BIM modeling, clash detection, and automation are revolutionizing pre-engineered steel buildings by Gargi Engineering Services."
+        keywords="digital engineering, PEB design transformation, BIM modeling, Tekla 3D modeling, clash detection, Gargi Engineering Services"
+      />
       <Navbar />
 
       {/* ══════════════════ MAIN BLOG CONTENT & SIDEBAR ══════════════════ */}

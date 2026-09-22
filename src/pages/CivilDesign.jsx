@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import img from '../assets/img/services/civil2.jpeg';
 import img2 from '../assets/img/civil-car-1.jpeg';
 import img3 from '../assets/img/civil-car-2.jpeg';
@@ -60,6 +61,11 @@ export default function CivilDesign() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="Civil Design & Construction Consulting"
+        description="Complete civil and RCC structural design, foundation engineering, and turnkey construction execution services for industrial and PEB projects by Gargi Engineering Services."
+        keywords="civil design, RCC design, foundation design, industrial civil engineering, construction consulting, turnkey civil solutions, Gargi Engineering Services"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

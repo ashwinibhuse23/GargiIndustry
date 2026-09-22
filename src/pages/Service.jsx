@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import ServiceCards from "../components/ServiceCards";
 import ProcessWorkflow from "../components/ProcessWorkflow";
 import ServiceFAQ from "../components/ServiceFAQ";
@@ -36,6 +37,11 @@ export default function Service() {
   }, []);
   return (
     <>
+      <SEO
+        title="Engineering Services"
+        description="Explore comprehensive engineering services from Gargi Engineering Services: PEB structural design, Tekla 3D modeling, connection design, civil consulting, and value engineering."
+        keywords="engineering services, PEB design services, Tekla detailing, structural engineering, Gargi Engineering Services"
+      />
       <Navbar />
 
       {/* Hero Section */}

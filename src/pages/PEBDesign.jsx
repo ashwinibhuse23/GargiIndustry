@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import pebdesignImg from '../assets/img/services/pebpage.png';
 import {
   LuSettings,
@@ -55,6 +56,11 @@ export default function PEBDesign() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="PEB Design & Structural Engineering"
+        description="Expert Pre-Engineered Building (PEB) design, structural analysis, crane building design, and industrial steel building solutions by Gargi Engineering Services."
+        keywords="PEB design, structural engineering, crane building design, warehouse steel structure, industrial PEB consultancy"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import img from '../assets/img/services/connection.png';
 import { 
   LuSettings, 
@@ -36,6 +37,11 @@ export default function ConnectionDesign() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="Connection Design & Engineering"
+        description="Code-compliant steel connection design including moment, shear, base plate, and anchor bolt connections engineered for safety and fabrication ease."
+        keywords="connection design, steel connections, moment connections, base plate design, weld design, bolt design, Gargi Engineering Services"
+      />
       <Navbar />
 
       <main className="peb-exact-main">

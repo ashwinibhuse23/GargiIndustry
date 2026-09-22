@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -73,33 +74,35 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <ScriptLoader />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/peb-design" element={<PEBDesign />} />
-        <Route path="/peb-detailing" element={<PEBDetailing />} />
-        <Route path="/connection-design" element={<ConnectionDesign />} />
-        <Route path="/value-engineering" element={<ValueEngineering />} />
-        <Route path="/material-take-off" element={<MaterialTakeOff />} />
-        <Route path="/fabrication-support" element={<FabricationSupport />} />
-        <Route path="/civil-design" element={<CivilDesign />} />
-        <Route path="/digital-engineering" element={<DigitalEngineering />} />
-        <Route path="/pmc" element={<PMC />} />
-        <Route path="/industries" element={<Industries />} />
-        <Route path="/projects" element={<Project />} />
-        <Route path="/knowledge-center" element={<KnowldgeCenter />} />
-        <Route path="/knowldgecenter" element={<KnowldgeCenter />} />
-        <Route path="/blog" element={<KnowldgeCenter />} />
-        <Route path="/blog-details" element={<BlogDetails />} />
-        <Route path="/blog-details-2" element={<BlogDetails2 />} />
-        <Route path="/blog-details-3" element={<BlogDetails3 />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <ScriptLoader />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/peb-design" element={<PEBDesign />} />
+          <Route path="/peb-detailing" element={<PEBDetailing />} />
+          <Route path="/connection-design" element={<ConnectionDesign />} />
+          <Route path="/value-engineering" element={<ValueEngineering />} />
+          <Route path="/material-take-off" element={<MaterialTakeOff />} />
+          <Route path="/fabrication-support" element={<FabricationSupport />} />
+          <Route path="/civil-design" element={<CivilDesign />} />
+          <Route path="/digital-engineering" element={<DigitalEngineering />} />
+          <Route path="/pmc" element={<PMC />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/projects" element={<Project />} />
+          <Route path="/knowledge-center" element={<KnowldgeCenter />} />
+          <Route path="/knowldgecenter" element={<KnowldgeCenter />} />
+          <Route path="/blog" element={<KnowldgeCenter />} />
+          <Route path="/blog-details" element={<BlogDetails />} />
+          <Route path="/blog-details-2" element={<BlogDetails2 />} />
+          <Route path="/blog-details-3" element={<BlogDetails3 />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }
 

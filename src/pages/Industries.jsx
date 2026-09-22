@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import IndustriesDetail from "../components/IndustriesDetail";
 import heroBg from "../assets/img/industry/hero.png";
 import infoBg from "../assets/img/industry/info.png";
@@ -168,6 +169,11 @@ export default function Industries() {
 
   return (
     <div className="industries-page">
+      <SEO
+        title="Industries We Serve"
+        description="Tailored steel structural design and engineering solutions for automotive, manufacturing, warehousing, heavy engineering, renewable energy, and infrastructure industries."
+        keywords="industrial steel structures, automotive plant design, warehouse design, manufacturing engineering, heavy engineering, Gargi Engineering Services"
+      />
       <Navbar />
 
       {/* Hero Section */}

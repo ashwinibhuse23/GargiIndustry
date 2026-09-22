@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import CountUp from '../components/CountUp';
 import EngineeringProcess from '../components/EngineeringProcess';
 import DigitalEngineeringUSP from '../components/DigitalEngineeringUSP';
@@ -115,6 +116,11 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="Gargi Engineering Services"
+        description="Gargi Engineering Services specializes in PEB structural design, Tekla 3D detailing, civil turnkey projects, and steel structure solutions for tomorrow's industries."
+        keywords="PEB design, structural engineering, Tekla detailing, civil turnkey solutions, steel structure engineering, Gargi Engineering Services"
+      />
 
       <Navbar />
 

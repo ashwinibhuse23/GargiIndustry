@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import img from '../assets/img/services/material.png';
 import { 
   LuFileText,
@@ -28,6 +29,11 @@ export default function MaterialTakeOff() {
 
   return (
     <div className="peb-exact-page">
+      <SEO
+        title="Material Take-Off & Estimation"
+        description="Accurate material take-offs (MTO), detailed Bill of Quantities (BOQ), and precise tonnage estimates for budgeting, procurement, and fabrication by Gargi Engineering Services."
+        keywords="material take-off, BOQ, bill of quantities, steel weight estimation, structural steel procurement, Gargi Engineering Services"
+      />
       <Navbar />
 
       <main className="peb-exact-main">
