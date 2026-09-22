@@ -2,7 +2,7 @@
 
 /* Service Cards Section Container */
 .service-cards-section {
-  padding: 80px 0 100px;
+  padding: 80px 0 40px;
   background-color: #f8f9fa; /* Slightly light background to separate from previous section */
   position: relative;
   overflow: hidden;
@@ -232,7 +232,7 @@
    ══════════════════════════════════════════════════════════════════ */
 @media (min-width: 768px) and (max-width: 1199px) {
   .service-cards-section {
-    padding: 60px 0 80px;
+    padding: 60px 0 35px;
   }
 
   .service-cards-header {
@@ -268,7 +268,7 @@
 
 @media (max-width: 767px) {
   .service-cards-section {
-    padding: 50px 0 70px;
+    padding: 50px 0 30px;
   }
 
   .service-cards-header {
@@ -290,7 +290,7 @@
 
 @media (max-width: 575px) {
   .service-cards-section {
-    padding: 45px 0 60px;
+    padding: 45px 0 25px;
   }
 
   .service-section-title {

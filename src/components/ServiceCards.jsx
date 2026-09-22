@@ -86,24 +86,11 @@ const servicesData = [
     link: '/material-take-off'
   },
   {
-
     title: 'Fabrication & Construction Support',
     icon: LuWrench,
     image: img6,
     link: '/fabrication-support'
-  },
-  {
-    title: 'Digital Engineering Services',
-    icon: LuCpu,
-    image: img8,
-    link: '/digital-engineering'
-  },
-  {
-    title: 'Project Management Consultancy',
-    icon: LuCalendarCheck,
-    image: imgPmc,
-    link: '/pmc'
-  },
+  }
 ];
 
 export default function ServiceCards() {
