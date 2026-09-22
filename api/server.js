@@ -26,7 +26,7 @@ const getSmtpCredentials = () => {
     process.env.EMAIL_USER ||
     process.env.GMAIL_USER ||
     process.env.SMTP_EMAIL ||
-    "pgdiginitin78@gmail.com"
+    "infogargiengineering@gmail.com"
   ).trim();
 
   // Check all possible environment variable names the user might have configured, with fallback
@@ -39,7 +39,7 @@ const getSmtpCredentials = () => {
     process.env.EMAIL_PASS ||
     process.env.EMAIL_PASSWORD ||
     process.env.APP_PASSWORD ||
-    "clwevvmlqukpigag";
+    "fced mcel piyu eccw";
 
   // Strip quotes (single/double) and any internal spaces (Google App Passwords have 4-character spaces like 'abcd efgh ijkl mnop')
   const pass = rawPass.replace(/['"\s]/g, "");
@@ -68,7 +68,7 @@ const getTransporter = () => {
 
   if (!user || !pass) {
     throw new Error(
-      `SMTP credentials not configured. Please add SMTP_USER and SMTP_APP_PASSWORD in your Vercel Dashboard under Settings -> Environment Variables. (Detected: user=${user ? "OK" : "MISSING"}, pass=${pass ? "OK" : "MISSING"}, source=${passEnvSource})`,
+      `SMTP credentials not configured. Please add SMTP_USER and SMTP_APP_PASSWORD. (Detected: user=${user ? "OK" : "MISSING"}, pass=${pass ? "OK" : "MISSING"}, source=${passEnvSource})`,
     );
   }
 
@@ -78,9 +78,6 @@ const getTransporter = () => {
       user,
       pass,
     },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 15000,
   });
 };
 
@@ -128,6 +125,12 @@ app.get(["/api/health", "/health", "/api", "/"], (req, res) => {
   });
 });
 
+const generateMessageId = () => {
+  const randomStr = Math.random().toString(36).substring(2, 12);
+  const timestamp = Date.now();
+  return `<${timestamp}.${randomStr}@mail.gmail.com>`;
+};
+
 app.post(["/api/consultation", "/consultation"], async (req, res) => {
   try {
     const {
@@ -149,110 +152,79 @@ app.post(["/api/consultation", "/consultation"], async (req, res) => {
     }
 
     const plainText = `
-GARGI ENGINEERING SERVICES - TECHNICAL CONSULTATION REQUEST
-------------------------------------------------------------
-Full Name: ${fullName}
-Business Email: ${email}
-Phone / WhatsApp: ${phone}
-Company / Org: ${company}
-Service Required: ${serviceInterest || "PEB Design & Structural Engineering"}
-Project Scope: ${projectType || "Industrial Facility / Plant"}
+New Technical Consultation Request: ${fullName}
 
-Project Brief / Requirements:
+Contact Details:
+- Name: ${fullName}
+- Email: ${email}
+- Phone: ${phone}
+- Company: ${company}
+- Service Interest: ${serviceInterest || "PEB Design & Structural Engineering"}
+- Project Scope: ${projectType || "Industrial Facility / Plant"}
+
+Client Message:
 ${message ? message : "No additional description provided."}
 
-------------------------------------------------------------
-Received via Gargi Engineering Portal (www.gargipeb.com) on ${new Date().toLocaleString()}
+Submitted via Gargi Engineering Services Website on ${new Date().toLocaleString()}
     `.trim();
 
-    const senderEmail = process.env.SMTP_USER || "pgdiginitin78@gmail.com";
+    const senderEmail = (process.env.SMTP_USER || "infogargiengineering@gmail.com").trim();
 
     const mailOptions = {
-      from: `"Consultation Enquiry - ${fullName}" <${senderEmail}>`,
-      replyTo: email,
+      from: `"Gargi Engineering" <${senderEmail}>`,
       to: getReceiverEmail(),
-      subject: `Consultation Enquiry: ${fullName} (${company})`,
+      subject: `New Technical Consultation Request from ${fullName}`,
+      messageId: generateMessageId(),
       text: plainText,
-      headers: {
-        "X-Priority": "3",
-        "X-Mailer": "Gargi Engineering Web Portal",
-      },
       html: `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Consultation Enquiry - ${fullName}</title>
-          <style>
-            body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 20px; color: #334155; }
-            .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
-            .header { background: #0b1e38; padding: 24px; text-align: center; color: #ffffff; }
-            .badge { display: inline-block; background: #f59e0b; color: #000000; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; text-transform: uppercase; margin-bottom: 8px; }
-            .title { margin: 0; font-size: 22px; font-weight: 700; color: #ffffff; }
-            .subtitle { margin: 6px 0 0; font-size: 14px; color: #cbd5e1; }
-            .body-content { padding: 24px; }
-            .client-banner { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; display: flex; align-items: center; }
-            .client-banner-name { font-size: 16px; font-weight: 700; color: #166534; }
-            .section-label { font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 14px; }
-            .table { width: 100%; border-collapse: collapse; margin-bottom: 18px; }
-            .table td { padding: 8px 6px; border-bottom: 1px solid #f1f5f9; font-size: 14px; vertical-align: top; }
-            .table .label { width: 36%; font-weight: 600; color: #64748b; }
-            .table .val { font-weight: 500; color: #0f172a; }
-            .tag-blue { background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 13px; }
-            .tag-amber { background: #fef3c7; color: #92400e; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 13px; }
-            .message-box { background: #f8fafc; border-left: 4px solid #f59e0b; padding: 12px 14px; border-radius: 4px; margin-top: 14px; }
-            .message-text { margin: 6px 0 0; font-size: 14px; color: #1e293b; line-height: 1.5; white-space: pre-line; }
-            .footer { background: #f8fafc; padding: 14px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; }
-          </style>
-        </head>
-        <body>
-          <div class="card">
-            <div class="header">
-              <span class="badge">Technical Consultation Request</span>
-              <h1 class="title">${fullName}</h1>
-              <p class="subtitle">${company}</p>
-            </div>
-            <div class="body-content">
-              <div class="section-label">Enquiry Details</div>
-              <table class="table">
-                <tr>
-                  <td class="label">Contact Name:</td>
-                  <td class="val"><strong style="color: #0b1e38; font-size: 15px;">${fullName}</strong></td>
-                </tr>
-                <tr>
-                  <td class="label">Business Email:</td>
-                  <td class="val"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></td>
-                </tr>
-                <tr>
-                  <td class="label">Phone / WhatsApp:</td>
-                  <td class="val"><a href="tel:${phone}" style="color: #2563eb; text-decoration: none;">${phone}</a></td>
-                </tr>
-                <tr>
-                  <td class="label">Company / Org:</td>
-                  <td class="val"><strong>${company}</strong></td>
-                </tr>
-                <tr>
-                  <td class="label">Service Required:</td>
-                  <td class="val"><span class="tag-blue">${serviceInterest || "PEB Design & Structural Engineering"}</span></td>
-                </tr>
-                <tr>
-                  <td class="label">Project Scope:</td>
-                  <td class="val"><span class="tag-amber">${projectType || "Industrial Facility / Plant"}</span></td>
-                </tr>
-              </table>
-
-              <div class="message-box">
-                <strong style="color: #475569; font-size: 12px; text-transform: uppercase;">Project Brief / Requirements:</strong>
-                <p class="message-text">${message ? message : "No additional description provided."}</p>
-              </div>
-            </div>
-            <div class="footer">
-              Sent via Gargi Engineering Portal (www.gargipeb.com) &bull; ${new Date().toLocaleString()}
-            </div>
+        <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #222222; line-height: 1.6;">
+          <div style="border-bottom: 2px solid #0b1e38; padding-bottom: 12px; margin-bottom: 20px;">
+            <h2 style="margin: 0; color: #0b1e38; font-size: 20px;">New Technical Consultation Request</h2>
+            <p style="margin: 4px 0 0; color: #666666; font-size: 13px;">Gargi Engineering Services</p>
           </div>
-        </body>
-        </html>
+
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+            <tr>
+              <td style="padding: 8px 0; color: #666666; width: 140px; font-weight: bold;">Full Name:</td>
+              <td style="padding: 8px 0; color: #111111; font-weight: bold;">${fullName}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Email Address:</td>
+              <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #1a73e8; text-decoration: none;">${email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Phone / Mobile:</td>
+              <td style="padding: 8px 0; color: #111111;">${phone}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Company / Org:</td>
+              <td style="padding: 8px 0; color: #111111;">${company}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Service Interest:</td>
+              <td style="padding: 8px 0; color: #111111;">${serviceInterest || "PEB Design & Structural Engineering"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Project Type:</td>
+              <td style="padding: 8px 0; color: #111111;">${projectType || "Industrial Facility / Plant"}</td>
+            </tr>
+          </table>
+
+          <div style="background-color: #f7f9fc; border-left: 4px solid #0b1e38; padding: 14px 16px; margin-bottom: 24px; border-radius: 4px;">
+            <strong style="color: #333333; font-size: 13px; display: block; margin-bottom: 6px;">Client Message / Brief:</strong>
+            <div style="color: #222222; font-size: 14px; white-space: pre-line;">${message || "No additional description provided."}</div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <a href="mailto:${email}?subject=Re: Technical Consultation - Gargi Engineering Services" style="display: inline-block; background-color: #0b1e38; color: #ffffff; padding: 10px 22px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 14px;">
+              Reply to ${fullName} (${email})
+            </a>
+          </div>
+
+          <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; font-size: 12px; color: #888888;">
+            Sent from Gargi Engineering Services Website on ${new Date().toLocaleString()}
+          </div>
+        </div>
       `,
     };
 
@@ -287,102 +259,74 @@ app.post(["/api/contact", "/contact"], async (req, res) => {
     }
 
     const plainText = `
-GARGI ENGINEERING SERVICES - CONTACT ENQUIRY
---------------------------------------------
-Enquiry From: ${name}
-Email Address: ${email}
-Phone: ${phone || "Not provided"}
-Company: ${company || "Not provided"}
-Service of Interest: ${service || "PEB Structural Design & Analysis"}
+New Website Contact Message from ${name}
 
-Message Content:
+Contact Details:
+- Name: ${name}
+- Email: ${email}
+- Phone: ${phone || "Not provided"}
+- Company: ${company || "Not provided"}
+- Service Interest: ${service || "PEB Structural Design & Analysis"}
+
+Message:
 ${message}
 
---------------------------------------------
-Sent via Gargi Engineering Contact Page (www.gargipeb.com) on ${new Date().toLocaleString()}
+Submitted via Gargi Engineering Services Website on ${new Date().toLocaleString()}
     `.trim();
 
-    const senderEmail = process.env.SMTP_USER || "pgdiginitin78@gmail.com";
+    const senderEmail = (process.env.SMTP_USER || "infogargiengineering@gmail.com").trim();
 
     const mailOptions = {
-      from: `"Contact Enquiry - ${name}" <${senderEmail}>`,
-      replyTo: email,
+      from: `"Gargi Engineering" <${senderEmail}>`,
       to: getReceiverEmail(),
-      subject: `Contact Enquiry: ${name} (${company || "Website Lead"})`,
+      subject: `New Website Message from ${name}`,
+      messageId: generateMessageId(),
       text: plainText,
-      headers: {
-        "X-Priority": "3",
-        "X-Mailer": "Gargi Engineering Web Portal",
-      },
       html: `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Contact Enquiry - ${name}</title>
-          <style>
-            body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 20px; color: #334155; }
-            .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
-            .header { background: #0b1e38; padding: 24px; text-align: center; color: #ffffff; }
-            .badge { display: inline-block; background: #e63a27; color: #ffffff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; text-transform: uppercase; margin-bottom: 8px; }
-            .title { margin: 0; font-size: 22px; font-weight: 700; color: #ffffff; }
-            .subtitle { margin: 6px 0 0; font-size: 14px; color: #cbd5e1; }
-            .body-content { padding: 24px; }
-            .section-label { font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 14px; }
-            .table { width: 100%; border-collapse: collapse; margin-bottom: 18px; }
-            .table td { padding: 8px 6px; border-bottom: 1px solid #f1f5f9; font-size: 14px; vertical-align: top; }
-            .table .label { width: 36%; font-weight: 600; color: #64748b; }
-            .table .val { font-weight: 500; color: #0f172a; }
-            .tag-blue { background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 13px; }
-            .message-box { background: #f8fafc; border-left: 4px solid #e63a27; padding: 12px 14px; border-radius: 4px; margin-top: 14px; }
-            .message-text { margin: 6px 0 0; font-size: 14px; color: #1e293b; line-height: 1.5; white-space: pre-line; }
-            .footer { background: #f8fafc; padding: 14px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; }
-          </style>
-        </head>
-        <body>
-          <div class="card">
-            <div class="header">
-              <span class="badge">New Contact Enquiry</span>
-              <h1 class="title">${name}</h1>
-              <p class="subtitle">${company ? company : "Website Inquiry"}</p>
-            </div>
-            <div class="body-content">
-              <div class="section-label">Sender Details</div>
-              <table class="table">
-                <tr>
-                  <td class="label">Contact Name:</td>
-                  <td class="val"><strong style="color: #0b1e38; font-size: 15px;">${name}</strong></td>
-                </tr>
-                <tr>
-                  <td class="label">Email Address:</td>
-                  <td class="val"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></td>
-                </tr>
-                <tr>
-                  <td class="label">Phone:</td>
-                  <td class="val">${phone ? `<a href="tel:${phone}" style="color: #2563eb; text-decoration: none;">${phone}</a>` : "<em>Not provided</em>"}</td>
-                </tr>
-                <tr>
-                  <td class="label">Company Name:</td>
-                  <td class="val">${company ? `<strong>${company}</strong>` : "<em>Not provided</em>"}</td>
-                </tr>
-                <tr>
-                  <td class="label">Service of Interest:</td>
-                  <td class="val"><span class="tag-blue">${service || "PEB Structural Design & Analysis"}</span></td>
-                </tr>
-              </table>
-
-              <div class="message-box">
-                <strong style="color: #475569; font-size: 12px; text-transform: uppercase;">Message Content:</strong>
-                <p class="message-text">${message}</p>
-              </div>
-            </div>
-            <div class="footer">
-              Sent via Gargi Engineering Contact Page (www.gargipeb.com) &bull; ${new Date().toLocaleString()}
-            </div>
+        <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #222222; line-height: 1.6;">
+          <div style="border-bottom: 2px solid #0b1e38; padding-bottom: 12px; margin-bottom: 20px;">
+            <h2 style="margin: 0; color: #0b1e38; font-size: 20px;">New Website Contact Message</h2>
+            <p style="margin: 4px 0 0; color: #666666; font-size: 13px;">Gargi Engineering Services</p>
           </div>
-        </body>
-        </html>
+
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+            <tr>
+              <td style="padding: 8px 0; color: #666666; width: 140px; font-weight: bold;">Name:</td>
+              <td style="padding: 8px 0; color: #111111; font-weight: bold;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Email:</td>
+              <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #1a73e8; text-decoration: none;">${email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Phone:</td>
+              <td style="padding: 8px 0; color: #111111;">${phone || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Company:</td>
+              <td style="padding: 8px 0; color: #111111;">${company || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Service Interest:</td>
+              <td style="padding: 8px 0; color: #111111;">${service || "PEB Structural Design & Analysis"}</td>
+            </tr>
+          </table>
+
+          <div style="background-color: #f7f9fc; border-left: 4px solid #0b1e38; padding: 14px 16px; margin-bottom: 24px; border-radius: 4px;">
+            <strong style="color: #333333; font-size: 13px; display: block; margin-bottom: 6px;">Message:</strong>
+            <div style="color: #222222; font-size: 14px; white-space: pre-line;">${message}</div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <a href="mailto:${email}?subject=Re: Website Inquiry - Gargi Engineering Services" style="display: inline-block; background-color: #0b1e38; color: #ffffff; padding: 10px 22px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 14px;">
+              Reply to ${name} (${email})
+            </a>
+          </div>
+
+          <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; font-size: 12px; color: #888888;">
+            Sent from Gargi Engineering Services Website on ${new Date().toLocaleString()}
+          </div>
+        </div>
       `,
     };
 
@@ -418,60 +362,71 @@ app.post(["/api/brochure", "/brochure"], async (req, res) => {
     }
 
     const plainText = `
-GARGI ENGINEERING SERVICES - BROCHURE DOWNLOAD LEAD
-----------------------------------------------------
-Full Name: ${fullName}
-Email: ${email}
-Phone: ${phone || "Not provided"}
-Company: ${company || "Not provided"}
-Designation: ${designation || "Not provided"}
-Service of Interest: ${serviceInterest || "PEB Design & Engineering"}
-----------------------------------------------------
-Downloaded via Gargi Engineering Portal on ${new Date().toLocaleString()}
+New Brochure Download Request from ${fullName}
+
+Contact Details:
+- Name: ${fullName}
+- Email: ${email}
+- Phone: ${phone || "Not provided"}
+- Company: ${company || "Not provided"}
+- Designation: ${designation || "Not provided"}
+- Service Interest: ${serviceInterest || "PEB Design & Engineering"}
+
+Submitted via Gargi Engineering Services Website on ${new Date().toLocaleString()}
     `.trim();
 
-    const senderEmail = process.env.SMTP_USER || "pgdiginitin78@gmail.com";
+    const senderEmail = (process.env.SMTP_USER || "infogargiengineering@gmail.com").trim();
 
     const mailOptions = {
-      from: `"Brochure Lead - ${fullName}" <${senderEmail}>`,
-      replyTo: email,
+      from: `"Gargi Engineering" <${senderEmail}>`,
       to: getReceiverEmail(),
-      subject: `Brochure Download Lead: ${fullName} (${company || "Website Visitor"})`,
+      subject: `New Brochure Download Request from ${fullName}`,
+      messageId: generateMessageId(),
       text: plainText,
       html: `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <style>
-            body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 20px; }
-            .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
-            .header { background: #0b1e38; padding: 20px; text-align: center; color: #ffffff; }
-            .body { padding: 24px; font-size: 14px; color: #334155; }
-            .table { width: 100%; border-collapse: collapse; }
-            .table td { padding: 8px; border-bottom: 1px solid #f1f5f9; }
-            .label { font-weight: 600; color: #64748b; width: 40%; }
-          </style>
-        </head>
-        <body>
-          <div class="card">
-            <div class="header">
-              <h2 style="margin:0; color:#ffffff;">Brochure Download Request</h2>
-              <p style="margin:4px 0 0; color:#cbd5e1; font-size:13px;">New lead from website</p>
-            </div>
-            <div class="body">
-              <table class="table">
-                <tr><td class="label">Full Name:</td><td><strong>${fullName}</strong></td></tr>
-                <tr><td class="label">Email:</td><td><a href="mailto:${email}">${email}</a></td></tr>
-                <tr><td class="label">Phone:</td><td>${phone || "<em>Not provided</em>"}</td></tr>
-                <tr><td class="label">Company:</td><td>${company || "<em>Not provided</em>"}</td></tr>
-                <tr><td class="label">Designation:</td><td>${designation || "<em>Not provided</em>"}</td></tr>
-                <tr><td class="label">Service Interest:</td><td>${serviceInterest || "PEB Design & Engineering"}</td></tr>
-              </table>
-            </div>
+        <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #222222; line-height: 1.6;">
+          <div style="border-bottom: 2px solid #0b1e38; padding-bottom: 12px; margin-bottom: 20px;">
+            <h2 style="margin: 0; color: #0b1e38; font-size: 20px;">New Brochure Download Request</h2>
+            <p style="margin: 4px 0 0; color: #666666; font-size: 13px;">Gargi Engineering Services</p>
           </div>
-        </body>
-        </html>
+
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+            <tr>
+              <td style="padding: 8px 0; color: #666666; width: 140px; font-weight: bold;">Full Name:</td>
+              <td style="padding: 8px 0; color: #111111; font-weight: bold;">${fullName}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Email:</td>
+              <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #1a73e8; text-decoration: none;">${email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Phone:</td>
+              <td style="padding: 8px 0; color: #111111;">${phone || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Company:</td>
+              <td style="padding: 8px 0; color: #111111;">${company || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Designation:</td>
+              <td style="padding: 8px 0; color: #111111;">${designation || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #666666; font-weight: bold;">Service Interest:</td>
+              <td style="padding: 8px 0; color: #111111;">${serviceInterest || "PEB Design & Engineering"}</td>
+            </tr>
+          </table>
+
+          <div style="margin-bottom: 24px;">
+            <a href="mailto:${email}?subject=Re: Brochure Download Request - Gargi Engineering Services" style="display: inline-block; background-color: #0b1e38; color: #ffffff; padding: 10px 22px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 14px;">
+              Reply to ${fullName} (${email})
+            </a>
+          </div>
+
+          <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; font-size: 12px; color: #888888;">
+            Sent from Gargi Engineering Services Website on ${new Date().toLocaleString()}
+          </div>
+        </div>
       `,
     };
 
