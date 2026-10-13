@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow API endpoints from web search crawlers
+Disallow: /api/
+
+# XML Sitemap location
+Sitemap: https://www.gargipeb.com/sitemap.xml

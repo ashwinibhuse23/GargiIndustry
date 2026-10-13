@@ -1,0 +1,234 @@
+.sitemap-page-wrapper {
+  background-color: #f7f9fc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sitemap-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0 70px;
+  color: #ffffff;
+}
+
+.sitemap-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 30, 56, 0.95) 0%, rgba(18, 48, 86, 0.88) 100%);
+}
+
+.sitemap-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.sitemap-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 107, 0, 0.18);
+  border: 1px solid rgba(255, 107, 0, 0.5);
+  color: #ff8c2b;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.sitemap-hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.sitemap-hero-subtitle {
+  font-size: 16px;
+  color: #d2dbe6;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+/* Main Content Area */
+.sitemap-content-sec {
+  padding: 60px 0 80px;
+  flex: 1;
+}
+
+.sitemap-intro-bar {
+  background: #ffffff;
+  border: 1px solid #e1e7ef;
+  border-left: 4px solid #ff6b00;
+  padding: 18px 24px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(11, 30, 56, 0.04);
+}
+
+.sitemap-intro-text {
+  font-size: 14.5px;
+  color: #4a5568;
+  margin: 0;
+}
+
+.sitemap-intro-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sitemap-xml-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #0b1e38;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.sitemap-xml-badge:hover {
+  background-color: #ff6b00;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Grid of Categories */
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.sitemap-card {
+  background: #ffffff;
+  border: 1px solid #e5ebf2;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(11, 30, 56, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.sitemap-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(11, 30, 56, 0.09);
+  border-color: #cbd7e6;
+}
+
+.sitemap-card-header {
+  padding: 20px 24px 16px;
+  background: #fdfdfe;
+  border-bottom: 1px solid #edf2f7;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sitemap-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(11, 30, 56, 0.06);
+  color: #0b1e38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.sitemap-card:hover .sitemap-card-icon {
+  background: #ff6b00;
+  color: #ffffff;
+}
+
+.sitemap-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0b1e38;
+  margin: 0;
+}
+
+.sitemap-card-body {
+  padding: 16px 24px 22px;
+  flex: 1;
+}
+
+.sitemap-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sitemap-link-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.sitemap-link-arrow {
+  color: #ff6b00;
+  font-size: 16px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.sitemap-link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sitemap-item-anchor {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a2a40;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sitemap-item-anchor:hover {
+  color: #ff6b00;
+  text-decoration: underline;
+}
+
+.sitemap-item-desc {
+  font-size: 12.5px;
+  color: #718096;
+  line-height: 1.45;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .sitemap-hero {
+    padding: 70px 0 50px;
+  }
+  .sitemap-hero-title {
+    font-size: 30px;
+  }
+  .sitemap-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -21,6 +21,7 @@ import BlogDetails2 from './pages/BlogDetails2'
 import BlogDetails3 from './pages/BlogDetails3'
 import Contact from './pages/Contact'
 import PMC from './pages/PMC'
+import Sitemap from './pages/Sitemap'
 
 
 function ScriptLoader() {
@@ -100,6 +101,7 @@ function App() {
           <Route path="/blog-details-2" element={<BlogDetails2 />} />
           <Route path="/blog-details-3" element={<BlogDetails3 />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sitemap" element={<Sitemap />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

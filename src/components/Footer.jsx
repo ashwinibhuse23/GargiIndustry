@@ -38,6 +38,7 @@ export default function Footer() {
               <li><a href="/projects"><LuChevronRight className="link-arrow" /> Projects</a></li>
               <li><a href="/knowledge-center"><LuChevronRight className="link-arrow" /> Blog</a></li>
               <li><a href="/contact"><LuChevronRight className="link-arrow" /> Contact Us</a></li>
+              <li><a href="/sitemap"><LuChevronRight className="link-arrow" /> Sitemap</a></li>
             </ul>
           </div>
 
@@ -94,6 +95,8 @@ export default function Footer() {
             <a href="/about">Privacy Policy</a>
             <span className="divider">|</span>
             <a href="/about">Terms & Conditions</a>
+            <span className="divider">|</span>
+            <a href="/sitemap">Sitemap</a>
           </div>
         </div>
       </div>
