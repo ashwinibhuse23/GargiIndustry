@@ -63,7 +63,7 @@ export default function Contact() {
       if (response && response.ok && data.success) {
         trackEvent("generate_lead", {
           lead_type: "contact_form",
-
+          
         })
         setSubmittedInfo({ ...formData });
         setIsSubmitted(true);
@@ -250,8 +250,8 @@ export default function Contact() {
                         )}
                       </div>
 
-                      <button
-                        type="button"
+                      <button 
+                        type="button" 
                         className="contact-success-reset-btn"
                         onClick={() => {
                           setIsSubmitted(false);
@@ -367,8 +367,8 @@ export default function Contact() {
 
                         {/* Submit Button */}
                         <div className="col-12 text-start pt-2">
-                          <button
-                            type="submit"
+                          <button 
+                            type="submit" 
                             className="contact-theme-submit-btn"
                             disabled={isSubmitting}
                             style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
