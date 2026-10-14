@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   LuX,
   LuUser,
@@ -11,6 +11,7 @@ import {
   LuCalendar,
   LuSparkles
 } from 'react-icons/lu';
+import RobotCaptcha from './RobotCaptcha';
 import './ConsultationModal.css';
 
 const CheckCircleIcon = (props) => (
@@ -36,6 +37,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedInfo, setSubmittedInfo] = useState(null);
   const [serverError, setServerError] = useState('');
+  const [captchaToken, setCaptchaToken] = useState('');
+  const captchaRef = useRef(null);
 
   // Close on Escape key press
   useEffect(() => {
@@ -91,6 +94,9 @@ export default function ConsultationModal({ isOpen, onClose }) {
     if (!formData.company.trim()) {
       newErrors.company = 'Company / Organization is required';
     }
+    if (!captchaToken) {
+      newErrors.captcha = "Please check the 'I'm not a robot' box.";
+    }
     return newErrors;
   };
 
@@ -111,7 +117,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, captchaToken }),
       });
 
       let data = {};
@@ -124,12 +130,18 @@ export default function ConsultationModal({ isOpen, onClose }) {
       if (response && response.ok && data.success) {
         setSubmittedInfo({ ...formData });
         setIsSubmitted(true);
+        setCaptchaToken('');
+        captchaRef.current?.reset();
       } else {
         setServerError(data.message || 'Failed to submit consultation request. Please try again.');
+        captchaRef.current?.reset();
+        setCaptchaToken('');
       }
     } catch (err) {
       console.error('Consultation request failed:', err);
       setServerError('Unable to connect to the email server. Please check your internet connection and try again.');
+      captchaRef.current?.reset();
+      setCaptchaToken('');
     } finally {
       setIsSubmitting(false);
     }
@@ -139,6 +151,8 @@ export default function ConsultationModal({ isOpen, onClose }) {
     setIsSubmitted(false);
     setSubmittedInfo(null);
     setServerError('');
+    setCaptchaToken('');
+    captchaRef.current?.reset();
     setFormData({
       fullName: '',
       email: '',
@@ -341,6 +355,32 @@ export default function ConsultationModal({ isOpen, onClose }) {
                   />
                 </div>
               </div>
+
+              {/* "I'm not a robot" CAPTCHA */}
+              <div className="consult-field-group field-full-width">
+                <RobotCaptcha
+                  ref={captchaRef}
+                  onChange={(isValid, token) => {
+                    setCaptchaToken(isValid ? token : '');
+                    if (isValid && errors.captcha) {
+                      setErrors((prev) => ({ ...prev, captcha: '' }));
+                    }
+                    if (serverError) {
+                      setServerError('');
+                    }
+                  }}
+                  error={errors.captcha}
+                />
+              </div>
+
+              {serverError && (
+                <div className="consult-field-group field-full-width">
+                  <div className="alert alert-danger py-2 px-3 mb-0" style={{ fontSize: '0.88rem', borderRadius: '4px', width: '100%' }}>
+                    <i className="fa-solid fa-circle-exclamation me-2"></i>
+                    {serverError}
+                  </div>
+                </div>
+              )}
 
               {/* Action Buttons */}
               <div className="consult-footer">

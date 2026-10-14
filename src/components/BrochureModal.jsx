@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import brochurePdf from '../assets/img/about/GargiBrochure.pdf';
+import RobotCaptcha from './RobotCaptcha';
 import './BrochureModal.css';
 
 const BrochureModal = ({ isOpen, onClose }) => {
@@ -15,6 +16,8 @@ const BrochureModal = ({ isOpen, onClose }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState('');
+  const captchaRef = useRef(null);
 
   // Close on Escape key press
   useEffect(() => {
@@ -67,6 +70,9 @@ const BrochureModal = ({ isOpen, onClose }) => {
     if (!formData.company.trim()) {
       newErrors.company = 'Company Name is required';
     }
+    if (!captchaToken) {
+      newErrors.captcha = "Please check the 'I'm not a robot' box.";
+    }
     return newErrors;
   };
 
@@ -90,23 +96,48 @@ const BrochureModal = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
     try {
       const apiUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
-      await fetch(`${apiUrl}/api/brochure`, {
+      const response = await fetch(`${apiUrl}/api/brochure`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, captchaToken }),
       });
+
+      let data = {};
+      try {
+        data = await response.json();
+      } catch (e) {
+        // silent parse fail
+      }
+
+      if (!response.ok || !data.success) {
+        setErrors((prev) => ({
+          ...prev,
+          server: data.message || 'Failed to submit brochure request. Please try again.',
+        }));
+        captchaRef.current?.reset();
+        setCaptchaToken('');
+        return;
+      }
+
+      setIsSubmitted(true);
+      setCaptchaToken('');
+      captchaRef.current?.reset();
+      triggerDownload();
     } catch (err) {
-      console.warn('Brochure notification skipped:', err);
-    } finally {
-      setIsSubmitting(false);
+      console.warn('Brochure notification error:', err);
+      // In case of local offline dev or network drop, still deliver brochure to user
       setIsSubmitted(true);
       triggerDownload();
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleClose = () => {
     setIsSubmitted(false);
     setErrors({});
+    setCaptchaToken('');
+    captchaRef.current?.reset();
     setFormData({
       fullName: '',
       email: '',
@@ -259,6 +290,30 @@ const BrochureModal = ({ isOpen, onClose }) => {
                   </div>
                 </div>
               </div>
+
+              {/* "I'm not a robot" CAPTCHA */}
+              <div style={{ marginTop: '12px' }}>
+                <RobotCaptcha
+                  ref={captchaRef}
+                  onChange={(isValid, token) => {
+                    setCaptchaToken(isValid ? token : '');
+                    if (isValid && errors.captcha) {
+                      setErrors((prev) => ({ ...prev, captcha: '' }));
+                    }
+                    if (errors.server) {
+                      setErrors((prev) => ({ ...prev, server: '' }));
+                    }
+                  }}
+                  error={errors.captcha}
+                />
+              </div>
+
+              {errors.server && (
+                <div style={{ color: '#dc2626', fontSize: '0.85rem', marginTop: '6px', backgroundColor: '#fef2f2', borderLeft: '3px solid #ef4444', padding: '6px 10px', borderRadius: '4px' }}>
+                  <i className="fa-solid fa-triangle-exclamation" style={{ marginRight: '6px' }}></i>
+                  {errors.server}
+                </div>
+              )}
 
               <div className="brochure-form-actions">
                 <button

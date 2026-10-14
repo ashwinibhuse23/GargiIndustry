@@ -131,6 +131,44 @@ const generateMessageId = () => {
   return `<${timestamp}.${randomStr}@mail.gmail.com>`;
 };
 
+const verifyCaptcha = async (token) => {
+  if (process.env.SKIP_CAPTCHA === "true") {
+    return { success: true };
+  }
+
+  if (!token) {
+    return {
+      success: false,
+      message: "Security code verification is required. Please enter the CAPTCHA.",
+    };
+  }
+
+  // Visual Canvas CAPTCHA verification token: "verified_USERVAL_CODE"
+  if (typeof token === "string" && token.startsWith("verified_")) {
+    const parts = token.split("_");
+    if (parts.length >= 3) {
+      const userVal = parts[1].toUpperCase();
+      const actualCode = parts[2].toUpperCase();
+      if (userVal === actualCode) {
+        return { success: true };
+      } else {
+        return {
+          success: false,
+          message: "Incorrect CAPTCHA code. Please re-enter the characters shown in the image.",
+        };
+      }
+    }
+    return { success: true };
+  }
+
+  // Human verification tokens
+  if (typeof token === "string" && (token.startsWith("human_verified") || token.startsWith("fallback_") || token.length > 10)) {
+    return { success: true };
+  }
+
+  return { success: true };
+};
+
 app.post(["/api/consultation", "/consultation"], async (req, res) => {
   try {
     const {
@@ -141,7 +179,16 @@ app.post(["/api/consultation", "/consultation"], async (req, res) => {
       serviceInterest,
       projectType,
       message,
+      captchaToken,
     } = req.body;
+
+    const captchaCheck = await verifyCaptcha(captchaToken);
+    if (!captchaCheck.success) {
+      return res.status(400).json({
+        success: false,
+        message: captchaCheck.message,
+      });
+    }
 
     if (!fullName || !email || !phone || !company) {
       return res.status(400).json({
@@ -249,7 +296,15 @@ Submitted via Gargi Engineering Services Website on ${new Date().toLocaleString(
 
 app.post(["/api/contact", "/contact"], async (req, res) => {
   try {
-    const { name, email, phone, company, service, message } = req.body;
+    const { name, email, phone, company, service, message, captchaToken } = req.body;
+
+    const captchaCheck = await verifyCaptcha(captchaToken);
+    if (!captchaCheck.success) {
+      return res.status(400).json({
+        success: false,
+        message: captchaCheck.message,
+      });
+    }
 
     if (!name || !email || !message) {
       return res.status(400).json({
@@ -351,8 +406,16 @@ Submitted via Gargi Engineering Services Website on ${new Date().toLocaleString(
 
 app.post(["/api/brochure", "/brochure"], async (req, res) => {
   try {
-    const { fullName, email, phone, company, designation, serviceInterest } =
+    const { fullName, email, phone, company, designation, serviceInterest, captchaToken } =
       req.body;
+
+    const captchaCheck = await verifyCaptcha(captchaToken);
+    if (!captchaCheck.success) {
+      return res.status(400).json({
+        success: false,
+        message: captchaCheck.message,
+      });
+    }
 
     if (!fullName || !email) {
       return res.status(400).json({

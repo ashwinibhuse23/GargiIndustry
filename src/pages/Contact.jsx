@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import RobotCaptcha from '../components/RobotCaptcha';
 import { LuMapPin, LuPhoneCall, LuMail, LuGlobe, LuArrowRight, LuCheck } from 'react-icons/lu';
 import '../about.css';
 import './Contact.css';
@@ -22,6 +23,9 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedInfo, setSubmittedInfo] = useState(null);
   const [serverError, setServerError] = useState('');
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [captchaError, setCaptchaError] = useState('');
+  const captchaRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,10 +39,27 @@ export default function Contact() {
     }
   };
 
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+    if (captchaError) {
+      setCaptchaError('');
+    }
+    if (serverError) {
+      setServerError('');
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setServerError('');
+    setCaptchaError('');
+
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      return;
+    }
+
+    if (!captchaToken) {
+      setCaptchaError("Please check the 'I'm not a robot' box.");
       return;
     }
 
@@ -50,7 +71,7 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, captchaToken }),
       });
 
       let data = {};
@@ -63,8 +84,7 @@ export default function Contact() {
       if (response && response.ok && data.success) {
         trackEvent("generate_lead", {
           lead_type: "contact_form",
-          
-        })
+        });
         setSubmittedInfo({ ...formData });
         setIsSubmitted(true);
         setFormData({
@@ -75,12 +95,19 @@ export default function Contact() {
           service: 'PEB Structural Design & Analysis',
           message: ''
         });
+        setCaptchaToken('');
+        setCaptchaError('');
+        captchaRef.current?.reset();
       } else {
         setServerError(data.message || 'Failed to send message. Please try again.');
+        captchaRef.current?.reset();
+        setCaptchaToken('');
       }
     } catch (err) {
       console.error('Contact submission error:', err);
       setServerError('Unable to connect to the email server. Please check your internet connection and try again.');
+      captchaRef.current?.reset();
+      setCaptchaToken('');
     } finally {
       setIsSubmitting(false);
     }
@@ -250,8 +277,8 @@ export default function Contact() {
                         )}
                       </div>
 
-                      <button 
-                        type="button" 
+                      <button
+                        type="button"
                         className="contact-success-reset-btn"
                         onClick={() => {
                           setIsSubmitted(false);
@@ -365,10 +392,34 @@ export default function Contact() {
                           </div>
                         </div>
 
+                        {/* "I'm not a robot" CAPTCHA */}
+                        <div className="col-12">
+                          <RobotCaptcha
+                            ref={captchaRef}
+                            onChange={(isValid, token) => {
+                              setCaptchaToken(isValid ? token : '');
+                              if (isValid && captchaError) {
+                                setCaptchaError('');
+                              }
+                            }}
+                            error={captchaError}
+                          />
+                        </div>
+
+                        {/* Server Error Alert if any */}
+                        {serverError && (
+                          <div className="col-12">
+                            <div className="alert alert-danger py-2 px-3 mb-1" style={{ fontSize: '0.9rem', borderRadius: '4px' }}>
+                              <i className="fa-solid fa-circle-exclamation me-2"></i>
+                              {serverError}
+                            </div>
+                          </div>
+                        )}
+
                         {/* Submit Button */}
                         <div className="col-12 text-start pt-2">
-                          <button 
-                            type="submit" 
+                          <button
+                            type="submit"
                             className="contact-theme-submit-btn"
                             disabled={isSubmitting}
                             style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
