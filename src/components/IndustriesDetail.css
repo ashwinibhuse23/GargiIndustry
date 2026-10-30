@@ -58,6 +58,8 @@
   color: #8a8a8a;
   margin: 0 auto;
   max-width: 620px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* ── Main grid: sidebar | content ────────── */
@@ -271,6 +273,8 @@
   line-height: 1.75;
   color: #8a8a8a;
   margin: 0 0 24px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .eid-divider {
@@ -668,6 +672,8 @@
   color: #475569;
   margin: 0 auto 32px;
   max-width: 750px;
+  text-align: justify;
+  text-justify: inter-word;
   opacity: 0;
   transform: translateY(25px);
   transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s,

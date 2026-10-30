@@ -80,6 +80,8 @@
   color: #475569;
   margin-bottom: 40px;
   max-width: 95%;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Button Group */

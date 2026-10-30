@@ -123,6 +123,8 @@
   margin: 0 auto;
   line-height: 1.5;
   font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* 7 Steps Horizontal Timeline Bar */
@@ -433,6 +435,8 @@
   line-height: 1.55;
   margin: 0;
   animation: processTextSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.12s;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .process-card-link {

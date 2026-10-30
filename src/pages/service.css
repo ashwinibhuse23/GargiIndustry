@@ -102,6 +102,8 @@
   margin-bottom: 14px;
   font-weight: 400;
   margin-top: 0;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .service-intro-body:first-of-type {

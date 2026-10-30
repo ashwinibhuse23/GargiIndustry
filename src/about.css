@@ -99,6 +99,8 @@
   font-weight: 400;
   font-family: var(--body-font, 'Roboto', sans-serif);
   margin-top: 12px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .gargi-about-p:last-of-type {

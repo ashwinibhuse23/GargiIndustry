@@ -97,6 +97,10 @@
   color: #ffffff;
   margin: 0 0 14px;
   margin-top: 10px;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: -0.015em;
+  word-spacing: -0.02em;
 }
 
 .lead-desc-para:last-child {

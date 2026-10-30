@@ -66,6 +66,10 @@
   color: #64748b;
   max-width: 800px;
   margin: 0 auto;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: -0.015em;
+  word-spacing: -0.02em;
 }
 
 /* ── DYNAMIC SPLIT INTERACTIVE ROW ── */
@@ -167,6 +171,7 @@
   color: #64748b;
   margin: 0;
   text-align: left;
+  letter-spacing: -0.015em;
 }
 
 /* Center Graphic Element - Rounded Rectangle Dashboard Card Design */

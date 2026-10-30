@@ -143,6 +143,8 @@
   color: #64748b;
   max-width: 680px;
   margin-bottom: 0;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* ------------------------------------------------------------------ */
@@ -401,6 +403,8 @@
   margin-bottom: 0;
   margin-top: 0;
   padding-top: 3px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* ------------------------------------------------------------------ */
@@ -646,11 +650,14 @@
   font-size: 23px;
 }
 
+.bento-card-desc,
 .bento-card-overview {
   font-size: 14.5px;
   line-height: 1.65;
   color: #64748b;
   margin-bottom: 16px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Scope of Work Section */

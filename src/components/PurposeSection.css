@@ -273,6 +273,10 @@
   line-height: 1.75;
   color: #52526b;
   margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: -0.015em;
+  word-spacing: -0.02em;
 }
 
 .mission-card .card-description {
@@ -420,6 +424,7 @@
   color: #ffffff;
   margin: 0 0 8px;
   font-family: var(--title-font, 'Manrope', sans-serif);
+  letter-spacing: -0.02em;
 }
 
 .value-desc {
@@ -427,6 +432,9 @@
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.60);
   margin: 0;
+  text-align: center;
+  text-wrap: balance;
+  letter-spacing: -0.03em;
 }
 
 /* ── RESPONSIVE ── */

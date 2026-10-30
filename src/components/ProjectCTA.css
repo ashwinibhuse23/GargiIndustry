@@ -109,6 +109,8 @@
   margin-bottom: 34px;
   max-width: 520px;
   font-family: var(--body-font, 'Roboto', sans-serif);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* ── Buttons ────────────────────────────────────────────────────────── */

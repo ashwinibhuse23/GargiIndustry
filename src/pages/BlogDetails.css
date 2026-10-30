@@ -121,6 +121,8 @@
   color: #334155;
   margin-bottom: 24px;
   font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .blog-body-p-lead {
@@ -131,6 +133,8 @@
   margin-bottom: 32px;
   padding-left: 22px;
   border-left: 4px solid #E05329;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .blog-h2-heading {

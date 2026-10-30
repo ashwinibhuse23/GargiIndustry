@@ -87,6 +87,8 @@
   font-size: 15px;
   color: #475569;
   line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* ─── Main Blog Cards Grid — 3 Vertical Cards in 1 Row (One Line) ────────── */
@@ -191,6 +193,8 @@
   line-height: 1.6;
   margin-bottom: 28px;
   flex-grow: 1;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .kc-card-footer {
@@ -271,6 +275,8 @@
   line-height: 1.65;
   max-width: 900px;
   margin-bottom: 35px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .kc-topics-grid {
@@ -330,6 +336,8 @@
   color: #334155;
   line-height: 1.6;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* ─── Light Theme Article Modal ─────────────────────────────────────────── */
@@ -437,6 +445,8 @@
   line-height: 1.75;
   color: #334155;
   margin-bottom: 20px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .kc-modal-h2 {

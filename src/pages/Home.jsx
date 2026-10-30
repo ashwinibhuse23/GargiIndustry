@@ -638,7 +638,7 @@ export default function Home() {
             data-dots="false"
             data-arrows="false"
             data-auto-play="true"
-            data-auto-play-timeout="4000"
+            data-auto-play-timeout="2000"
           >
             {testimonialsData.map((testi, idx) => (
               <div key={idx} className="testi-slide-item">
@@ -717,6 +717,8 @@ export default function Home() {
             data-md-slide-show="2"
             data-sm-slide-show="1"
             data-arrows="true"
+            data-auto-play="true"
+            data-auto-play-timeout="2000"
           >
             <div className="col-md-6 col-xl-4">
               <div className="blog-card">

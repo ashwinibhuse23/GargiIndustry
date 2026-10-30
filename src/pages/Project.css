@@ -110,12 +110,14 @@
 
 /* body text */
 .proj-intro-body {
-  font-size: 14px;
-  line-height: 1.68;
+  font-size: 15.5px;
+  line-height: 1.72;
   color: #4a5568;
   font-family: var(--body-font, 'Roboto', sans-serif);
   margin-bottom: 10px;
   margin-top: 20px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .proj-intro-body:last-of-type {
@@ -443,8 +445,8 @@
     margin-bottom: 16px;
   }
   .proj-intro-body {
-    font-size: 13.5px;
-    line-height: 1.65;
+    font-size: 14.5px;
+    line-height: 1.7;
     margin-top: 14px;
     margin-bottom: 14px;
   }
@@ -486,8 +488,8 @@
     margin-bottom: 14px;
   }
   .proj-intro-body {
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.68;
     margin-top: 10px;
     margin-bottom: 12px;
   }
@@ -530,8 +532,8 @@
     margin-bottom: 14px;
   }
   .proj-intro-body {
-    font-size: 13.5px;
-    line-height: 1.6;
+    font-size: 14.5px;
+    line-height: 1.68;
     margin-top: 10px;
     margin-bottom: 14px;
   }

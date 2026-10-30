@@ -102,7 +102,7 @@ export default function EngineeringProcess() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStepIndex((prevIndex) => (prevIndex + 1) % processSteps.length);
-    }, 6000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

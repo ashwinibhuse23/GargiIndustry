@@ -195,6 +195,8 @@
   color: #64748b;
   margin-bottom: 24px;
   flex-grow: 1;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .ind-card-features {
@@ -307,6 +309,8 @@
   line-height: 1.75;
   color: #94a3b8;
   margin-bottom: 30px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .ind-why-stats {
@@ -453,6 +457,8 @@
   line-height: 1.75;
   color: #475569;
   margin-bottom: 18px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .industries-info-img-box {

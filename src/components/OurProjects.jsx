@@ -115,7 +115,7 @@ const OurProjects = () => {
 
     const timer = setInterval(() => {
       nextSlide();
-    }, 4000);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, [nextSlide, isPaused]);

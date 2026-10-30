@@ -107,7 +107,7 @@ const EngineeringSection = () => {
             Gargi Engineering Services is a specialized structural engineering and PEB consulting company delivering end-to-end solutions for industrial, commercial, and infrastructure projects. Our expertise spans Pre-Engineered Buildings (PEB), structural steel design, detailing, estimation, value engineering, and turnkey engineering support.
           </p>
           <p className="eng-para">
-            We believe engineering is more than calculations it is about creating structures that are stronger, more efficient, easier to fabricate, and faster to construct. Every solution is developed with a focus on reducing project complexity, optimizing material usage, and ensuring seamless execution on-site.
+            We believe engineering is more than calculations. It is about creating structures that are stronger, more efficient, easier to fabricate, and faster to construct. Every solution is developed with a focus on reducing project complexity, optimizing material usage, and ensuring seamless execution on-site.
           </p>
           <p className="eng-para">
             Working closely with architects, fabricators, EPC contractors, and project owners, we deliver engineering solutions that balance functionality, safety, aesthetics, and commercial viability.

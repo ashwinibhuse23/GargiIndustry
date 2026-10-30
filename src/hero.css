@@ -2067,7 +2067,8 @@
   .testi-card_text {
     font-size: 13px !important;
     line-height: 1.55 !important;
-    text-align: left !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
     margin-top: 0 !important;
     color: #475569 !important;
   }
@@ -2112,6 +2113,20 @@
    Fonts  : Manrope (headings) · Roboto (body)
    Colors : #032048 navy · #E63A27 primary · #0F172A text
    ══════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════
+   Blog & News Section
+   ══════════════════════════════════════════════════════ */
+.blog-text {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--body-color, #6F6E77);
+  margin-bottom: 14px;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: -0.015em;
+  word-spacing: -0.02em;
+}
 
 /* ══════════════════════════════════════════════════════
    Slider Arrow Navigation Keys (Services & Testimonials)
@@ -2305,6 +2320,8 @@
   line-height: 1.8 !important;
   color: #475569 !important;
   margin: 0 !important;
+  text-align: justify !important;
+  text-justify: inter-word !important;
 }
 
 @media (max-width: 991px) {

@@ -76,6 +76,8 @@
   margin-top: 40px !important;
   margin-bottom: 0;
   max-width: 90%;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Buttons */
